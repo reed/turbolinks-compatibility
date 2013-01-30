@@ -6,15 +6,17 @@ GEM
     colored (1.2)
     cri (2.3.0)
       colored (>= 1.2)
-    fssm (0.2.10)
-    nanoc (3.4.3)
+    listen (0.7.2)
+    mime-types (1.19)
+    nanoc (3.5.0)
       cri (~> 2.2)
     nokogiri (1.5.6)
     posix-spawn (0.3.6)
     pygments.rb (0.3.7)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
-    rack (1.5.0)
+    rack (1.5.1)
+    rb-fsevent (0.9.3)
     redcarpet (2.2.2)
     yajl-ruby (1.1.0)
 
@@ -23,8 +25,10 @@ PLATFORMS
 
 DEPENDENCIES
   adsf
-  fssm
+  listen
+  mime-types
   nanoc
   nokogiri
   pygments.rb
+  rb-fsevent
   redcarpet

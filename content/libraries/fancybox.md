@@ -2,7 +2,7 @@
 title: FancyBox
 ---
 
-## FancyBox
+# FancyBox
 
 FancyBox (>= 2.1.2) is known to work with Turbolinks without modifications.
 

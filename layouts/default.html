@@ -3,26 +3,35 @@
   <head>
     <meta charset="utf-8">
     <title>Turbolinks Compatibility - <%= @item[:title] %></title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css" media="screen">
+		<style>
+		body { padding-top: 40px; }
+		</style>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" media="screen">
     <link rel="stylesheet" type="text/css" href="/css/github.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="/css/style.css" media="screen">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- you don't need to keep this, but it's cool for stats! -->
-    <meta name="generator" content="nanoc <%= Nanoc::VERSION %>"> 
   </head>
   <body>
+		<section class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<a class="brand" href="/">Turbolinks <span class="bracketed">{ <span>compatibility</span> }</span></a>
+				</div>
+			</div>
+		</section>
     <div class="container-fluid">
-      <div class="page-header">
-      <h1>Turbolinks <small>Compatibility</small></h1>
-    </div>
       <div class="row-fluid">
         <div id="sidebar" class="span2">
-          <ul class="nav nav-pills nav-stacked">
+          <ul class="nav nav-list">
+						<li><a href="/">Home</a></li>
+						<li class="nav-header">Solutions</li>
             <% @items.each do |item| %>
-              <% if item[:title] %>
+              <% if item[:title] && item[:filename].include?('libraries') %>
               <li <%= 'class="active"' if item == @item %>><a href="<%= item.path %>"><%= item[:title] %></a></li>
               <% end %>
             <% end %>
+						<li class="divider"></li>
+						<li><a href="/">Contribute</a></li>
           </ul>
         </div>
         <div id="main" class="span10 markdown-body">

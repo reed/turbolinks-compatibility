@@ -2,7 +2,7 @@
 title: "Google Analytics"
 ---
 
-## Google Analytics
+# Google Analytics
 
 Move the javascript snippet from the head to the body and load the following script inside the `<head>`.
 

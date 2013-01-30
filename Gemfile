@@ -2,6 +2,7 @@ source "http://rubygems.org"
 
 
 gem 'redcarpet'
+gem 'mime-types'
 gem 'nanoc'
 gem 'nokogiri'
 gem 'pygments.rb'
@@ -10,5 +11,6 @@ gem 'pygments.rb'
 
 group :development do
   gem 'adsf'
-  gem 'fssm'
+  gem 'listen'
+  gem 'rb-fsevent'
 end

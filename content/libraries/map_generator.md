@@ -2,7 +2,7 @@
 title: Map-Generator
 ---
 
-## Map-Generator
+# Map-Generator
 
 [map-generator.net](http://map-generator.net)
 

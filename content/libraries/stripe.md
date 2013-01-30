@@ -2,7 +2,7 @@
 title: Stripe
 ---
 
-## Stripe Checkout
+# Stripe Checkout
 
 https://stripe.com/docs/checkout
 

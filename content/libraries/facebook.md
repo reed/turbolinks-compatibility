@@ -2,7 +2,7 @@
 title: Facebook
 ---
 
-## Facebook Social Plugins
+# Facebook Social Plugins
 
 [developers.facebook.com/docs/plugins](http://developers.facebook.com/docs/plugins)
 

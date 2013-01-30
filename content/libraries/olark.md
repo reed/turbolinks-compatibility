@@ -2,7 +2,7 @@
 title: Olark
 ---
 
-## Olark chat widget 
+# Olark Chat Widget 
 
 [olark.com](http://olark.com)
 
