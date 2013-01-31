@@ -7,7 +7,7 @@ class TCMarkup < Redcarpet::Render::HTML
   end
   
   def header(text, header_level)
-    output = "<h1>#{text}</h1>"
+    output = "<h#{header_level}>#{text}</h#{header_level}>"
     output = "<div class=\"hero-unit\">#{output}</div>" if header_level == 1
     output
   end
