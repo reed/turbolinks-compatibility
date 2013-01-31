@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Turbolinks Compatibility - Twitter</title>
+<style>
+		body { padding-top: 40px; }
+		</style>
+<link rel="stylesheet" type="text/css" href="css/bootstrap_custom.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/github.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+		<section class="navbar navbar-fixed-top"><div class="navbar-inner">
+				<div class="container-fluid">
+					<a class="brand" href="./">Turbolinks <span class="bracketed">{ <span>compatibility</span> }</span></a>
+				</div>
+			</div>
+		</section><div class="container-fluid">
+      <div class="row-fluid">
+        <div id="sidebar" class="span2">
+          <ul class="nav nav-list">
+<li><a href="./">Home</a></li>
+						<li class="nav-header">Solutions</li>
+            
+              
+            
+              
+              <li><a href="facebook.html">Facebook</a></li>
+              
+            
+              
+              <li><a href="fancybox.html">FancyBox</a></li>
+              
+            
+              
+              <li><a href="google_analytics.html">Google Analytics</a></li>
+              
+            
+              
+              <li><a href="map_generator.html">Map-Generator</a></li>
+              
+            
+              
+              <li><a href="olark.html">Olark</a></li>
+              
+            
+              
+              <li><a href="stripe.html">Stripe</a></li>
+              
+            
+              
+              <li class="active"><a href="twitter.html">Twitter</a></li>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+						<li class="divider">
+						<li><a href="./">Contribute</a></li>
+          </ul>
+</div>
+        <div id="main" class="span10 markdown-body">
+          <div class="hero-unit"><h1>Twitter Buttons</h1></div>
+<p><a href="https://twitter.com/about/resources/buttons">twitter.com/about/resources/buttons</a></p>
+
+<p>Fix: Replace the supplied javascript snippet with an external script tag pointing to platform.twitter.com/widgets.js.  </p>
+
+<p><strong>Before:</strong></p>
+<pre><code class="language-html"><span class="nt">&lt;body&gt;</span>  
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://twitter.com/share"</span> <span class="na">class=</span><span class="s">"twitter-share-button"</span> <span class="na">data-via=</span><span class="s">"njreed86"</span> <span class="na">data-size=</span><span class="s">"large"</span><span class="nt">&gt;</span>Tweet<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;script&gt;</span>
+  <span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span><span class="nx">s</span><span class="p">,</span><span class="nx">id</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">js</span><span class="p">,</span> <span class="nx">fjs</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="nx">s</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">d</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">id</span><span class="p">)){</span>
+      <span class="nx">js</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
+      <span class="nx">js</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">id</span><span class="p">;</span>
+      <span class="nx">js</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">"//platform.twitter.com/widgets.js"</span><span class="p">;</span>
+      <span class="nx">fjs</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">js</span><span class="p">,</span><span class="nx">fjs</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}(</span><span class="nb">document</span><span class="p">,</span><span class="s2">"script"</span><span class="p">,</span><span class="s2">"twitter-wjs"</span><span class="p">);</span>
+  <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span></code></pre>
+<p><strong>After:</strong></p>
+<pre><code class="language-html"><span class="nt">&lt;body&gt;</span>  
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://twitter.com/share"</span> <span class="na">class=</span><span class="s">"twitter-share-button"</span> <span class="na">data-via=</span><span class="s">"njreed86"</span> <span class="na">data-size=</span><span class="s">"large"</span><span class="nt">&gt;</span>Tweet<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"//platform.twitter.com/widgets.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span></code></pre>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

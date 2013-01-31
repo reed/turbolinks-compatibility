@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>Turbolinks Compatibility - </title>
+<title>Turbolinks Compatibility - FancyBox</title>
 <style>
 		body { padding-top: 40px; }
 		</style>
@@ -32,7 +32,7 @@
               
             
               
-              <li><a href="fancybox.html">FancyBox</a></li>
+              <li class="active"><a href="fancybox.html">FancyBox</a></li>
               
             
               
@@ -68,8 +68,13 @@
           </ul>
 </div>
         <div id="main" class="span10 markdown-body">
-          <div class="hero-unit"><h1>Turbolinks Compatibility</h1></div>
-<p>A collection of tutorials for how to get your favorite javascript libraries, plugins, and snippets working with <a href="https://github.com/rails/turbolinks">Turbolinks</a>.</p>
+          <div class="hero-unit"><h1>FancyBox</h1></div>
+<p>FancyBox (&gt;= 2.1.2) is known to work with Turbolinks without modifications.</p>
+
+<p>For version 1.3.4, just add this to your application's javascript:</p>
+<pre><code class="language-coffeescript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">bind</span> <span class="s">'page:change'</span><span class="p">,</span> <span class="nf">-&gt;</span>
+  <span class="nx">$</span><span class="p">.</span><span class="nx">fancybox</span><span class="p">.</span><span class="nx">init</span><span class="p">()</span></code></pre>
+<p><em>Credit:</em> <a href="https://github.com/R-osey">Rose</a>, <a href="https://github.com/jd-erreape">Juan de Dios Herrero</a></p>
         </div>
       </div>
     </div>

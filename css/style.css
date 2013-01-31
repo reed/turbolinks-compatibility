@@ -1,0 +1,29 @@
+body {
+  background: url('/images/bg.gif') repeat center center;
+}
+#sidebar {
+  padding-top: 30px;
+  border-right: 1px solid #ccc;
+}
+.navbar .brand {
+  float: right;
+  text-shadow: 0 1px 0 rgb(32,51,85);
+}
+.navbar .brand .bracketed {
+  font-weight: bold;
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+.navbar .brand .bracketed span {
+  color: rgb(255,209,23);
+  font-variant: small-caps;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+}
+.hero-unit {
+  background-color: rgba(51, 86, 125, 0.1);
+  border-radius: 0px 0px 6px 6px;
+  padding: 40px 10px;
+  text-align: center;
+}
