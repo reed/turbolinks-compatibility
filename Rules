@@ -23,6 +23,7 @@ compile '*' do
   filter :colorize_syntax, default_colorizer: :pygmentsrb
   layout 'default'
   filter :relativize_paths, type: :html
+  filter :relativize_paths, type: :css
 end
 
 route '/static/*' do
