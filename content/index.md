@@ -1,3 +1,4 @@
+# Turbolinks Compatibility
 
-[facebook](/facebook)
-[map-generator](/map_generator)
+A collection of tutorials for how to get your favorite javascript libraries, plugins, and snippets working with [Turbolinks](https://github.com/rails/turbolinks).
+

@@ -18,6 +18,7 @@ end
 
 compile '*' do
   filter :erb
+  filter :github
   filter :redcarpet, renderer: TCMarkup, options: { fenced_code_blocks: true }
   filter :colorize_syntax, default_colorizer: :pygmentsrb
   layout 'default'

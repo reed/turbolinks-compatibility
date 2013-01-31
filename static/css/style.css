@@ -6,7 +6,8 @@ body {
   border-right: 1px solid #ccc;
 }
 .navbar .brand {
-  float: right !important;
+  float: right;
+  text-shadow: 0 1px 0 rgb(32,51,85);
 }
 .navbar .brand .bracketed {
   font-weight: bold;
@@ -14,7 +15,7 @@ body {
   letter-spacing: 0.05em;
 }
 .navbar .brand .bracketed span {
-  color: #33567D;
+  color: rgb(255,209,23);
   font-variant: small-caps;
   font-style: italic;
   letter-spacing: 0.05em;
