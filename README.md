@@ -9,7 +9,7 @@ All submissions are encouraged.  To submit a change, fork this repo, commit your
 
 ## Setup
 
-The site is built with [nanoc](http://nanoc.stoneship.org).  Use bundler to install it along with the other necessary gems:
+The site is built with [nanoc](http://nanoc.ws).  Use bundler to install it along with the other necessary gems:
 
 ```
 $ bundle install

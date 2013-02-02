@@ -110,11 +110,7 @@
   margin: 15px 0
 }
 .markdown-body hr {
-  background: transparent url("https: //a248.e.akamai.net/assets.github.com/assets/primer/markdown/dirty-shade-7f964df96475c89216b298b1dc437495d94e09f5.png") repeat-x 0 0;
-  border: 0 none;
-  color: #ccc;
-  height: 4px;
-  padding: 0
+  border-top: 1px solid rgb(178, 195, 214);
 }
 .markdown-body>h2:first-child,
 .markdown-body>h1:first-child,

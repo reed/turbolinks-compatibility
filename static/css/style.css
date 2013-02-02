@@ -1,6 +1,22 @@
+#content {
+  margin-bottom: 30px;
+}
 #sidebar {
   padding-top: 30px;
   border-right: 1px solid #ccc;
+}
+footer {
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 70px;
+  border-top: 1px solid rgb(129, 161, 187);
+  border-bottom: 1px solid rgb(129, 161, 187);
+  box-shadow: 0 0 6px rgb(129, 161, 187) inset;
+  background-color: rgba(51, 86, 125, 0.1);
+}
+footer p {
+  margin-bottom: 0;
+  color: rgb(58, 73, 92);
 }
 .navbar .brand {
   float: right;
@@ -23,4 +39,10 @@
   border-radius: 0px 0px 6px 6px;
   padding: 40px 10px;
   text-align: center;
+}
+hr {
+  border-top: 1px solid rgb(178, 195, 214);
+}
+.icon-flag {
+  opacity: 0.5;
 }
