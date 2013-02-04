@@ -4,11 +4,9 @@ title: Twitter
 
 # Twitter Buttons
 
-[twitter.com/about/resources/buttons](https://twitter.com/about/resources/buttons)
+### [twitter.com/about/resources/buttons](https://twitter.com/about/resources/buttons)
 
-Fix: Replace the supplied javascript snippet with an external script tag pointing to platform.twitter.com/widgets.js.  
-
-**Before:**
+### Official Implementation
 
 ```html
 <body>
@@ -27,7 +25,9 @@ Fix: Replace the supplied javascript snippet with an external script tag pointin
 </body>
 ```
 
-**After:**
+### Solution
+
+Replace the supplied javascript snippet with an external script tag pointing to platform.twitter.com/widgets.js.
 
 ```html
 <body>
@@ -35,3 +35,7 @@ Fix: Replace the supplied javascript snippet with an external script tag pointin
   <script src="//platform.twitter.com/widgets.js"></script>
 </body>
 ```
+
+*Related Turbolinks issue:* [#119](https://github.com/rails/turbolinks/issues/119)
+
+*Credit:* [Nick Reed](https://github.com/reednj77)

@@ -1,1 +1,1 @@
-include TitleHelper
+include Nanoc::Helpers::Rendering, TitleHelper

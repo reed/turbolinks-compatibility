@@ -4,9 +4,9 @@ title: Facebook
 
 # Facebook Social Plugins
 
-[developers.facebook.com/docs/plugins](http://developers.facebook.com/docs/plugins)
+### [developers.facebook.com/docs/plugins](http://developers.facebook.com/docs/plugins)
 
-**Official Implementation**
+### Official Implementation 
 
 ```html
 <body>
@@ -26,7 +26,7 @@ title: Facebook
 </body>
 ```
 
-**Solution**
+### Solution
 
 Remove the script from the body and load the following script inside the `<head>`.
 
@@ -63,4 +63,6 @@ initializeFacebookSDK = ->
     xfbml     : true
 ```
 
-*Credit:* [Pierre Olivier Martel](https://github.com/pomartel) *(partial)*
+*Related Turbolinks issues:* [#25](https://github.com/rails/turbolinks/issues/25), [#62](https://github.com/rails/turbolinks/issues/62)
+
+*Credit:* [Pierre Olivier Martel](https://github.com/pomartel), [Nick Reed](https://github.com/reednj77)

@@ -3,7 +3,8 @@ require 'cgi'
 
 class TCMarkup < Redcarpet::Render::HTML
   def block_code(code, language)
-    "<pre><code class=\"language-#{language}\">#{CGI::escapeHTML(code)}</code></pre>"
+    "<pre><small class=\"language-label muted pull-right\">#{language.upcase if language}</small>" +
+    "<code class=\"language-#{language}\">#{CGI::escapeHTML(code)}</code></pre>"
   end
   
   def header(text, header_level)

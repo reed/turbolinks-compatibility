@@ -4,7 +4,9 @@ title: Olark
 
 # Olark Chat Widget 
 
-[olark.com](http://olark.com)
+### [olark.com](http://olark.com)
+
+### Overview
 
 The supplied javascript will look something like this:
 
@@ -20,6 +22,8 @@ The supplied javascript will look something like this:
   olark.identify('<your identity string>');
 </script>
 ```
+
+### Solution
 
 To get it working with Turbolinks:
 
@@ -48,5 +52,7 @@ $(document).bind('page:load', function(){
 ```
 
 For a more detailed explanation, check out [empact.posterous.com/running-olark-under-turbolinks](http://empact.posterous.com/running-olark-under-turbolinks).
+
+*Related Turbolinks issue:* [#166](https://github.com/rails/turbolinks/issues/166)
 
 *Credit:* [Ben Woosley](https://github.com/Empact)

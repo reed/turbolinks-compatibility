@@ -4,7 +4,9 @@ title: Map-Generator
 
 # Map-Generator
 
-[map-generator.net](http://map-generator.net)
+### [map-generator.net](http://map-generator.net)
+
+### Overview
 
 After customizing the map you want, you will be given a generated code snippet that looks something like this:
 
@@ -21,7 +23,7 @@ After customizing the map you want, you will be given a generated code snippet t
 <a class="mapgen-link" style="font:8px Arial;text-decoration:none;color:#5C5C5C;text-align: right; display: block; width: 830px;" href="http://map-generator.net/en">map-generator.net</a>
 ```
 
-**Basic Solution**
+### Basic Solution
 
 If you only have one map on a single page of your application, you can get away with just adding the following to your application JS:
 
@@ -30,7 +32,7 @@ $(document).bind 'page:load', ->
   initializeMgMaps() if $('#mggapiloader')?
 ```
 
-**Advanced Solution**
+### Advanced Solution
 
 This solution handles multiple maps on the same page or on separate pages of the application.
 
@@ -58,3 +60,7 @@ This solution handles multiple maps on the same page or on separate pages of the
       $('[src*="maps.gstatic.com"]').remove()
       window.eval initMapGenerator.text() if init and (initMapGenerator = $('script.init_map_generator'))?
     ```
+
+*Related Turbolinks issue:* [#156](https://github.com/rails/turbolinks/issues/156)
+
+*Credit:* [Nick Reed](https://github.com/reednj77)
