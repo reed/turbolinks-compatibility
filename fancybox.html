@@ -4,7 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <title>Turbolinks Compatibility - FancyBox</title>
-<style>
+<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]--><style>
 		body { 
       padding-top: 40px;
       background: url('images/bg.gif') repeat center center; 
@@ -99,7 +101,10 @@
         <div id="main" class="span10">
 					<div class="markdown-body">
             <div class="hero-unit"><h1>FancyBox</h1></div>
-<h3><a href="http://fancybox.net/howto">fancybox.net/howto</a></h3>
+<blockquote>
+<p><strong><a href="http://fancybox.net/howto">fancybox.net/howto</a></strong></p>
+</blockquote>
+
 <p>FancyBox (&gt;= 2.1.2) is known to work with Turbolinks without modifications.</p>
 
 <p>For version 1.3.4, just add this to your application's javascript:</p>

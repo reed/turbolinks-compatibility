@@ -1,9 +1,19 @@
-#content {
+#page {
   margin-bottom: 30px;
 }
 #sidebar {
   padding-top: 30px;
   border-right: 1px solid #ccc;
+  padding-bottom: 30px;
+}
+@media (max-width: 767px){
+  #sidebar {
+    border-right: none;
+    text-align: center;
+  }
+  .hero-unit h1 {
+    font-size: 42px;
+  }
 }
 footer {
   text-align: center;

@@ -4,7 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <title>Turbolinks Compatibility - Google Analytics</title>
-<style>
+<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]--><style>
 		body { 
       padding-top: 40px;
       background: url('images/bg.gif') repeat center center; 
@@ -99,7 +101,10 @@
         <div id="main" class="span10">
 					<div class="markdown-body">
             <div class="hero-unit"><h1>Google Analytics</h1></div>
-<h3><a href="http://www.google.com/analytics/">google.com/analytics</a></h3>
+<blockquote>
+<p><strong><a href="http://www.google.com/analytics/">google.com/analytics</a></strong></p>
+</blockquote>
+
 <p>Move the javascript snippet from the head to the body and load the following script inside the <code>&lt;head&gt;</code>.</p>
 <pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span> <span class="s">'page:change'</span><span class="p">,</span> <span class="nf">-&gt;</span>
   <span class="k">if</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_gaq</span><span class="o">?</span>
