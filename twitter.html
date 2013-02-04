@@ -16,89 +16,92 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-		<section class="navbar navbar-fixed-top"><div class="navbar-inner">
-				<div class="container-fluid">
-					<a class="brand" href="./">Turbolinks <span class="bracketed">{ <span>compatibility</span> }</span></a>
-				</div>
-			</div>
-		</section><section id="content" class="container-fluid"><div class="row-fluid">
+		<header class="navbar navbar-fixed-top"><div class="navbar-inner">
+		<div class="container-fluid">
+			<a class="brand" href="./">Turbolinks <span class="bracketed">{ <span>compatibility</span> }</span></a>
+		</div>
+	</div>
+</header><section id="content" class="container-fluid"><div class="row-fluid">
         <div id="sidebar" class="span2">
-          <ul class="nav nav-list">
+  <ul class="nav nav-list">
 <li><a href="./">Home</a></li>
-						<li class="nav-header">Solutions</li>
-            
-              
-            
-              
-              <li>
-								<a href="facebook.html">Facebook</a>
-							</li>
-              
-            
-              
-              <li>
-								<a href="fancybox.html">FancyBox</a>
-							</li>
-              
-            
-              
-              <li>
-								<a href="google_analytics.html">Google Analytics</a>
-							</li>
-              
-            
-              
-              <li>
-								<a href="map_generator.html">Map-Generator</a>
-							</li>
-              
-            
-              
-              <li>
-								<a href="olark.html">Olark</a>
-							</li>
-              
-            
-              
-              <li>
-								<a href="stripe.html">Stripe</a>
-							</li>
-              
-            
-              
-              <li class="active">
-								<a href="twitter.html">Twitter</a>
-							</li>
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-						<li class="nav-header">Project</li>
-						<li><a href="http://github.com/reednj77/turbolinks-compatibility">Contribute!</a></li>
-						<li><a href="http://github.com/reednj77/turbolinks-compatibility/issues">Issues</a></li>
-						<li class="divider">
-						<li><a class="muted" href="https://github.com/reednj77">© Nick Reed</a></li>
-          </ul>
+		<li class="nav-header">Solutions</li>
+    
+      
+    
+      
+      <li>
+				<a href="facebook.html">Facebook</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="fancybox.html">FancyBox</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="google_analytics.html">Google Analytics</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="map_generator.html">Map-Generator</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="olark.html">Olark</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="stripe.html">Stripe</a>
+			</li>
+      
+    
+      
+      <li class="active">
+				<a href="twitter.html">Twitter</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="zopim.html">Zopim</a>
+			</li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+		<li class="nav-header">Project</li>
+		<li><a href="http://github.com/reednj77/turbolinks-compatibility">Contribute!</a></li>
+		<li><a href="http://github.com/reednj77/turbolinks-compatibility/issues">Issues</a></li>
+		<li class="divider">
+		<li><a class="muted" href="https://github.com/reednj77">© Nick Reed</a></li>
+  </ul>
 </div>
         <div id="main" class="span10">
 					<div class="markdown-body">
-          <div class="hero-unit"><h1>Twitter Buttons</h1></div>
-<p><a href="https://twitter.com/about/resources/buttons">twitter.com/about/resources/buttons</a></p>
-
-<p>Fix: Replace the supplied javascript snippet with an external script tag pointing to platform.twitter.com/widgets.js.  </p>
-
-<p><strong>Before:</strong></p>
-<pre><code class="language-html"><span class="nt">&lt;body&gt;</span>  
+            <div class="hero-unit"><h1>Twitter Buttons</h1></div>
+<h3><a href="https://twitter.com/about/resources/buttons">twitter.com/about/resources/buttons</a></h3>
+<h3>Official Implementation</h3>
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;body&gt;</span>  
   <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://twitter.com/share"</span> <span class="na">class=</span><span class="s">"twitter-share-button"</span> <span class="na">data-via=</span><span class="s">"njreed86"</span> <span class="na">data-size=</span><span class="s">"large"</span><span class="nt">&gt;</span>Tweet<span class="nt">&lt;/a&gt;</span>
   <span class="nt">&lt;script&gt;</span>
   <span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span><span class="nx">s</span><span class="p">,</span><span class="nx">id</span><span class="p">){</span>
@@ -112,31 +115,35 @@
   <span class="p">}(</span><span class="nb">document</span><span class="p">,</span><span class="s2">"script"</span><span class="p">,</span><span class="s2">"twitter-wjs"</span><span class="p">);</span>
   <span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;/body&gt;</span></code></pre>
-<p><strong>After:</strong></p>
-<pre><code class="language-html"><span class="nt">&lt;body&gt;</span>  
+<h3>Solution</h3>
+<p>Replace the supplied javascript snippet with an external script tag pointing to platform.twitter.com/widgets.js.</p>
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;body&gt;</span>  
   <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://twitter.com/share"</span> <span class="na">class=</span><span class="s">"twitter-share-button"</span> <span class="na">data-via=</span><span class="s">"njreed86"</span> <span class="na">data-size=</span><span class="s">"large"</span><span class="nt">&gt;</span>Tweet<span class="nt">&lt;/a&gt;</span>
   <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"//platform.twitter.com/widgets.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;/body&gt;</span></code></pre>
+<p><em>Related Turbolinks issue:</em> <a href="https://github.com/rails/turbolinks/issues/119">#119</a></p>
+
+<p><em>Credit:</em> <a href="https://github.com/reednj77">Nick Reed</a></p>
 					</div>
-					<hr>
+          <hr>
 <p class="well well-small">
-						<i class="icon-flag"></i> All solutions should be considered <strong class="text-success">unofficial</strong>. 
-						There is <strong class="text-success">no guarantee</strong> that a given solution will work with your application.  
-						If you find that a solution is insufficient, please let me know by 
-						<a href="http://github.com/reednj77/turbolinks-compatibility/issues">submitting an issue</a> on Github.
-					</p>
+	<i class="icon-flag"></i> All solutions should be considered <strong class="text-success">unofficial</strong>. 
+	There is <strong class="text-success">no guarantee</strong> that a given solution will work with your application.  
+	If you find that a solution is insufficient, please let me know by 
+	<a href="http://github.com/reednj77/turbolinks-compatibility/issues">submitting an issue</a> on Github.
+</p>
         </div>
       </div>
     </section><footer><div class="container-fluid">
-				<p>
-					Developed by <a href="http://github.com/reednj77">@reednj77</a>
-				</p>
-				<p>
-					with <a href="http://nanoc.ws">Nanoc</a>, 
-					<a href="http://github.com/vmg/redcarpet">Redcarpet</a>, and 
-					<a href="http://twitter.github.com/bootstrap/index.html">Twitter Bootstrap</a>
-				</p>
-			</div>
-		</footer>
+		<p>
+			Developed by <a href="http://github.com/reednj77">@reednj77</a>
+		</p>
+		<p>
+			with <a href="http://nanoc.ws">Nanoc</a>, 
+			<a href="http://github.com/vmg/redcarpet">Redcarpet</a>, and 
+			<a href="http://twitter.github.com/bootstrap/index.html">Twitter Bootstrap</a>
+		</p>
+	</div>
+</footer>
 </body>
 </html>

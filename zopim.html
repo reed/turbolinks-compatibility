@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Turbolinks Compatibility - Zopim</title>
+<style>
+		body { 
+      padding-top: 40px;
+      background: url('images/bg.gif') repeat center center; 
+    }
+		</style>
+<link rel="stylesheet" type="text/css" href="css/bootstrap_custom.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/github.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+		<header class="navbar navbar-fixed-top"><div class="navbar-inner">
+		<div class="container-fluid">
+			<a class="brand" href="./">Turbolinks <span class="bracketed">{ <span>compatibility</span> }</span></a>
+		</div>
+	</div>
+</header><section id="content" class="container-fluid"><div class="row-fluid">
+        <div id="sidebar" class="span2">
+  <ul class="nav nav-list">
+<li><a href="./">Home</a></li>
+		<li class="nav-header">Solutions</li>
+    
+      
+    
+      
+      <li>
+				<a href="facebook.html">Facebook</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="fancybox.html">FancyBox</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="google_analytics.html">Google Analytics</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="map_generator.html">Map-Generator</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="olark.html">Olark</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="stripe.html">Stripe</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="twitter.html">Twitter</a>
+			</li>
+      
+    
+      
+      <li class="active">
+				<a href="zopim.html">Zopim</a>
+			</li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+		<li class="nav-header">Project</li>
+		<li><a href="http://github.com/reednj77/turbolinks-compatibility">Contribute!</a></li>
+		<li><a href="http://github.com/reednj77/turbolinks-compatibility/issues">Issues</a></li>
+		<li class="divider">
+		<li><a class="muted" href="https://github.com/reednj77">© Nick Reed</a></li>
+  </ul>
+</div>
+        <div id="main" class="span10">
+					<div class="markdown-body">
+            <div class="hero-unit"><h1>Zopim Live Chat Widget</h1></div>
+<h3><a href="https://www.zopim.com/product">zopim.com/product</a></h3>
+<h3>Official Implementation</h3>
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;body&gt;</span>  
+  <span class="nt">&lt;script&gt;</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">$zopim</span> <span class="o">||</span> <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span><span class="nx">s</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">z</span> <span class="o">=</span> <span class="nx">$zopim</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">c</span><span class="p">){</span>
+      <span class="nx">z</span><span class="p">.</span><span class="nx">_</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>
+    <span class="p">},</span> <span class="nx">$</span> <span class="o">=</span> <span class="nx">z</span><span class="p">.</span><span class="nx">s</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">s</span><span class="p">),</span> <span class="nx">e</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="nx">s</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="nx">z</span><span class="p">.</span><span class="nx">set</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">o</span><span class="p">){</span>
+      <span class="nx">z</span><span class="p">.</span><span class="nx">set</span><span class="p">.</span><span class="nx">_</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span>
+    <span class="p">};</span>
+    <span class="nx">z</span><span class="p">.</span><span class="nx">_</span><span class="o">=</span> <span class="p">[];</span>
+    <span class="nx">z</span><span class="p">.</span><span class="nx">set</span><span class="p">.</span><span class="nx">_</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">async</span> <span class="o">=</span> <span class="o">!</span><span class="mi">0</span><span class="p">;</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'charset'</span><span class="p">,</span><span class="s1">'utf-8'</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">'//cdn.zopim.com/?MY_APP_KEY'</span><span class="p">;</span>
+    <span class="nx">z</span><span class="p">.</span><span class="nx">t</span> <span class="o">=</span> <span class="o">+</span><span class="k">new</span> <span class="nb">Date</span><span class="p">;</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">type</span><span class="o">=</span><span class="s1">'text/javascript'</span><span class="p">;</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">$</span><span class="p">,</span><span class="nx">e</span><span class="p">)</span>
+  <span class="p">})(</span><span class="nb">document</span><span class="p">,</span><span class="s1">'script'</span><span class="p">);</span>
+  <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span></code></pre>
+<h3>Solution</h3>
+<p>Remove the supplied javascript and add the following to your application's javascript.</p>
+<pre><small class="language-label muted pull-right">JAVASCRIPT</small><code class="language-javascript"><span class="kd">function</span> <span class="nx">zopim_chat</span><span class="p">(){</span>  
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'[__jx__id], embed#__zopnetworkswf'</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">$zopim</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span><span class="nx">s</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">z</span> <span class="o">=</span> <span class="nx">$zopim</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">c</span><span class="p">){</span>
+      <span class="nx">z</span><span class="p">.</span><span class="nx">_</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>
+    <span class="p">},</span> <span class="nx">$</span> <span class="o">=</span> <span class="nx">z</span><span class="p">.</span><span class="nx">s</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">s</span><span class="p">),</span> <span class="nx">e</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="nx">s</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="nx">z</span><span class="p">.</span><span class="nx">set</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">o</span><span class="p">){</span>
+      <span class="nx">z</span><span class="p">.</span><span class="nx">set</span><span class="p">.</span><span class="nx">_</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span>
+    <span class="p">};</span>
+    <span class="nx">z</span><span class="p">.</span><span class="nx">_</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nx">z</span><span class="p">.</span><span class="nx">set</span><span class="p">.</span><span class="nx">_</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">async</span> <span class="o">=</span> <span class="o">!</span><span class="mi">0</span><span class="p">;</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'charset'</span><span class="p">,</span><span class="s1">'utf-8'</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">'//cdn.zopim.com/?MY_APP_KEY'</span><span class="p">;</span>
+    <span class="nx">z</span><span class="p">.</span><span class="nx">t</span> <span class="o">=</span> <span class="o">+</span><span class="k">new</span> <span class="nb">Date</span><span class="p">;</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s1">'text/javascript'</span><span class="p">;</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">$</span><span class="p">,</span><span class="nx">e</span><span class="p">)</span>
+  <span class="p">})(</span><span class="nb">document</span><span class="p">,</span><span class="s1">'script'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'ready'</span><span class="p">,</span> <span class="nx">zopim_chat</span><span class="p">);</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'page:load'</span><span class="p">,</span> <span class="nx">zopim_chat</span><span class="p">);</span></code></pre>
+<p><em>Related Turbolinks issue:</em> <a href="https://github.com/rails/turbolinks/issues/131">#131</a></p>
+
+<p><em>Credit:</em> <a href="https://github.com/fpleme">Fernão Paes Leme</a>, <a href="https://github.com/reednj77">Nick Reed</a></p>
+					</div>
+          <hr>
+<p class="well well-small">
+	<i class="icon-flag"></i> All solutions should be considered <strong class="text-success">unofficial</strong>. 
+	There is <strong class="text-success">no guarantee</strong> that a given solution will work with your application.  
+	If you find that a solution is insufficient, please let me know by 
+	<a href="http://github.com/reednj77/turbolinks-compatibility/issues">submitting an issue</a> on Github.
+</p>
+        </div>
+      </div>
+    </section><footer><div class="container-fluid">
+		<p>
+			Developed by <a href="http://github.com/reednj77">@reednj77</a>
+		</p>
+		<p>
+			with <a href="http://nanoc.ws">Nanoc</a>, 
+			<a href="http://github.com/vmg/redcarpet">Redcarpet</a>, and 
+			<a href="http://twitter.github.com/bootstrap/index.html">Twitter Bootstrap</a>
+		</p>
+	</div>
+</footer>
+</body>
+</html>
