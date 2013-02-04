@@ -4,7 +4,7 @@ title: Twitter
 
 # Twitter Buttons
 
-### [twitter.com/about/resources/buttons](https://twitter.com/about/resources/buttons)
+> **[twitter.com/about/resources/buttons](https://twitter.com/about/resources/buttons)**
 
 ### Official Implementation
 

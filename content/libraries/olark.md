@@ -4,7 +4,7 @@ title: Olark
 
 # Olark Chat Widget 
 
-### [olark.com](http://olark.com)
+> **[olark.com](http://olark.com)**
 
 ### Overview
 

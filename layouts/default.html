@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>Turbolinks Compatibility <%= "- #{title(@item)}" if item[:filename].include?('libraries') %></title>
+		<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
 		<style>
 		body { 
       padding-top: 40px;

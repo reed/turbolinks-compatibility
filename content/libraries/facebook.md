@@ -4,7 +4,7 @@ title: Facebook
 
 # Facebook Social Plugins
 
-### [developers.facebook.com/docs/plugins](http://developers.facebook.com/docs/plugins)
+> **[developers.facebook.com/docs/plugins](http://developers.facebook.com/docs/plugins)**
 
 ### Official Implementation 
 

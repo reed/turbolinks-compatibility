@@ -4,7 +4,7 @@ title: FancyBox
 
 # FancyBox
 
-### [fancybox.net/howto](http://fancybox.net/howto)
+> **[fancybox.net/howto](http://fancybox.net/howto)**
 
 FancyBox (>= 2.1.2) is known to work with Turbolinks without modifications.
 

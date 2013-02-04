@@ -4,7 +4,7 @@ title: Zopim
 
 # Zopim Live Chat Widget
 
-### [zopim.com/product](https://www.zopim.com/product)
+> **[zopim.com/product](https://www.zopim.com/product)**
 
 ### Official Implementation
 

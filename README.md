@@ -61,7 +61,7 @@ If you get tired of manually compiling, use `autocompile`, which will launch the
 $ nanoc autocompile
 ```
 
-## Styleguide
+## Style Guide
 
 The [libraries](content/libraries) folder contains a markdown file for each solution.  There are a couple structural requirements for these files:
 

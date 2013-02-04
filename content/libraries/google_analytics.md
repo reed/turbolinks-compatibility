@@ -4,7 +4,7 @@ title: "Google Analytics"
 
 # Google Analytics
 
-### [google.com/analytics](http://www.google.com/analytics/)
+> **[google.com/analytics](http://www.google.com/analytics/)**
 
 Move the javascript snippet from the head to the body and load the following script inside the `<head>`.
 
