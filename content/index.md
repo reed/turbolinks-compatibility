@@ -14,7 +14,7 @@ If you're needing a solution that isn't on this site, try looking through the so
  
 ## Requests
 
-Are you having trouble with a library or plugin that's not on this site?  I'd be happy to work with you to find an acceptable solution that we can add to the site.  Just [submit an issue](http://github.com/reednj77/turbolinks-compatibility/issues) to this project on [Github](http://github.com).
+Are you having trouble with a library or plugin that's not on this site?  I'd be happy to work with you to find an acceptable solution that we can add to the site.  Just [submit an issue](http://github.com/reed/turbolinks-compatibility/issues) to this project on [Github](http://github.com).
 
 Conversely, if you use a third-party library, plugin, or snippet that works flawlessly out of the box with Turbolinks, let me know and I'll add it to the site to aid future users' peace of mind.
 
@@ -22,7 +22,7 @@ Conversely, if you use a third-party library, plugin, or snippet that works flaw
 
 Have you successfully manipulated a third-party javascript library or plugin to work with Turbolinks?  Tell us what you did! Do you think one of our existing solutions can be improved?  Improve it!
 
-1. Fork the [turbolinks-compatibility](http://github.com/reednj77/turbolinks-compatibility) project on Github
+1. Fork the [turbolinks-compatibility](http://github.com/reed/turbolinks-compatibility) project on Github
 2. Read the guidelines for contributing in the project's README
 3. Make your changes
 4. Submit a [pull request](http://help.github.com/articles/using-pull-requests)

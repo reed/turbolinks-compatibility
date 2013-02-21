@@ -13,7 +13,7 @@ def commit_message
   mesg.gsub(/'/, '')
 end
 
-desc "Publish to http://reednj77.github.com/turbolinks-compatibility"
+desc "Publish to http://reed.github.com/turbolinks-compatibility"
 task :publish => [:clean] do
   mesg = commit_message
   

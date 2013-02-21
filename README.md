@@ -1,5 +1,5 @@
 # Turbolinks Compatibility
-[reednj77.github.com/turbolinks-compatibility](http://reednj77.github.com/turbolinks-compatibility)
+[reed.github.com/turbolinks-compatibility](http://reed.github.com/turbolinks-compatibility)
 
 ***
 

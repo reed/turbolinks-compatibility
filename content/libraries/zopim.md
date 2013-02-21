@@ -64,4 +64,4 @@ $(document).on('page:load', zopim_chat);
 
 *Related Turbolinks issue:* [#131](https://github.com/rails/turbolinks/issues/131)
 
-*Credit:* [Fernão Paes Leme](https://github.com/fpleme), [Nick Reed](https://github.com/reednj77)
+*Credit:* [Fernão Paes Leme](https://github.com/fpleme), [Nick Reed](https://github.com/reed)

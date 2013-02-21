@@ -38,4 +38,4 @@ Replace the supplied javascript snippet with an external script tag pointing to 
 
 *Related Turbolinks issue:* [#119](https://github.com/rails/turbolinks/issues/119)
 
-*Credit:* [Nick Reed](https://github.com/reednj77)
+*Credit:* [Nick Reed](https://github.com/reed)

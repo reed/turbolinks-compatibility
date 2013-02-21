@@ -63,4 +63,4 @@ This solution handles multiple maps on the same page or on separate pages of the
 
 *Related Turbolinks issue:* [#156](https://github.com/rails/turbolinks/issues/156)
 
-*Credit:* [Nick Reed](https://github.com/reednj77)
+*Credit:* [Nick Reed](https://github.com/reed)

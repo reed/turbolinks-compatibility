@@ -65,4 +65,4 @@ initializeFacebookSDK = ->
 
 *Related Turbolinks issues:* [#25](https://github.com/rails/turbolinks/issues/25), [#62](https://github.com/rails/turbolinks/issues/62)
 
-*Credit:* [Pierre Olivier Martel](https://github.com/pomartel), [Nick Reed](https://github.com/reednj77)
+*Credit:* [Pierre Olivier Martel](https://github.com/pomartel), [Nick Reed](https://github.com/reed)
