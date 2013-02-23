@@ -45,6 +45,12 @@
     
       
       <li>
+				<a href="google_adsense.html">Google AdSense</a>
+			</li>
+      
+    
+      
+      <li>
 				<a href="google_analytics.html">Google Analytics</a>
 			</li>
       
@@ -100,12 +106,13 @@
 </div>
         <div id="main" class="span10">
 					<div class="markdown-body">
-            <div class="hero-unit"><h1>Zopim Live Chat Widget</h1></div>
-<blockquote>
-<p><strong><a href="https://www.zopim.com/product">zopim.com/product</a></strong></p>
-</blockquote>
+            <div class="hero-unit"><h1>Zopim Live Chat Widget</h1></div>  
+<blockquote>  
+<p><strong><a href="https://www.zopim.com/product">zopim.com/product</a></strong></p>  
+</blockquote>  
 <h3>Official Implementation</h3>
-<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;body&gt;</span>  
+
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;body&gt;</span>
   <span class="nt">&lt;script&gt;</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">$zopim</span> <span class="o">||</span> <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span><span class="nx">s</span><span class="p">){</span>
     <span class="kd">var</span> <span class="nx">z</span> <span class="o">=</span> <span class="nx">$zopim</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">c</span><span class="p">){</span>
@@ -125,9 +132,11 @@
   <span class="p">})(</span><span class="nb">document</span><span class="p">,</span><span class="s1">'script'</span><span class="p">);</span>
   <span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;/body&gt;</span></code></pre>
-<h3>Solution</h3>
-<p>Remove the supplied javascript and add the following to your application's javascript.</p>
-<pre><small class="language-label muted pull-right">JAVASCRIPT</small><code class="language-javascript"><span class="kd">function</span> <span class="nx">zopim_chat</span><span class="p">(){</span>  
+<h3>Solution</h3>  
+<p>Remove the supplied javascript and add the following to your application's javascript.</p>  
+
+
+<pre><small class="language-label muted pull-right">JAVASCRIPT</small><code class="language-javascript"><span class="kd">function</span> <span class="nx">zopim_chat</span><span class="p">(){</span>
   <span class="nx">$</span><span class="p">(</span><span class="s1">'[__jx__id], embed#__zopnetworkswf'</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">$zopim</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
   <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span><span class="nx">s</span><span class="p">){</span>

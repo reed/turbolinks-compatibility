@@ -45,6 +45,12 @@
     
       
       <li>
+				<a href="google_adsense.html">Google AdSense</a>
+			</li>
+      
+    
+      
+      <li>
 				<a href="google_analytics.html">Google Analytics</a>
 			</li>
       
@@ -100,12 +106,13 @@
 </div>
         <div id="main" class="span10">
 					<div class="markdown-body">
-            <div class="hero-unit"><h1>Facebook Social Plugins</h1></div>
-<blockquote>
-<p><strong><a href="http://developers.facebook.com/docs/plugins">developers.facebook.com/docs/plugins</a></strong></p>
-</blockquote>
+            <div class="hero-unit"><h1>Facebook Social Plugins</h1></div>  
+<blockquote>  
+<p><strong><a href="http://developers.facebook.com/docs/plugins">developers.facebook.com/docs/plugins</a></strong></p>  
+</blockquote>  
 <h3>Official Implementation</h3>
-<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;body&gt;</span>  
+
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;body&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"fb-root"</span><span class="nt">&gt;&lt;/div&gt;</span>
   <span class="nt">&lt;script&gt;</span>
     <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">id</span><span class="p">){</span>
@@ -120,8 +127,10 @@
   <span class="c">&lt;!-- Like button --&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"fb-like"</span> <span class="na">data-send=</span><span class="s">"true"</span> <span class="na">data-layout=</span><span class="s">"button_count"</span> <span class="na">data-width=</span><span class="s">"450"</span> <span class="na">data-show-faces=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/div&gt;</span>
 <span class="nt">&lt;/body&gt;</span></code></pre>
-<h3>Solution</h3>
-<p>Remove the script from the body and load the following script inside the <code>&lt;head&gt;</code>.</p>
+<h3>Solution</h3>  
+<p>Remove the script from the body and load the following script inside the <code>&lt;head&gt;</code>.</p>  
+
+
 <pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="nv">fb_root = </span><span class="kc">null</span>
 
 <span class="nx">$</span> <span class="nf">-&gt;</span>
@@ -132,20 +141,20 @@
     <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s">'page:load'</span><span class="p">,</span> <span class="nf">-&gt;</span>
       <span class="nx">FB</span><span class="o">?</span><span class="p">.</span><span class="nx">XFBML</span><span class="p">.</span><span class="nx">parse</span><span class="p">()</span>
 
-<span class="nv">saveFacebookRoot = </span><span class="nf">-&gt;</span>  
+<span class="nv">saveFacebookRoot = </span><span class="nf">-&gt;</span>
   <span class="nv">fb_root = </span><span class="nx">$</span><span class="p">(</span><span class="s">'#fb-root'</span><span class="p">).</span><span class="nx">detach</span><span class="p">()</span>
 
-<span class="nv">restoreFacebookRoot = </span><span class="nf">-&gt;</span>  
+<span class="nv">restoreFacebookRoot = </span><span class="nf">-&gt;</span>
   <span class="k">if</span> <span class="nx">$</span><span class="p">(</span><span class="s">'#fb-root'</span><span class="p">).</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span>
     <span class="nx">$</span><span class="p">(</span><span class="s">'#fb-root'</span><span class="p">).</span><span class="nx">replaceWith</span> <span class="nx">fb_root</span>
   <span class="k">else</span>
     <span class="nx">$</span><span class="p">(</span><span class="s">'body'</span><span class="p">).</span><span class="nx">append</span> <span class="nx">fb_root</span>
 
-<span class="nv">loadFacebookSDK = </span><span class="nf">-&gt;</span>  
+<span class="nv">loadFacebookSDK = </span><span class="nf">-&gt;</span>
   <span class="nb">window</span><span class="p">.</span><span class="nv">fbAsyncInit = </span><span class="nx">initializeFacebookSDK</span>
   <span class="nx">$</span><span class="p">.</span><span class="nx">getScript</span><span class="p">(</span><span class="s">"//connect.facebook.net/en_US/all.js</span><span class="err">#</span><span class="s">xfbml=1"</span><span class="p">)</span>
 
-<span class="nv">initializeFacebookSDK = </span><span class="nf">-&gt;</span>  
+<span class="nv">initializeFacebookSDK = </span><span class="nf">-&gt;</span>
   <span class="nx">FB</span><span class="p">.</span><span class="nx">init</span>
     <span class="nv">appId     : </span><span class="s">'YOUR_APP_ID'</span>
     <span class="nv">channelUrl: </span><span class="s">'//WWW.YOUR_DOMAIN.COM/channel.html'</span>

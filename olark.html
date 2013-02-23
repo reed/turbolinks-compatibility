@@ -45,6 +45,12 @@
     
       
       <li>
+				<a href="google_adsense.html">Google AdSense</a>
+			</li>
+      
+    
+      
+      <li>
 				<a href="google_analytics.html">Google Analytics</a>
 			</li>
       
@@ -100,13 +106,15 @@
 </div>
         <div id="main" class="span10">
 					<div class="markdown-body">
-            <div class="hero-unit"><h1>Olark Chat Widget</h1></div>
-<blockquote>
-<p><strong><a href="http://olark.com">olark.com</a></strong></p>
-</blockquote>
-<h3>Overview</h3>
-<p>The supplied javascript will look something like this:</p>
-<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;script&gt;</span>  
+            <div class="hero-unit"><h1>Olark Chat Widget</h1></div>  
+<blockquote>  
+<p><strong><a href="http://olark.com">olark.com</a></strong></p>  
+</blockquote>  
+<h3>Overview</h3>  
+<p>The supplied javascript will look something like this:</p>  
+
+
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;script&gt;</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">olark</span> <span class="o">||</span> <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">c</span><span class="p">){</span>
     <span class="c1">// initialization code</span>
   <span class="p">})({</span> 
@@ -120,14 +128,14 @@
 <p>To get it working with Turbolinks:</p>
 
 <ol>
-<li>Move the script inside the head tags.<br>
-</li>
-<li>Convert the anonymous initialization function into a named function.<br>
-</li>
-<li>Bind this new function to the <code>page:load</code> event.</li>
+<li>Move the script inside the head tags.</li>  
+<li>Convert the anonymous initialization function into a named function.</li>  
+<li>Bind this new function to the <code>page:load</code> event.</li>  
 </ol>
-<p>An example solution, in jQuery:</p>
-<pre><small class="language-label muted pull-right">JAVASCRIPT</small><code class="language-javascript"><span class="kd">function</span> <span class="nx">initOlark</span><span class="p">(){</span>  
+<p>An example solution, in jQuery:</p>  
+
+
+<pre><small class="language-label muted pull-right">JAVASCRIPT</small><code class="language-javascript"><span class="kd">function</span> <span class="nx">initOlark</span><span class="p">(){</span>
   <span class="nx">c</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">loader</span><span class="o">:</span> <span class="s2">"static.olark.com/jsclient/loader0.js"</span><span class="p">,</span> 
     <span class="nx">name</span><span class="o">:</span> <span class="s2">"olark"</span><span class="p">,</span> 

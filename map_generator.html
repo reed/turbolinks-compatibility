@@ -45,6 +45,12 @@
     
       
       <li>
+				<a href="google_adsense.html">Google AdSense</a>
+			</li>
+      
+    
+      
+      <li>
 				<a href="google_analytics.html">Google Analytics</a>
 			</li>
       
@@ -100,24 +106,28 @@
 </div>
         <div id="main" class="span10">
 					<div class="markdown-body">
-            <div class="hero-unit"><h1>Map-Generator</h1></div>
-<blockquote>
-<p><strong><a href="http://map-generator.net">map-generator.net</a></strong></p>
-</blockquote>
-<h3>Overview</h3>
-<p>After customizing the map you want, you will be given a generated code snippet that looks something like this:</p>
-<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"map_canvas_custom_48259"</span> <span class="na">style=</span><span class="s">"width:830px; height:350px"</span> <span class="nt">&gt;&lt;/div&gt;</span>  
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>  
+            <div class="hero-unit"><h1>Map-Generator</h1></div>  
+<blockquote>  
+<p><strong><a href="http://map-generator.net">map-generator.net</a></strong></p>  
+</blockquote>  
+<h3>Overview</h3>  
+<p>After customizing the map you want, you will be given a generated code snippet that looks something like this:</p>  
+
+
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"map_canvas_custom_48259"</span> <span class="na">style=</span><span class="s">"width:830px; height:350px"</span> <span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
   <span class="c1">// Line breaks inserted for readability.</span>
   <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">g</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">t</span><span class="p">),</span> <span class="nx">s</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="nx">t</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
     <span class="nx">g</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">"http://map-generator.net/en/maps/48259.js?point=New+York%2C+NY%2C+USA"</span><span class="p">;</span>
     <span class="nx">s</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">g</span><span class="p">,</span> <span class="nx">s</span><span class="p">);</span>
   <span class="p">}(</span><span class="nb">document</span><span class="p">,</span> <span class="s2">"script"</span><span class="p">));</span>
-<span class="nt">&lt;/script&gt;</span>  
+<span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"mapgen-link"</span> <span class="na">style=</span><span class="s">"font:8px Arial;text-decoration:none;color:#5C5C5C;text-align: right; display: block; width: 830px;"</span> <span class="na">href=</span><span class="s">"http://map-generator.net/en"</span><span class="nt">&gt;</span>map-generator.net<span class="nt">&lt;/a&gt;</span></code></pre>
 <h3>Basic Solution</h3>
-<p>If you only have one map on a single page of your application, you can get away with just adding the following to your application JS:</p>
+<p>If you only have one map on a single page of your application, you can get away with just adding the following to your application JS:</p>  
+
+
 <pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">bind</span> <span class="s">'page:load'</span><span class="p">,</span> <span class="nf">-&gt;</span>
   <span class="nx">initializeMgMaps</span><span class="p">()</span> <span class="k">if</span> <span class="nx">$</span><span class="p">(</span><span class="s">'#mggapiloader'</span><span class="p">)</span><span class="o">?</span></code></pre>
 <h3>Advanced Solution</h3>
@@ -125,11 +135,15 @@
 
 <ol>
 <li>
-<p>Add a class to the script tag for each map you have in your application. </p>
+<p>Add a class to the script tag for each map you have in your application. </p>  
+
+
 <pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;script </span><span class="na">class=</span><span class="s">"init_map_generator"</span> <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span></code></pre>
 </li>
 <li>
-<p>In your application JS, create a function to unload/remove Google Maps and bind it to both the <code>page:fetch</code> and <code>page:restore</code> events.</p>
+<p>In your application JS, create a function to unload/remove Google Maps and bind it to both the <code>page:fetch</code> and <code>page:restore</code> events.</p>  
+
+
 <pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">bind</span> <span class="s">'page:fetch'</span><span class="p">,</span> <span class="nf">-&gt;</span>
   <span class="nx">cleanMapGenerator</span><span class="p">()</span>
 

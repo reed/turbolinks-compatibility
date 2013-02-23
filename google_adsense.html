@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Turbolinks Compatibility - Google AdSense</title>
+<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]--><style>
+		body { 
+      padding-top: 40px;
+      background: url('images/bg.gif') repeat center center; 
+    }
+		</style>
+<link rel="stylesheet" type="text/css" href="css/bootstrap_custom.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/github.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+		<header class="navbar navbar-fixed-top"><div class="navbar-inner">
+		<div class="container-fluid">
+			<a class="brand" href="./">Turbolinks <span class="bracketed">{ <span>compatibility</span> }</span></a>
+		</div>
+	</div>
+</header><section id="content" class="container-fluid"><div class="row-fluid">
+        <div id="sidebar" class="span2">
+  <ul class="nav nav-list">
+<li><a href="./">Home</a></li>
+		<li class="nav-header">Solutions</li>
+    
+      
+    
+      
+      <li>
+				<a href="facebook.html">Facebook</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="fancybox.html">FancyBox</a>
+			</li>
+      
+    
+      
+      <li class="active">
+				<a href="google_adsense.html">Google AdSense</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="google_analytics.html">Google Analytics</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="map_generator.html">Map-Generator</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="olark.html">Olark</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="stripe.html">Stripe</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="twitter.html">Twitter</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="zopim.html">Zopim</a>
+			</li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+		<li class="nav-header">Project</li>
+		<li><a href="http://github.com/reed/turbolinks-compatibility">Contribute!</a></li>
+		<li><a href="http://github.com/reed/turbolinks-compatibility/issues">Issues</a></li>
+		<li class="divider">
+		<li><a class="muted" href="https://github.com/reed">© Nick Reed</a></li>
+  </ul>
+</div>
+        <div id="main" class="span10">
+					<div class="markdown-body">
+            <div class="hero-unit"><h1>Google AdSense</h1></div>  
+<blockquote>  
+<p><strong><a href="https://support.google.com/adsense/bin/answer.py?hl=en&amp;answer=181947&amp;topic=29033&amp;parent=28893&amp;rd=1">support.google.com/adsense</a></strong></p>  
+</blockquote>  
+<h3>Official Implementation</h3>
+
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+<span class="nx">google_ad_client</span> <span class="o">=</span> <span class="s2">"ca-pub-1234567890123456"</span><span class="p">;</span>
+<span class="nx">google_ad_slot</span> <span class="o">=</span> <span class="s2">"4746598348"</span><span class="p">;</span>
+<span class="nx">google_ad_width</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
+<span class="nx">google_ad_height</span> <span class="o">=</span> <span class="mi">250</span><span class="p">;</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"http://pagead2.googlesyndication.com/pagead/show_ads.js"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre>
+<h3>Solution</h3>  
+<ol>
+<li>
+<p>Add the following script tag to the head, <strong>above</strong> the application.js file:</p>  
+
+
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"//www.google.com/jsapi"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre>
+</li>
+<li>
+<p>Define these classes somewhere in your application's JS:</p>  
+
+
+<pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="k">class</span> <span class="nx">AdSense</span>
+  <span class="nv">constructor: </span><span class="nf">(@ad_client) -&gt;</span>
+    <span class="k">if</span> <span class="nx">google</span><span class="o">?</span>
+      <span class="nx">google</span><span class="p">.</span><span class="nx">load</span> <span class="s">'ads'</span><span class="p">,</span> <span class="s">'1'</span>
+      <span class="nx">google</span><span class="p">.</span><span class="nx">setOnLoadCallback</span> <span class="nx">@initPage</span>
+      <span class="vi">@ads = </span><span class="p">{}</span>
+      <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span> <span class="s">'page:fetch'</span><span class="p">,</span> <span class="o">=&gt;</span>
+        <span class="nx">@clearAds</span><span class="p">()</span>
+      <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span> <span class="s">'page:load'</span><span class="p">,</span> <span class="o">=&gt;</span>
+        <span class="nx">@initPage</span><span class="p">()</span>
+
+  <span class="nv">initPage: </span><span class="o">=&gt;</span>
+    <span class="nx">ad</span><span class="p">.</span><span class="nx">load</span><span class="p">()</span> <span class="k">for</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">ad</span> <span class="k">of</span> <span class="nx">@ads</span>
+
+  <span class="nv">clearAds: </span><span class="nf">-&gt;</span>
+    <span class="vi">@ads = </span><span class="p">{}</span>
+
+  <span class="nv">newAd: </span><span class="nf">(container, options) -&gt;</span>
+    <span class="nv">id = </span><span class="nx">options</span><span class="p">.</span><span class="nx">format</span> <span class="o">+</span> <span class="s">'_'</span> <span class="o">+</span> <span class="nx">container</span><span class="p">.</span><span class="nx">id</span>
+    <span class="nx">@ads</span><span class="p">[</span><span class="nx">id</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Ad</span> <span class="nx">@</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">container</span><span class="p">,</span> <span class="nx">options</span></code></pre>
+
+<pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="k">class</span> <span class="nx">Ad</span>
+  <span class="nv">constructor: </span><span class="nf">(@adsense, @id, @container, @options) -&gt;</span>
+
+  <span class="nv">load: </span><span class="nf">-&gt;</span>
+    <span class="k">if</span> <span class="nx">@ad_object</span><span class="o">?</span> <span class="k">then</span> <span class="nx">@refresh</span><span class="p">()</span> <span class="k">else</span> <span class="nx">@create</span><span class="p">()</span>
+
+  <span class="nv">refresh: </span><span class="nf">-&gt;</span>
+    <span class="nx">@ad_object</span><span class="p">.</span><span class="nx">refresh</span><span class="p">()</span>
+
+  <span class="nv">create: </span><span class="nf">-&gt;</span>
+    <span class="vi">@ad_object = </span><span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">ads</span><span class="p">.</span><span class="nx">Ad</span> <span class="nx">@adsense</span><span class="p">.</span><span class="nx">ad_client</span><span class="p">,</span> <span class="nx">@container</span><span class="p">,</span> <span class="nx">@options</span></code></pre>
+</li>
+<li>
+<p>Add this line to your application's JS to initialize adsense</p>  
+
+
+<pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="nb">window</span><span class="p">.</span><span class="nv">MyAdSense = </span><span class="k">new</span> <span class="nx">AdSense</span> <span class="s">"ca-pub-1234567890123456"</span> <span class="c1"># your google_ad_client id</span></code></pre>
+</li>
+<li>
+<p>Create a container with an ID for each ad on the page</p>  
+
+
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;body&gt;</span>
+  <span class="c">&lt;!-- content --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"my_ad"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span></code></pre>
+</li>
+<li>
+<p>Add a script tag to the <strong>body</strong> of the page that will initialize the ad:</p>  
+
+
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;script&gt;</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">MyAdSense</span><span class="p">.</span><span class="nx">newAd</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'my_ad'</span><span class="p">),</span> <span class="p">{</span>
+  <span class="s1">'format'</span><span class="o">:</span> <span class="nx">google</span><span class="p">.</span><span class="nx">ads</span><span class="p">.</span><span class="nx">LEADERBOARD</span><span class="p">,</span>
+  <span class="s1">'ad_slot'</span><span class="o">:</span> <span class="s2">"4746598348"</span><span class="p">,</span>
+  <span class="s1">'ad_width'</span><span class="o">:</span> <span class="mi">300</span><span class="p">,</span>
+  <span class="s1">'ad_height'</span><span class="o">:</span> <span class="mi">250</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span></code></pre>
+</li>
+</ol>
+<p><em>Inspiration:</em> <a href="http://www.redkart.com/google_adsense.html">www.redkart.com/google_adsense.html</a></p>
+
+<p><em>Related Turbolinks issue:</em> <a href="https://github.com/rails/turbolinks/issues/151">#151</a></p>
+
+<p><em>Credit:</em> <a href="https://github.com/reed">Nick Reed</a></p>
+					</div>
+          <hr>
+<p class="well well-small">
+	<i class="icon-flag"></i> All solutions should be considered <strong class="text-success">unofficial</strong>. 
+	There is <strong class="text-success">no guarantee</strong> that a given solution will work with your application.  
+	If you find that a solution is insufficient, please let me know by 
+	<a href="http://github.com/reed/turbolinks-compatibility/issues">submitting an issue</a> on Github.
+</p>
+        </div>
+      </div>
+    </section><footer><div class="container-fluid">
+		<p>
+			Developed by <a href="http://github.com/reed">@reed</a>
+		</p>
+		<p>
+			with <a href="http://nanoc.ws">Nanoc</a>, 
+			<a href="http://github.com/vmg/redcarpet">Redcarpet</a>, and 
+			<a href="http://twitter.github.com/bootstrap/index.html">Twitter Bootstrap</a>
+		</p>
+	</div>
+</footer>
+</body>
+</html>
