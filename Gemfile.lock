@@ -3,11 +3,18 @@ GEM
   specs:
     adsf (1.1.1)
       rack (>= 1.0.0)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.4.0)
     colored (1.2)
     cri (2.3.0)
       colored (>= 1.2)
+    execjs (1.4.0)
+      multi_json (~> 1.0)
     listen (0.7.2)
     mime-types (1.19)
+    multi_json (1.5.1)
     nanoc (3.5.0)
       cri (~> 2.2)
     nokogiri (1.5.6)
@@ -26,6 +33,7 @@ PLATFORMS
 
 DEPENDENCIES
   adsf
+  coffee-script
   listen
   mime-types
   nanoc

@@ -13,6 +13,10 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+compile '/assets/*' do
+  filter :coffeescript if item[:extension] == 'coffee'
+end
+
 compile '/static/*' do
 end
 
@@ -24,6 +28,14 @@ compile '*' do
   layout 'default'
   filter :relativize_paths, type: :html
   filter :relativize_paths, type: :css
+end
+
+route '/assets/*' do
+  if item.identifier.include? '/javascripts' 
+    item.identifier[7..-2] + '.js'
+  else
+    item.identifier[7..-2]
+  end
 end
 
 route '/static/*' do

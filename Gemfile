@@ -7,6 +7,7 @@ gem 'nanoc'
 gem 'nokogiri'
 gem 'pygments.rb'
 gem 'rake'
+gem 'coffee-script'
 
 group :development do
   gem 'adsf'
