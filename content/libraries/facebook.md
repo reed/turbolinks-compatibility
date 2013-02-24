@@ -34,12 +34,13 @@ Remove the script from the body and load the following script inside the `<head>
 fb_root = null
 
 $ ->
-  load_facebook_sdk()
+  loadFacebookSDK()
   $(document)
     .on('page:fetch', saveFacebookRoot)
     .on('page:change', restoreFacebookRoot)
     .on('page:load', ->
       FB?.XFBML.parse()
+    )
 
 saveFacebookRoot = ->
   fb_root = $('#fb-root').detach()
