@@ -6,6 +6,9 @@
   border-right: 1px solid #ccc;
   padding-bottom: 30px;
 }
+#sidebar li iframe {
+  padding: 3px 0px;
+}
 @media (max-width: 767px){
   #sidebar {
     border-right: none;
@@ -27,6 +30,9 @@ footer {
 footer p {
   margin-bottom: 0;
   color: rgb(58, 73, 92);
+}
+footer p:last-child {
+  padding-top: 10px;
 }
 .navbar .brand {
   float: right;
