@@ -32,15 +32,21 @@ Remove the script from the body and load the following script inside the `<head>
 
 ```coffeescript
 fb_root = null
+fb_events_bound = false
 
 $ ->
   loadFacebookSDK()
+  bindFacebookEvents() unless fb_events_bound
+
+bindFacebookEvents = ->
   $(document)
     .on('page:fetch', saveFacebookRoot)
     .on('page:change', restoreFacebookRoot)
     .on('page:load', ->
+      console.log 'parsing fb'
       FB?.XFBML.parse()
     )
+  fb_events_bound = true
 
 saveFacebookRoot = ->
   fb_root = $('#fb-root').detach()
@@ -66,4 +72,4 @@ initializeFacebookSDK = ->
 
 *Related Turbolinks issues:* [#25](https://github.com/rails/turbolinks/issues/25), [#62](https://github.com/rails/turbolinks/issues/62)
 
-*Credit:* [Pierre Olivier Martel](https://github.com/pomartel), [Nick Reed](https://github.com/reed)
+*Credit:* [Pierre Olivier Martel](https://github.com/pomartel), [Nick Reed](https://github.com/reed), [@rickypai](https://github.com/rickypai)
