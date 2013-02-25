@@ -143,15 +143,21 @@
 
 
 <pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="nv">fb_root = </span><span class="kc">null</span>
+<span class="nv">fb_events_bound = </span><span class="kc">false</span>
 
 <span class="nx">$</span> <span class="nf">-&gt;</span>
   <span class="nx">loadFacebookSDK</span><span class="p">()</span>
+  <span class="nx">bindFacebookEvents</span><span class="p">()</span> <span class="k">unless</span> <span class="nx">fb_events_bound</span>
+
+<span class="nv">bindFacebookEvents = </span><span class="nf">-&gt;</span>
   <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s">'page:fetch'</span><span class="p">,</span> <span class="nx">saveFacebookRoot</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s">'page:change'</span><span class="p">,</span> <span class="nx">restoreFacebookRoot</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s">'page:load'</span><span class="p">,</span> <span class="nf">-&gt;</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">'parsing fb'</span>
       <span class="nx">FB</span><span class="o">?</span><span class="p">.</span><span class="nx">XFBML</span><span class="p">.</span><span class="nx">parse</span><span class="p">()</span>
     <span class="p">)</span>
+  <span class="nv">fb_events_bound = </span><span class="kc">true</span>
 
 <span class="nv">saveFacebookRoot = </span><span class="nf">-&gt;</span>
   <span class="nv">fb_root = </span><span class="nx">$</span><span class="p">(</span><span class="s">'#fb-root'</span><span class="p">).</span><span class="nx">detach</span><span class="p">()</span>
@@ -175,7 +181,7 @@
     <span class="nv">xfbml     : </span><span class="kc">true</span></code></pre>
 <p><em>Related Turbolinks issues:</em> <a href="https://github.com/rails/turbolinks/issues/25">#25</a>, <a href="https://github.com/rails/turbolinks/issues/62">#62</a></p>
 
-<p><em>Credit:</em> <a href="https://github.com/pomartel">Pierre Olivier Martel</a>, <a href="https://github.com/reed">Nick Reed</a></p>
+<p><em>Credit:</em> <a href="https://github.com/pomartel">Pierre Olivier Martel</a>, <a href="https://github.com/reed">Nick Reed</a>, <a href="https://github.com/rickypai">@rickypai</a></p>
 					</div>
           <hr>
 <p class="well well-small">
