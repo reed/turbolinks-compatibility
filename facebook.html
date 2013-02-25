@@ -145,12 +145,13 @@
 <pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="nv">fb_root = </span><span class="kc">null</span>
 
 <span class="nx">$</span> <span class="nf">-&gt;</span>
-  <span class="nx">load_facebook_sdk</span><span class="p">()</span>
+  <span class="nx">loadFacebookSDK</span><span class="p">()</span>
   <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s">'page:fetch'</span><span class="p">,</span> <span class="nx">saveFacebookRoot</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s">'page:change'</span><span class="p">,</span> <span class="nx">restoreFacebookRoot</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s">'page:load'</span><span class="p">,</span> <span class="nf">-&gt;</span>
       <span class="nx">FB</span><span class="o">?</span><span class="p">.</span><span class="nx">XFBML</span><span class="p">.</span><span class="nx">parse</span><span class="p">()</span>
+    <span class="p">)</span>
 
 <span class="nv">saveFacebookRoot = </span><span class="nf">-&gt;</span>
   <span class="nv">fb_root = </span><span class="nx">$</span><span class="p">(</span><span class="s">'#fb-root'</span><span class="p">).</span><span class="nx">detach</span><span class="p">()</span>
