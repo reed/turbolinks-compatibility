@@ -12,6 +12,8 @@
       background: url('/images/bg.gif') repeat center center; 
     }
 		</style>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="/javascripts/application.js"></script>
     <script src="/javascripts/turbolinks.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap_custom.css" media="screen">
     <link rel="stylesheet" type="text/css" href="/css/github.css" media="screen">
@@ -20,6 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
+    <div id="fb-root"></div>
 		<%= render 'header' %>
     <section id="content" class="container-fluid">
       <div class="row-fluid">
@@ -27,6 +30,7 @@
         <div id="main" class="span10">
 					<div class="markdown-body">
             <%= yield %>
+            <script src="//platform.twitter.com/widgets.js"></script>
 					</div>
           <%= render 'disclaimer' if item[:filename].include?('libraries') %>
         </div>

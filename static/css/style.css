@@ -56,6 +56,13 @@ footer p:last-child {
   padding: 40px 10px;
   text-align: center;
 }
+.social-plugins {
+  text-align: right;
+}
+.social-plugins .twitter-share-button, .social-plugins .fb-like {
+  display: block;
+  float: right;
+}
 hr {
   border-top: 1px solid rgb(178, 195, 214);
 }
