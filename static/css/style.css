@@ -55,13 +55,27 @@ footer p:last-child {
   border-radius: 0px 0px 6px 6px;
   padding: 40px 10px;
   text-align: center;
+  position: relative;
 }
 .social-plugins {
-  text-align: right;
+  position: absolute;
+  right: 5px;
+  bottom: -30px;
+  opacity: 0.6;
+  transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+}
+.social-plugins:hover {
+  opacity: 1;
 }
 .social-plugins .twitter-share-button, .social-plugins .fb-like {
-  display: block;
   float: right;
+}
+.social-plugins .twitter-share-button {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 hr {
   border-top: 1px solid rgb(178, 195, 214);

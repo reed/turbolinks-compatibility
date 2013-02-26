@@ -10,13 +10,16 @@ class TCMarkup < Redcarpet::Render::HTML
   def header(text, header_level)
     output = "<h#{header_level}>#{text}</h#{header_level}>"
     if header_level == 1
-      output = "<div class=\"hero-unit\">#{output}</div>"
-      output += "<div class=\"social-plugins\">#{like_button + tweet_button}</div>"
+      output = "<div class=\"hero-unit\">#{output + social_plugins}</div>"
     end 
     output
   end
 
   private
+  
+  def social_plugins
+    "<div class=\"social-plugins\">#{like_button + tweet_button}</div>"
+  end
   
   def tweet_button
     "<a href=\"https://twitter.com/share\" class=\"twitter-share-button\" data-hashtags=\"turbolinks\" data-dnt=\"true\">Tweet</a>"
