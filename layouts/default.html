@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Turbolinks Compatibility <%= "- #{title(@item)}" if item[:filename].include?('libraries') %></title>
+    <title>Turbolinks Compatibility <%= "with #{title(@item)}" if item[:filename].include?('libraries') %></title>
 		<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -13,6 +13,7 @@
     }
 		</style>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="//platform.twitter.com/widgets.js"></script>
     <script src="/javascripts/application.js"></script>
     <script src="/javascripts/turbolinks.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap_custom.css" media="screen">
@@ -30,7 +31,6 @@
         <div id="main" class="span10">
 					<div class="markdown-body">
             <%= yield %>
-            <script src="//platform.twitter.com/widgets.js"></script>
 					</div>
           <%= render 'disclaimer' if item[:filename].include?('libraries') %>
         </div>

@@ -22,7 +22,7 @@ class TCMarkup < Redcarpet::Render::HTML
   end
   
   def tweet_button
-    "<a href=\"https://twitter.com/share\" class=\"twitter-share-button\" data-url=\"http://reed.github.com/turbolinks-compatibility\" data-text=\"Turbolinks Compatibility\" data-hashtags=\"turbolinks\" data-dnt=\"true\">Tweet</a>"
+    "<a href=\"https://twitter.com/share\" class=\"twitter-share-button\" data-hashtags=\"turbolinks\" data-dnt=\"true\">Tweet</a>"
   end
   
   def like_button

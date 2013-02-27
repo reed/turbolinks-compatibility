@@ -1,10 +1,11 @@
+# Facebook button
 fb_root = null
 fb_events_bound = false
 
 $ ->
   loadFacebookSDK()
   bindFacebookEvents() unless fb_events_bound
-
+ 
 bindFacebookEvents = ->
   $(document)
     .on('page:fetch', saveFacebookRoot)
@@ -32,3 +33,14 @@ initializeFacebookSDK = ->
     status    : true
     cookie    : true
     xfbml     : true
+
+# Twitter button
+$ ->
+  $(document).on 'page:load', renderTweetButtons
+      
+renderTweetButtons = ->
+  $('.twitter-share-button').each ->
+    button = $(this)
+    button.attr('data-url', document.location.href) unless button.data('url')?
+    button.attr('data-text', document.title) unless button.data('text')?  
+  twttr.widgets.load()
