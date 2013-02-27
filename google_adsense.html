@@ -134,7 +134,7 @@
 
 <pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
 <span class="nx">google_ad_client</span> <span class="o">=</span> <span class="s2">"ca-pub-1234567890123456"</span><span class="p">;</span>
-<span class="nx">google_ad_slot</span> <span class="o">=</span> <span class="s2">"4746598348"</span><span class="p">;</span>
+<span class="nx">google_ad_slot</span> <span class="o">=</span> <span class="s2">"1234567890"</span><span class="p">;</span>
 <span class="nx">google_ad_width</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
 <span class="nx">google_ad_height</span> <span class="o">=</span> <span class="mi">250</span><span class="p">;</span>
 <span class="nt">&lt;/script&gt;</span>
@@ -169,7 +169,7 @@
     <span class="vi">@ads = </span><span class="p">{}</span>
 
   <span class="nv">newAd: </span><span class="nf">(container, options) -&gt;</span>
-    <span class="nv">id = </span><span class="nx">options</span><span class="p">.</span><span class="nx">format</span> <span class="o">+</span> <span class="s">'_'</span> <span class="o">+</span> <span class="nx">container</span><span class="p">.</span><span class="nx">id</span>
+    <span class="nv">id = </span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">format</span> <span class="o">||</span> <span class="s">'ad'</span><span class="p">)</span> <span class="o">+</span> <span class="s">'_'</span> <span class="o">+</span> <span class="nx">container</span><span class="p">.</span><span class="nx">id</span>
     <span class="nx">@ads</span><span class="p">[</span><span class="nx">id</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Ad</span> <span class="nx">@</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">container</span><span class="p">,</span> <span class="nx">options</span></code></pre>
 
 <pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="k">class</span> <span class="nx">Ad</span>
@@ -185,7 +185,7 @@
     <span class="vi">@ad_object = </span><span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">ads</span><span class="p">.</span><span class="nx">Ad</span> <span class="nx">@adsense</span><span class="p">.</span><span class="nx">ad_client</span><span class="p">,</span> <span class="nx">@container</span><span class="p">,</span> <span class="nx">@options</span></code></pre>
 </li>
 <li>
-<p>Add this line to your application's JS to initialize adsense</p>  
+<p>Add this line to your application's JS  (after the classes have been defined) to initialize AdSense</p>  
 
 
 <pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="nb">window</span><span class="p">.</span><span class="nv">MyAdSense = </span><span class="k">new</span> <span class="nx">AdSense</span> <span class="s">"ca-pub-1234567890123456"</span> <span class="c1"># your google_ad_client id</span></code></pre>
@@ -205,8 +205,7 @@
 
 <pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;script&gt;</span>
 <span class="nb">window</span><span class="p">.</span><span class="nx">MyAdSense</span><span class="p">.</span><span class="nx">newAd</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'my_ad'</span><span class="p">),</span> <span class="p">{</span>
-  <span class="s1">'format'</span><span class="o">:</span> <span class="nx">google</span><span class="p">.</span><span class="nx">ads</span><span class="p">.</span><span class="nx">LEADERBOARD</span><span class="p">,</span>
-  <span class="s1">'ad_slot'</span><span class="o">:</span> <span class="s2">"4746598348"</span><span class="p">,</span>
+  <span class="s1">'ad_slot'</span><span class="o">:</span> <span class="s2">"1234567890"</span><span class="p">,</span>
   <span class="s1">'ad_width'</span><span class="o">:</span> <span class="mi">300</span><span class="p">,</span>
   <span class="s1">'ad_height'</span><span class="o">:</span> <span class="mi">250</span>
 <span class="p">});</span>
