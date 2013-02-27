@@ -1,5 +1,5 @@
 (function() {
-  var bindFacebookEvents, fb_events_bound, fb_root, initializeFacebookSDK, loadFacebookSDK, restoreFacebookRoot, saveFacebookRoot;
+  var bindFacebookEvents, fb_events_bound, fb_root, initializeFacebookSDK, loadFacebookSDK, renderTweetButtons, restoreFacebookRoot, saveFacebookRoot;
 
   fb_root = null;
 
@@ -42,6 +42,24 @@
       cookie: true,
       xfbml: true
     });
+  };
+
+  $(function() {
+    return $(document).on('page:load', renderTweetButtons);
+  });
+
+  renderTweetButtons = function() {
+    $('.twitter-share-button').each(function() {
+      var button;
+      button = $(this);
+      if (button.data('url') == null) {
+        button.attr('data-url', document.location.href);
+      }
+      if (button.data('text') == null) {
+        return button.attr('data-text', document.title);
+      }
+    });
+    return twttr.widgets.load();
   };
 
 }).call(this);
