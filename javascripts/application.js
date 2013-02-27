@@ -1,5 +1,5 @@
 (function() {
-  var bindFacebookEvents, fb_events_bound, fb_root, initializeFacebookSDK, loadFacebookSDK, renderTweetButtons, restoreFacebookRoot, saveFacebookRoot;
+  var bindFacebookEvents, bindTwitterEventHandlers, fb_events_bound, fb_root, initializeFacebookSDK, loadFacebookSDK, renderTweetButtons, restoreFacebookRoot, saveFacebookRoot, twttr_events_bound;
 
   fb_root = null;
 
@@ -44,9 +44,18 @@
     });
   };
 
+  twttr_events_bound = false;
+
   $(function() {
-    return $(document).on('page:load', renderTweetButtons);
+    if (!twttr_events_bound) {
+      return bindTwitterEventHandlers();
+    }
   });
+
+  bindTwitterEventHandlers = function() {
+    $(document).on('page:load', renderTweetButtons);
+    return twttr_events_bound = true;
+  };
 
   renderTweetButtons = function() {
     $('.twitter-share-button').each(function() {
