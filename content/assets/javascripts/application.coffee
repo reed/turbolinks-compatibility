@@ -35,9 +35,15 @@ initializeFacebookSDK = ->
     xfbml     : true
 
 # Twitter button
+twttr_events_bound = false
+
 $ ->
+  bindTwitterEventHandlers() unless twttr_events_bound
+
+bindTwitterEventHandlers = ->
   $(document).on 'page:load', renderTweetButtons
-      
+  twttr_events_bound = true
+
 renderTweetButtons = ->
   $('.twitter-share-button').each ->
     button = $(this)
