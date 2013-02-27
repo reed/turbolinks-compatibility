@@ -70,6 +70,8 @@ initializeFacebookSDK = ->
     xfbml     : true
 ```
 
+*This solution is implemented on this site.*
+
 *Related Turbolinks issues:* [#25](https://github.com/rails/turbolinks/issues/25), [#62](https://github.com/rails/turbolinks/issues/62)
 
 *Credit:* [Pierre Olivier Martel](https://github.com/pomartel), [Nick Reed](https://github.com/reed), [@rickypai](https://github.com/rickypai)
