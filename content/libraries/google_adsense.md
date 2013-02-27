@@ -11,7 +11,7 @@ title: "Google AdSense"
 ```html
 <script type="text/javascript">
 google_ad_client = "ca-pub-1234567890123456";
-google_ad_slot = "4746598348";
+google_ad_slot = "1234567890";
 google_ad_width = 300;
 google_ad_height = 250;
 </script>
@@ -47,7 +47,7 @@ google_ad_height = 250;
         @ads = {}
   
       newAd: (container, options) ->
-        id = options.format + '_' + container.id
+        id = (options.format || 'ad') + '_' + container.id
         @ads[id] = new Ad @, id, container, options
     ```
     ```coffeescript
@@ -64,7 +64,7 @@ google_ad_height = 250;
         @ad_object = new google.ads.Ad @adsense.ad_client, @container, @options
     ```
 
-3. Add this line to your application's JS to initialize adsense
+3. Add this line to your application's JS  (after the classes have been defined) to initialize AdSense
 
     ```coffeescript
     window.MyAdSense = new AdSense "ca-pub-1234567890123456" # your google_ad_client id
@@ -84,8 +84,7 @@ google_ad_height = 250;
     ```html
     <script>
     window.MyAdSense.newAd(document.getElementById('my_ad'), {
-      'format': google.ads.LEADERBOARD,
-      'ad_slot': "4746598348",
+      'ad_slot': "1234567890",
       'ad_width': 300,
       'ad_height': 250
     });
