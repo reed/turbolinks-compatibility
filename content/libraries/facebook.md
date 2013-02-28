@@ -43,7 +43,6 @@ bindFacebookEvents = ->
     .on('page:fetch', saveFacebookRoot)
     .on('page:change', restoreFacebookRoot)
     .on('page:load', ->
-      console.log 'parsing fb'
       FB?.XFBML.parse()
     )
   fb_events_bound = true
