@@ -1,34 +1,42 @@
 <!DOCTYPE HTML>
 <html lang="en">
-<head>
+  <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<title>Turbolinks Compatibility with Olark</title>
-<!--[if lt IE 9]>
+    <meta charset="utf-8">
+    <title>Turbolinks Compatibility with Olark</title>
+		<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]--><style>
+		<![endif]-->
+		<style>
 		body { 
       padding-top: 40px;
       background: url('images/bg.gif') repeat center center; 
     }
 		</style>
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script><script src="//platform.twitter.com/widgets.js"></script><script src="javascripts/application.js"></script><script src="javascripts/turbolinks.js"></script><link rel="stylesheet" type="text/css" href="css/bootstrap_custom.css" media="screen">
-<link rel="stylesheet" type="text/css" href="css/github.css" media="screen">
-<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
-<link rel="shortcut icon" type="image/png" href="images/favicon.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="//platform.twitter.com/widgets.js"></script>
+    <script src="javascripts/application.js"></script>
+    <script src="javascripts/turbolinks.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap_custom.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="css/github.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
     <div id="fb-root"></div>
-		<header class="navbar navbar-fixed-top"><div class="navbar-inner">
+		<header class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
 		<div class="container-fluid">
 			<a class="brand" href="./">Turbolinks <span class="bracketed">{ <span>compatibility</span> }</span></a>
 		</div>
 	</div>
-</header><section id="content" class="container-fluid"><div class="row-fluid">
+</header>
+    <section id="content" class="container-fluid">
+      <div class="row-fluid">
         <div id="sidebar" class="span2">
   <ul class="nav nav-list">
-<li><a href="./">Home</a></li>
+		<li><a href="./">Home</a></li>
 		<li class="nav-header">Solutions</li>
     
       
@@ -70,6 +78,12 @@
       
       <li class="active">
 				<a href="olark.html">Olark</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="piwik.html">Piwik</a>
 			</li>
       
     
@@ -147,11 +161,12 @@
 <h3>Solution</h3>
 <p>To get it working with Turbolinks:</p>
 
-<ol>
+<ol>  
 <li>Move the script inside the head tags.</li>  
 <li>Convert the anonymous initialization function into a named function.</li>  
 <li>Bind this new function to the <code>page:load</code> event.</li>  
 </ol>
+
 <p>An example solution, in jQuery:</p>  
 
 
@@ -174,7 +189,8 @@
 
 <p><em>Related Turbolinks issue:</em> <a href="https://github.com/rails/turbolinks/issues/166">#166</a></p>
 
-<p><em>Credit:</em> <a href="https://github.com/Empact">Ben Woosley</a></p>
+<p><em>Credit:</em> <a href="https://github.com/Empact">Ben Woosley</a></p>  
+
 					</div>
           <hr>
 <p class="well well-small">
@@ -185,7 +201,9 @@
 </p>
         </div>
       </div>
-    </section><footer><div class="container-fluid">
+    </section>
+		<footer>
+	<div class="container-fluid">
     <p>
 			Developed by <a href="http://github.com/reed">@reed</a>
 		</p>
@@ -199,5 +217,5 @@
     </p>
 	</div>
 </footer>
-</body>
+  </body>
 </html>

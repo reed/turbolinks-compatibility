@@ -1,34 +1,42 @@
 <!DOCTYPE HTML>
 <html lang="en">
-<head>
+  <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<title>Turbolinks Compatibility </title>
-<!--[if lt IE 9]>
+    <meta charset="utf-8">
+    <title>Turbolinks Compatibility </title>
+		<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]--><style>
+		<![endif]-->
+		<style>
 		body { 
       padding-top: 40px;
       background: url('images/bg.gif') repeat center center; 
     }
 		</style>
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script><script src="//platform.twitter.com/widgets.js"></script><script src="javascripts/application.js"></script><script src="javascripts/turbolinks.js"></script><link rel="stylesheet" type="text/css" href="css/bootstrap_custom.css" media="screen">
-<link rel="stylesheet" type="text/css" href="css/github.css" media="screen">
-<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
-<link rel="shortcut icon" type="image/png" href="images/favicon.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="//platform.twitter.com/widgets.js"></script>
+    <script src="javascripts/application.js"></script>
+    <script src="javascripts/turbolinks.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap_custom.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="css/github.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
     <div id="fb-root"></div>
-		<header class="navbar navbar-fixed-top"><div class="navbar-inner">
+		<header class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
 		<div class="container-fluid">
 			<a class="brand" href="./">Turbolinks <span class="bracketed">{ <span>compatibility</span> }</span></a>
 		</div>
 	</div>
-</header><section id="content" class="container-fluid"><div class="row-fluid">
+</header>
+    <section id="content" class="container-fluid">
+      <div class="row-fluid">
         <div id="sidebar" class="span2">
   <ul class="nav nav-list">
-<li><a href="./">Home</a></li>
+		<li><a href="./">Home</a></li>
 		<li class="nav-header">Solutions</li>
     
       
@@ -70,6 +78,12 @@
       
       <li>
 				<a href="olark.html">Olark</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="piwik.html">Piwik</a>
 			</li>
       
     
@@ -135,12 +149,13 @@
 
 <p>Some common causes for these conflicts include:</p>
 
-<ul>
+<ul>  
 <li>Initialization bound to the DOM Ready event</li>  
 <li>Initialization code loading external scripts and appending elements to the document's <code>head</code>
 </li>  
 <li>The use of global variables on the <code>window</code> object.</li>  
 </ul>
+
 <p>If you're needing a solution that isn't on this site, try looking through the solutions that <em>are</em> here to get an idea of how you might approach solving your conflict.  Many of these plugins and snippets use similar methods of initialization, so you might just find what you're looking for where you least expect it.  </p>  
 <h2>Requests</h2>  
 <p>Are you having trouble with a library or plugin that's not on this site?  I'd be happy to work with you to find an acceptable solution that we can add to the site.  Just <a href="http://github.com/reed/turbolinks-compatibility/issues">submit an issue</a> to this project on <a href="http://github.com">Github</a>.</p>
@@ -149,18 +164,21 @@
 <h2>Contribute</h2>  
 <p>Have you successfully manipulated a third-party javascript library or plugin to work with Turbolinks?  Tell us what you did! Do you think one of our existing solutions can be improved?  Improve it!</p>
 
-<ol>
+<ol>  
 <li>Fork the <a href="http://github.com/reed/turbolinks-compatibility">turbolinks-compatibility</a> project on Github</li>  
 <li>Read the guidelines for contributing in the project's README</li>  
 <li>Make your changes</li>  
 <li>Submit a <a href="http://help.github.com/articles/using-pull-requests">pull request</a>
 </li>  
-</ol>
-</div>
+</ol>  
+
+					</div>
           
         </div>
       </div>
-    </section><footer><div class="container-fluid">
+    </section>
+		<footer>
+	<div class="container-fluid">
     <p>
 			Developed by <a href="http://github.com/reed">@reed</a>
 		</p>
@@ -174,5 +192,5 @@
     </p>
 	</div>
 </footer>
-</body>
+  </body>
 </html>
