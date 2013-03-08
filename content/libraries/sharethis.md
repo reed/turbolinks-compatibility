@@ -26,7 +26,8 @@ Remove the script tags from the `head` and add the following coffeescript to you
 ```coffeescript
 $ ->
   ShareThisTurbolinks.reload()
-  
+
+# if you're using jquery.turbolinks, you don't need this binding  
 $(document).on 'page:load', ->
   ShareThisTurbolinks.reload()
 
