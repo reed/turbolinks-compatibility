@@ -1,0 +1,18 @@
+<% if item[:contributors].length == 1 %>
+  <p>
+    <em>Credit: </em>
+    <a href="https://github.com/<%= item[:contributors][0][:user] %>">
+      <%= item[:contributors][0][:name] || "@#{item[:contributors][0][:user]}" %>
+    </a>
+  </p>
+<% else %>
+  <h6>Contributors</h6>
+  <ul>
+  <% item[:contributors].each do |contributor| %>
+    <li>
+      <a href="https://github.com/<%= contributor[:user] %>">
+        <%= contributor[:name] || "@#{contributor[:user]}" %>
+      </a>
+    </li>
+  <% end %>
+<% end %>

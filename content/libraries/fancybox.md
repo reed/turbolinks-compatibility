@@ -1,5 +1,13 @@
 ---
 title: FancyBox
+contributors:
+  - user:     R-osey
+  
+  - user:     jd-erreape
+    name:     Juan de Dios Herrero
+issues:
+  - repo:     rails/turbolinks
+    number:   96
 ---
 
 # FancyBox
@@ -14,7 +22,3 @@ For version 1.3.4, just add this to your application's javascript:
 $(document).bind 'page:change', ->
   $.fancybox.init()
 ```
-
-*Related Turbolinks issue:* [#96](https://github.com/rails/turbolinks/issues/96)
-
-*Credit:* [@R-osey](https://github.com/R-osey), [Juan de Dios Herrero](https://github.com/jd-erreape)

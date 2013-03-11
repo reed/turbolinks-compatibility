@@ -1,5 +1,11 @@
 ---
-title: "Google AdSense"
+title: Google AdSense
+contributors:
+  - user:     reed
+    name:     Nick Reed
+issues:
+  - repo:     rails/turbolinks
+    number:   151
 ---
 
 # Google AdSense
@@ -93,7 +99,3 @@ google_ad_height = 250;
 
 
 *Inspiration:* [www.redkart.com/google_adsense.html](http://www.redkart.com/google_adsense.html)
-
-*Related Turbolinks issue:* [#151](https://github.com/rails/turbolinks/issues/151)
-
-*Credit:* [Nick Reed](https://github.com/reed)

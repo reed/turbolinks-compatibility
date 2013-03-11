@@ -31,6 +31,8 @@
         <div id="main" class="span10">
 					<div class="markdown-body">
             <%= yield %>
+            <%= render 'issues' if item[:issues] %>
+            <%= render 'contributors' if item[:contributors] %>
 					</div>
           <%= render 'disclaimer' if item[:filename].include?('libraries') %>
         </div>

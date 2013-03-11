@@ -1,5 +1,14 @@
 ---
 title: Zopim
+contributors:
+  - user:     fpleme
+    name:     Fernão Paes Leme
+    
+  - user:     reed
+    name:     Nick Reed
+issues:
+  - repo:     rails/turbolinks
+    number:   131
 ---
 
 # Zopim Live Chat Widget
@@ -61,7 +70,3 @@ $(document).on('ready', zopim_chat);
 
 $(document).on('page:load', zopim_chat);
 ```
-
-*Related Turbolinks issue:* [#131](https://github.com/rails/turbolinks/issues/131)
-
-*Credit:* [Fernão Paes Leme](https://github.com/fpleme), [Nick Reed](https://github.com/reed)

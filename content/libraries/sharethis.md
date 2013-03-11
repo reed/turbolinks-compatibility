@@ -1,5 +1,11 @@
 ---
 title: ShareThis
+contributors:
+  - user:     reed
+    name:     Nick Reed
+issues:
+  - repo:     reed/turbolinks-compatibility
+    number:   4
 ---
 
 # ShareThis
@@ -53,7 +59,3 @@ ShareThisTurbolinks =
 ```
 
 This is known to work with the example shown in the official implementation above.  If you use a more advanced implementation of ShareThis, and you find this solution isn't working, [let me know](https://github.com/reed/turbolinks-compatibility/issues).
-
-*Related issue:* [#4](https://github.com/reed/turbolinks-compatibility/issues/4)
-
-*Credit:* [Nick Reed](https://github.com/reed)

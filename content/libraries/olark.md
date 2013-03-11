@@ -1,5 +1,11 @@
 ---
 title: Olark
+contributors:
+  - user:     Empact
+    name:     Ben Woosley
+issues:
+  - repo:     rails/turbolinks
+    number:   166
 ---
 
 # Olark Chat Widget 
@@ -52,7 +58,3 @@ $(document).bind('page:load', function(){
 ```
 
 For a more detailed explanation, check out [empact.posterous.com/running-olark-under-turbolinks](http://empact.posterous.com/running-olark-under-turbolinks).
-
-*Related Turbolinks issue:* [#166](https://github.com/rails/turbolinks/issues/166)
-
-*Credit:* [Ben Woosley](https://github.com/Empact)

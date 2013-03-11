@@ -1,5 +1,8 @@
 ---
-title: "Piwik"
+title: Piwik
+contributors:
+  - user:   halfdan
+    name:   Fabian Becker
 ---
 
 # Piwik - Open Source Web Analytics
@@ -15,5 +18,3 @@ $(document).on 'page:change', ->
   else if window.piwikTracker?
     piwikTracker.trackPageview()
 ```
-
-*Credit:* [Fabian Becker](https://github.com/halfdan)

@@ -1,5 +1,11 @@
 ---
 title: Twitter
+contributors:
+  - user:     reed
+    name:     Nick Reed
+issues:
+  - repo:     rails/turbolinks
+    number:   119
 ---
 
 # Twitter Buttons
@@ -76,7 +82,3 @@ renderTweetButtons = ->
     button.attr('data-text', document.title) unless button.data('text')?  
   twttr.widgets.load()
 ```
-
-*Related Turbolinks issue:* [#119](https://github.com/rails/turbolinks/issues/119)
-
-*Credit:* [Nick Reed](https://github.com/reed)

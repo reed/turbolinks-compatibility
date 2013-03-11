@@ -1,5 +1,11 @@
 ---
 title: Map-Generator
+contributors:
+  - user:     reed
+    name:     Nick Reed
+issues:
+  - repo:     rails/turbolinks
+    number:   156
 ---
 
 # Map-Generator
@@ -60,7 +66,3 @@ This solution handles multiple maps on the same page or on separate pages of the
       $('[src*="maps.gstatic.com"]').remove()
       window.eval initMapGenerator.text() if init and (initMapGenerator = $('script.init_map_generator'))?
     ```
-
-*Related Turbolinks issue:* [#156](https://github.com/rails/turbolinks/issues/156)
-
-*Credit:* [Nick Reed](https://github.com/reed)

@@ -1,5 +1,18 @@
 ---
 title: Facebook
+contributors:
+  - user:       pomartel
+    name:       Pierre Olivier Martel
+    
+  - user:       reed
+    name:       Nick Reed
+    
+  - user:       rickypai
+issues:
+  - repo:     rails/turbolinks
+    number:   25
+  - repo:     rails/turbolinks
+    number:   62
 ---
 
 # Facebook Social Plugins
@@ -70,7 +83,3 @@ initializeFacebookSDK = ->
 ```
 
 *This solution is implemented on this site.*
-
-*Related Turbolinks issues:* [#25](https://github.com/rails/turbolinks/issues/25), [#62](https://github.com/rails/turbolinks/issues/62)
-
-*Credit:* [Pierre Olivier Martel](https://github.com/pomartel), [Nick Reed](https://github.com/reed), [@rickypai](https://github.com/rickypai)

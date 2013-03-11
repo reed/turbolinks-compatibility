@@ -1,0 +1,6 @@
+<p>
+  <em>Related Issues:</em> 
+  <%= item[:issues].map do |i| 
+    '<a href="https://github.com/' + i[:repo] + '/issues/' + i[:number].to_s + '">#' + i[:number].to_s + '</a>'
+  end.join(', ') %>
+</p>

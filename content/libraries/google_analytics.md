@@ -1,5 +1,11 @@
 ---
-title: "Google Analytics"
+title: Google Analytics
+contributors:
+  - user:     shukydvir
+    name:     Shuky Dvir
+issues:
+  - repo:     rails/turbolinks
+    number:   166
 ---
 
 # Google Analytics
@@ -15,7 +21,3 @@ $(document).on 'page:change', ->
   else if window.pageTracker?
     pageTracker._trackPageview()
 ```
-
-*Related Turbolinks issue:* [#166](https://github.com/rails/turbolinks/issues/166)
-
-*Credit:* [Shuky Dvir](https://github.com/shukydvir)
