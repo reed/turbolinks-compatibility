@@ -3,6 +3,8 @@ title: Google AdSense
 contributors:
   - user:     reed
     name:     Nick Reed
+  - user:     guangnan
+    name:     Cheng Guangnan
 issues:
   - repo:     rails/turbolinks
     number:   151
@@ -51,6 +53,8 @@ google_ad_height = 250;
     
       clearAds: ->
         @ads = {}
+        window.google_prev_ad_slotnames_by_region[''] = '' if window.google_prev_ad_slotnames_by_region
+        window.google_num_ad_slots = 0
   
       newAd: (container, options) ->
         id = (options.format || 'ad') + '_' + container.id
