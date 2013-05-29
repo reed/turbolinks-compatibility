@@ -187,6 +187,8 @@
 
   <span class="nv">clearAds: </span><span class="nf">-&gt;</span>
     <span class="vi">@ads = </span><span class="p">{}</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">google_prev_ad_slotnames_by_region</span><span class="p">[</span><span class="s">''</span><span class="p">]</span> <span class="o">=</span> <span class="s">''</span> <span class="k">if</span> <span class="nb">window</span><span class="p">.</span><span class="nx">google_prev_ad_slotnames_by_region</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nv">google_num_ad_slots = </span><span class="mi">0</span>
 
   <span class="nv">newAd: </span><span class="nf">(container, options) -&gt;</span>
     <span class="nv">id = </span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">format</span> <span class="o">||</span> <span class="s">'ad'</span><span class="p">)</span> <span class="o">+</span> <span class="s">'_'</span> <span class="o">+</span> <span class="nx">container</span><span class="p">.</span><span class="nx">id</span>
@@ -240,14 +242,24 @@
   <a href="https://github.com/rails/turbolinks/issues/151">#151</a>
 </p>
             
-  <p>
-    <em>Credit: </em>
-    <a href="https://github.com/reed">
-      Nick Reed
-    </a>
-  </p>
+  <h6>Contributors</h6>
+  <ul>
+  
+    <li>
+      <a href="https://github.com/reed">
+        Nick Reed
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://github.com/guangnan">
+        Cheng Guangnan
+      </a>
+    </li>
+  
 
-					</div>
+					</ul>
+</div>
           <hr>
 <p class="well well-small">
 	<i class="icon-flag"></i> All solutions should be considered <strong class="text-success">unofficial</strong>. 
