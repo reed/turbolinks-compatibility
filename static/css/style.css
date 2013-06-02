@@ -77,6 +77,9 @@ footer p:last-child {
   padding-top: 5px;
   padding-bottom: 5px;
 }
+.social-plugins .fb-like span {
+  vertical-align: middle;
+}
 hr {
   border-top: 1px solid rgb(178, 195, 214);
 }
