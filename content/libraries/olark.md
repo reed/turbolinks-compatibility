@@ -56,5 +56,3 @@ $(document).bind('page:load', function(){
   olark.identify('<your identity string>');
 });
 ```
-
-For a more detailed explanation, check out [empact.posterous.com/running-olark-under-turbolinks](http://empact.posterous.com/running-olark-under-turbolinks).
