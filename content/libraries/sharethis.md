@@ -43,7 +43,7 @@ $(document).on 'page:restore', ->
 ShareThisTurbolinks =
   load: ->
     window.switchTo5x = false
-    $.getScript 'https://w.sharethis.com/button/buttons.js', ->
+    $.getScript 'https://ws.sharethis.com/button/buttons.js', ->
       window.stLight.options
         publisher: 'your-publisher-id'
   
