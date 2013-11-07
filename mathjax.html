@@ -3,7 +3,7 @@
   <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Turbolinks Compatibility with Stripe</title>
+    <title>Turbolinks Compatibility with MathJax</title>
 		<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -82,7 +82,7 @@
       
     
       
-      <li>
+      <li class="active">
 				<a href="mathjax.html">MathJax</a>
 			</li>
       
@@ -106,7 +106,7 @@
       
     
       
-      <li class="active">
+      <li>
 				<a href="stripe.html">Stripe</a>
 			</li>
       
@@ -153,27 +153,87 @@
         <div id="main" class="span10">
 					<div class="markdown-body">
             <div class="hero-unit">
-<h1>Stripe Checkout</h1>
+<h1>MathJax</h1>
 <div class="social-plugins">
 <div class="fb-like" data-send="true" data-layout="button_count" data-show-faces="false"></div>
 <a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="turbolinks" data-dnt="true">Tweet</a>
 </div>
 </div>  
 <blockquote>  
-<p><strong><a href="https://stripe.com/docs/checkout">stripe.com/docs/checkout</a></strong></p>  
-</blockquote>
+<p><strong><a href="http://mathjax.org">mathjax.org</a></strong></p>  
+</blockquote>  
+<h3>Official Implementation</h3>
 
-<p>As of version 2 of the Stripe API, the official implementation is Turbolinks-ready.</p>  
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/x-mathjax-config"</span><span class="nt">&gt;</span>
+  <span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">Config</span><span class="p">({</span>
+    <span class="nx">showMathMenu</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span></code></pre>
+<h3>Simple Solution</h3>  
+<p>Remove the script tags from the <code>head</code> and add the following coffeescript to your application:</p>  
+
+
+<pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="nx">$</span> <span class="nf">-&gt;</span>
+  <span class="nx">loadMathJax</span><span class="p">()</span>
+  <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span> <span class="s">'page:load'</span><span class="p">,</span> <span class="nx">loadMathJax</span>
+
+<span class="nv">loadMathJax = </span><span class="nf">-&gt;</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nv">MathJax = </span><span class="kc">null</span>
+  <span class="nx">$</span><span class="p">.</span><span class="nx">getScript</span> <span class="s">"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">Config</span>
+      <span class="nv">showMathMenu: </span><span class="kc">false</span></code></pre>
+<h3>Advanced Solution <em>(with AJAX caching)</em>
+</h3>
+<ol>  
+<li><p>Remove the script tags from the <code>head</code>.</p></li>  
+<li>
+<p>Define this classes somewhere in your application's JS:</p>  
+
+
+<pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="k">class</span> <span class="nx">MathJax</span>
+  <span class="nv">constructor: </span><span class="nf">(@options) -&gt;</span>
+    <span class="nx">@bind</span><span class="p">()</span>
+
+  <span class="nv">load: </span><span class="o">=&gt;</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nv">MathJax = </span><span class="kc">null</span>
+    <span class="nx">@_fetch</span><span class="p">().</span><span class="nx">done</span> <span class="o">=&gt;</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">Config</span> <span class="nx">@options</span>
+
+  <span class="nv">bind: </span><span class="nf">-&gt;</span>
+    <span class="nx">$</span> <span class="o">=&gt;</span> <span class="nx">@load</span><span class="p">()</span>
+    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span> <span class="s">'page:load'</span><span class="p">,</span> <span class="nx">@load</span>
+
+  <span class="nv">unbind: </span><span class="nf">-&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">off</span> <span class="s">'page:load'</span><span class="p">,</span> <span class="nx">@load</span>
+
+  <span class="c1"># private</span>
+
+  <span class="nv">_fetch: </span><span class="nf">-&gt;</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span>
+      <span class="nv">dataType: </span><span class="s">'script'</span>
+      <span class="nv">cache: </span><span class="kc">true</span>
+      <span class="nv">url: </span><span class="s">"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"</span></code></pre>
+</li>
+<li>
+<p>Add this line to your application's JS (after the class has been defined) to initialize MathJax</p>  
+
+
+<pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="k">new</span> <span class="nx">MathJax</span>
+  <span class="nv">showMathMenu: </span><span class="kc">false</span></code></pre>
+</li>
+</ol>  
 
             <p>
   <em>Related Issues:</em> 
-  <a href="https://github.com/rails/turbolinks/issues/87">#87</a>
+  <a href="https://github.com/reed/turbolinks-compatibility/issues/16">#16</a>
 </p>
             
   <p>
     <em>Credit: </em>
-    <a href="https://github.com/maccman">
-      Alex MacCaw
+    <a href="https://github.com/reed">
+      Nick Reed
     </a>
   </p>
 
