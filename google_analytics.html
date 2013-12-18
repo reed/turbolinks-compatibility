@@ -163,14 +163,65 @@
 <p><strong><a href="http://www.google.com/analytics/">google.com/analytics</a></strong></p>  
 </blockquote>
 
-<p>Move the javascript snippet from the head to the body and load the following script inside the <code>&lt;head&gt;</code>.</p>  
+<p>Many of the <a href="https://github.com/shukydvir/google-analytics-turbolinks">solutions</a> <a href="http://railsapps.github.io/rails-google-analytics.html">out</a> <a href="http://stackoverflow.com/questions/18945464/rails-4-turbolinks-with-google-analytics">there</a> either only work with Turbolinks and don't gracefully degrade, or track multiple page views on the initial page load. To get around this, you need to take the following approach:</p>
+
+<ol>  
+<li>Move the Google Analytics script from the <code>&lt;body&gt;</code> to the <code>&lt;head&gt;</code>. Modify it to not actually track the pageview -- you just want to initialize Google Analytics.</li>  
+<li>If the browser supports Turbolinks, and Turbolinks is initialized, set up a callback to track pageviews on every page:change event. (With Turbolinks &gt; 2.0.0, page:change is called on full page loads, as well as Turbolinks-driven page updates.)</li>  
+<li>If the browser doesn't support Turbolinks, or Turbolinks is not initialized, track the pageview.</li>  
+</ol>
+
+<p>Here's a coffeescript snippet that implements the approach above. It has a couple extra features which may be useful:</p>
+
+<ul>  
+<li>Supports not tracking local requests -- modify the isLocalRequest() method to suit your needs.</li>  
+<li>Supports multiple Google Analytics IDs -- test GoogleAnalytics.documentDomainIncludes('your-domain-name') in the analyticsID() function.</li>  
+<li>If you need to manually track pageviews in your other Coffee/JS, just call GoogleAnalytics.trackPageview()</li>  
+</ul>  
 
 
-<pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span> <span class="s">'page:change'</span><span class="p">,</span> <span class="nf">-&gt;</span>
-  <span class="k">if</span> <span class="nb">window</span><span class="p">.</span><span class="nx">_gaq</span><span class="o">?</span>
-    <span class="nx">_gaq</span><span class="p">.</span><span class="nx">push</span> <span class="p">[</span><span class="s">'_trackPageview'</span><span class="p">]</span>
-  <span class="k">else</span> <span class="k">if</span> <span class="nb">window</span><span class="p">.</span><span class="nx">pageTracker</span><span class="o">?</span>
-    <span class="nx">pageTracker</span><span class="p">.</span><span class="nx">_trackPageview</span><span class="p">()</span></code></pre>
+<pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="k">class</span> <span class="nx">@GoogleAnalytics</span>
+
+  <span class="vi">@load: </span><span class="nf">-&gt;</span>
+    <span class="c1"># Google Analytics depends on a global _gaq array. window is the global scope.</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nv">_gaq = </span><span class="p">[]</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">_gaq</span><span class="p">.</span><span class="nx">push</span> <span class="p">[</span><span class="s">"_setAccount"</span><span class="p">,</span> <span class="nx">GoogleAnalytics</span><span class="p">.</span><span class="nx">analyticsId</span><span class="p">()]</span>
+
+    <span class="c1"># Create a script element and insert it in the DOM</span>
+    <span class="nv">ga = </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s">"script"</span><span class="p">)</span>
+    <span class="nv">ga.type = </span><span class="s">"text/javascript"</span>
+    <span class="nv">ga.async = </span><span class="kc">true</span>
+    <span class="nv">ga.src = </span><span class="p">((</span><span class="k">if</span> <span class="s">"https:"</span> <span class="o">is</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">protocol</span> <span class="k">then</span> <span class="s">"https://ssl"</span> <span class="k">else</span> <span class="s">"http://www"</span><span class="p">))</span> <span class="o">+</span> <span class="s">".google-analytics.com/ga.js"</span>
+    <span class="nv">firstScript = </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s">"script"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="nx">firstScript</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span> <span class="nx">ga</span><span class="p">,</span> <span class="nx">firstScript</span>
+
+    <span class="c1"># If Turbolinks is supported, set up a callback to track pageviews on page:change.</span>
+    <span class="c1"># If it isn't supported, just track the pageview now.</span>
+    <span class="k">if</span> <span class="k">typeof</span> <span class="nx">Turbolinks</span> <span class="o">isnt</span> <span class="s">'undefined'</span> <span class="o">and</span> <span class="nx">Turbolinks</span><span class="p">.</span><span class="nx">supported</span>
+      <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="s">"page:change"</span><span class="p">,</span> <span class="p">(</span><span class="nf">-&gt;</span>
+        <span class="nx">GoogleAnalytics</span><span class="p">.</span><span class="nx">trackPageview</span><span class="p">()</span>
+      <span class="p">),</span> <span class="kc">true</span>
+    <span class="k">else</span>
+      <span class="nx">GoogleAnalytics</span><span class="p">.</span><span class="nx">trackPageview</span><span class="p">()</span>
+
+  <span class="vi">@trackPageview: </span><span class="nf">(url) -&gt;</span>
+    <span class="k">unless</span> <span class="nx">GoogleAnalytics</span><span class="p">.</span><span class="nx">isLocalRequest</span><span class="p">()</span>
+      <span class="k">if</span> <span class="nx">url</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nx">_gaq</span><span class="p">.</span><span class="nx">push</span> <span class="p">[</span><span class="s">"_trackPageview"</span><span class="p">,</span> <span class="nx">url</span><span class="p">]</span>
+      <span class="k">else</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nx">_gaq</span><span class="p">.</span><span class="nx">push</span> <span class="p">[</span><span class="s">"_trackPageview"</span><span class="p">]</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">_gaq</span><span class="p">.</span><span class="nx">push</span> <span class="p">[</span><span class="s">"_trackPageLoadTime"</span><span class="p">]</span>
+
+  <span class="vi">@isLocalRequest: </span><span class="nf">-&gt;</span>
+    <span class="nx">GoogleAnalytics</span><span class="p">.</span><span class="nx">documentDomainIncludes</span> <span class="s">"local"</span>
+
+  <span class="vi">@documentDomainIncludes: </span><span class="nf">(str) -&gt;</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">domain</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="o">isnt</span> <span class="o">-</span><span class="mi">1</span>
+
+  <span class="vi">@analyticsId: </span><span class="nf">-&gt;</span>
+    <span class="c1"># your google analytics ID(s) here...</span>
+
+<span class="nx">GoogleAnalytics</span><span class="p">.</span><span class="nx">load</span><span class="p">()</span></code></pre>
             <p>
   <em>Related Issues:</em> 
   <a href="https://github.com/rails/turbolinks/issues/166">#166</a>
@@ -178,8 +229,8 @@
             
   <p>
     <em>Credit: </em>
-    <a href="https://github.com/shukydvir">
-      Shuky Dvir
+    <a href="https://github.com/jonwolfe">
+      Jonathon Wolfe
     </a>
   </p>
 
