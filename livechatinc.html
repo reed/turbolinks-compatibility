@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Turbolinks Compatibility with LiveChat</title>
+		<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<style>
+		body { 
+      padding-top: 40px;
+      background: url('images/bg.gif') repeat center center; 
+    }
+		</style>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="//platform.twitter.com/widgets.js"></script>
+    <script src="javascripts/application.js"></script>
+    <script src="javascripts/turbolinks.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap_custom.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="css/github.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div id="fb-root"></div>
+		<header class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container-fluid">
+			<a class="brand" href="./">Turbolinks <span class="bracketed">{ <span>compatibility</span> }</span></a>
+		</div>
+	</div>
+</header>
+    <section id="content" class="container-fluid">
+      <div class="row-fluid">
+        <div id="sidebar" class="span2">
+  <ul class="nav nav-list">
+		<li><a href="./">Home</a></li>
+		<li class="nav-header">Solutions</li>
+    
+      
+    
+      
+    
+      
+    
+      
+      <li>
+				<a href="facebook.html">Facebook</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="fancybox.html">FancyBox</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="google_adsense.html">Google AdSense</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="google_analytics.html">Google Analytics</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="google_plus.html">Google+</a>
+			</li>
+      
+    
+      
+      <li class="active">
+				<a href="livechatinc.html">LiveChat</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="map_generator.html">Map-Generator</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="mathjax.html">MathJax</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="olark.html">Olark</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="piwik.html">Piwik</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="sharethis.html">ShareThis</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="stripe.html">Stripe</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="twitter.html">Twitter</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="zopim.html">Zopim</a>
+			</li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+		<li class="nav-header">Project</li>
+		<li><a href="http://github.com/reed/turbolinks-compatibility">Contribute!</a></li>
+		<li><a href="http://github.com/reed/turbolinks-compatibility/issues">Issues</a></li>
+    <li>
+      <iframe src="http://ghbtns.com/github-btn.html?user=reed&amp;repo=turbolinks-compatibility&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
+    </li>
+    <li>
+      <iframe src="http://ghbtns.com/github-btn.html?user=reed&amp;repo=turbolinks-compatibility&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
+    </li>
+		<li class="divider">
+		<li><a class="muted" href="https://github.com/reed">© Nick Reed</a></li>
+  </ul>
+</div>
+        <div id="main" class="span10">
+					<div class="markdown-body">
+            <div class="hero-unit">
+<h1>LiveChat (livechatinc) Plugin</h1>
+<div class="social-plugins">
+<div class="fb-like" data-send="true" data-layout="button_count" data-show-faces="false"></div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="turbolinks" data-dnt="true">Tweet</a>
+</div>
+</div>  
+<blockquote>  
+<p><strong><a href="https://www.livechatinc.com">livechatinc.com</a></strong></p>  
+</blockquote>  
+<h3>Official Implementation</h3>
+
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;script&gt;</span>
+  <span class="kd">var</span> <span class="nx">__lc</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="nx">__lc</span><span class="p">.</span><span class="nx">license</span> <span class="o">=</span> <span class="err">#######</span><span class="p">;</span>
+
+  <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">lc</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span> <span class="nx">lc</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s1">'text/javascript'</span><span class="p">;</span> <span class="nx">lc</span><span class="p">.</span><span class="nx">async</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="nx">lc</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'https:'</span> <span class="o">==</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">protocol</span> <span class="o">?</span> <span class="s1">'https://'</span> <span class="o">:</span> <span class="s1">'http://'</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'cdn.livechatinc.com/tracking.js'</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'script'</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span> <span class="nx">s</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">lc</span><span class="p">,</span> <span class="nx">s</span><span class="p">);</span>
+  <span class="p">})();</span>
+  <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span></code></pre>
+<h3>Solution</h3>  
+<p>Replace the javascript with the following:</p>  
+
+
+<pre><small class="language-label muted pull-right">JAVASCRIPT</small><code class="language-javascript"><span class="kd">var</span> <span class="nx">__lc</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">__lc</span><span class="p">.</span><span class="nx">license</span> <span class="o">=</span> <span class="err">#######</span><span class="p">;</span>
+
+<span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">delete</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">LC_API</span><span class="p">);</span>
+    <span class="k">delete</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">LC_Invite</span><span class="p">);</span>
+    <span class="k">delete</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">__lc_iframe_current_skill</span><span class="p">);</span>
+    <span class="k">delete</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">__lc_inited</span><span class="p">);</span>
+    <span class="k">delete</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">__lc_lang</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">lc</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span> <span class="nx">lc</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s1">'text/javascript'</span><span class="p">;</span> <span class="nx">lc</span><span class="p">.</span><span class="nx">async</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="nx">lc</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'https:'</span> <span class="o">==</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">protocol</span> <span class="o">?</span> <span class="s1">'https://'</span> <span class="o">:</span> <span class="s1">'http://'</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'cdn.livechatinc.com/tracking.js'</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'script'</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span> <span class="nx">s</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">lc</span><span class="p">,</span> <span class="nx">s</span><span class="p">);</span>
+<span class="p">})();</span></code></pre>
+            <p>
+  <em>Related Issues:</em> 
+  <a href="https://github.com/reed/turbolinks-compatibility/issues/21">#21</a>
+</p>
+            
+  <h6>Contributors</h6>
+  <ul>
+  
+    <li>
+      <a href="https://github.com/maddijoyce">
+        Maddi Joyce
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://github.com/reed">
+        Nick Reed
+      </a>
+    </li>
+  
+
+					</ul>
+</div>
+          <hr>
+<p class="well well-small">
+	<i class="icon-flag"></i> All solutions should be considered <strong class="text-success">unofficial</strong>. 
+	There is <strong class="text-success">no guarantee</strong> that a given solution will work with your application.  
+	If you find that a solution is insufficient, please let me know by 
+	<a href="http://github.com/reed/turbolinks-compatibility/issues">submitting an issue</a> on Github.
+</p>
+        </div>
+      </div>
+    </section>
+		<footer>
+	<div class="container-fluid">
+    <p>
+			Developed by <a href="http://github.com/reed">@reed</a>
+		</p>
+		<p>
+			with <a href="http://nanoc.ws">Nanoc</a>, 
+			<a href="http://github.com/vmg/redcarpet">Redcarpet</a>, and 
+			<a href="http://twitter.github.com/bootstrap/index.html">Twitter Bootstrap</a>
+		</p>
+    <p>
+      <iframe src="http://ghbtns.com/github-btn.html?user=reed&amp;type=follow&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="150" height="30"></iframe>
+    </p>
+	</div>
+</footer>
+  </body>
+</html>
