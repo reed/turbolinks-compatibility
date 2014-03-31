@@ -52,23 +52,13 @@ Replace the supplied javascript snippet with an external script tag pointing to 
 
 #### Solution #2
 
-Replace the supplied javascript snippet with an external script tag pointing to platform.twitter.com/widgets.js.  Place this script tag inside the document head.
-
-```html
-<head>
-  <script src="//platform.twitter.com/widgets.js"></script>
-</head>
-<body>
-  <a href="https://twitter.com/share" class="twitter-share-button" data-size="large">Tweet</a>
-</body>
-```
-
-Add the following code to your application's javascript (inside the document head):
+Remove the script from the body and load the following script inside the `<head>`.
 
 ```coffeescript
 twttr_events_bound = false
 
 $ ->
+  loadTwitterSDK()
   bindTwitterEventHandlers() unless twttr_events_bound
 
 bindTwitterEventHandlers = ->
@@ -79,6 +69,9 @@ renderTweetButtons = ->
   $('.twitter-share-button').each ->
     button = $(this)
     button.attr('data-url', document.location.href) unless button.data('url')?
-    button.attr('data-text', document.title) unless button.data('text')?  
+    button.attr('data-text', document.title) unless button.data('text')?
   twttr.widgets.load()
+
+loadTwitterSDK = ->
+  $.getScript("//platform.twitter.com/widgets.js")
 ```
