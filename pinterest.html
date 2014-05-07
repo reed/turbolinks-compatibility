@@ -3,7 +3,7 @@
   <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Turbolinks Compatibility with Google+</title>
+    <title>Turbolinks Compatibility with Pinterest</title>
 		<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -70,7 +70,7 @@
       
     
       
-      <li class="active">
+      <li>
 				<a href="google_plus.html">Google+</a>
 			</li>
       
@@ -106,7 +106,7 @@
       
     
       
-      <li>
+      <li class="active">
 				<a href="pinterest.html">Pinterest</a>
 			</li>
       
@@ -171,52 +171,65 @@
         <div id="main" class="span10">
 					<div class="markdown-body">
             <div class="hero-unit">
-<h1>Google+</h1>
+<h1>Pinterest</h1>
 <div class="social-plugins">
 <div class="fb-like" data-send="true" data-layout="button_count" data-show-faces="false"></div>
 <a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="turbolinks" data-dnt="true">Tweet</a>
 </div>
 </div>  
 <blockquote>  
-<p><strong><a href="https://developers.google.com/+/web/+1button/">developers.google.com/+/web/+1button</a></strong></p>  
+<p><strong><a href="http://business.pinterest.com/widget-builder/">business.pinterest.com/widget-builder/</a></strong></p>  
 </blockquote>  
 <h3>Official Implementation</h3>
 
-<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"https://apis.google.com/js/plusone.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;g:plusone&gt;&lt;/g:plusone&gt;</span></code></pre>
-<h3>Solution</h3>  
-<ol>  
-<li>
-<p>Move the script tag inside the <code>&lt;head&gt;</code> and set the loading mechanism to 'explicit'.</p>  
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fkentbrew%2F6851755809%2F&amp;media=http%3A%2F%2Ffarm8.staticflickr.com%2F7027%2F6851755809_df5b2051c9_z.jpg&amp;description=Next%20stop%3A%20Pinterest"</span> <span class="na">data-pin-do=</span><span class="s">"buttonPin"</span> <span class="na">data-pin-config=</span><span class="s">"above"</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">"//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png"</span> <span class="nt">/&gt;&lt;/a&gt;</span>
+<span class="c">&lt;!-- Please call pinit.js only once per page --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">async</span> <span class="na">src=</span><span class="s">"//assets.pinterest.com/js/pinit.js"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre>
+<h3>Solutions</h3>  
+<p>This fix relies on the fact that Pinterest loads it's code into a <code>PIN_12345</code>  
+variable where <code>12345</code> is the current day since epoch.  If you inspect the <code>pinit.js</code>  
+file you will see the same calculation used to determine the variable to delete.</p>
+
+<p>Remove the script tag from the <code>body</code> and the following coffeescript to your application:</p>  
 
 
-<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;head&gt;</span>
-  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"https://apis.google.com/js/plusone.js"</span> <span class="na">parsetags=</span><span class="s">"explicit"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;/head&gt;</span></code></pre>
-</li>
-<li>
-<p>Add the following lines to your application's javascript:</p>  
+<pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="nv">Pinterest =</span>
+  <span class="nv">load: </span><span class="nf">-&gt;</span>
+    <span class="k">delete</span> <span class="nb">window</span><span class="p">[</span><span class="s">"PIN_"</span><span class="o">+~~</span><span class="p">((</span><span class="k">new</span> <span class="nb">Date</span><span class="p">).</span><span class="nx">getTime</span><span class="p">()</span><span class="o">/</span><span class="mi">864</span><span class="nx">e5</span><span class="p">)]</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">getScript</span><span class="p">(</span><span class="s">"//assets.pinterest.com/js/pinit.js"</span><span class="p">)</span>
 
+<span class="nx">$</span> <span class="nf">-&gt;</span>
+  <span class="nx">Pinterest</span><span class="p">.</span><span class="nx">load</span><span class="p">()</span>
 
-<pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="nx">$</span> <span class="nf">-&gt;</span>
-  <span class="nx">gapi</span><span class="p">.</span><span class="nx">plusone</span><span class="p">.</span><span class="nx">go</span><span class="p">()</span>
-  <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span> <span class="s">'page:load'</span><span class="p">,</span> <span class="nx">gapi</span><span class="p">.</span><span class="nx">plusone</span><span class="p">.</span><span class="nx">go</span></code></pre>
-</li>
-</ol>  
+<span class="c1"># if you're using jquery.turbolinks, you don't need this binding</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span> <span class="s">'page:load'</span><span class="p">,</span> <span class="nf">-&gt;</span>
+  <span class="nx">Pinterest</span><span class="p">.</span><span class="nx">load</span><span class="p">()</span></code></pre>
+<p>Thanks to the <a href="http://www.meetup.com/vancouver-ruby/">VanRuby Meetup</a> for help  
+and pizza on developing this fix.</p>  
 
             <p>
   <em>Related Issues:</em> 
-  <a href="https://github.com/reed/turbolinks-compatibility/issues/9">#9</a>
+  <a href="https://github.com/reed/turbolinks-compatibility/issues/28">#28</a>
 </p>
             
-  <p>
-    <em>Credit: </em>
-    <a href="https://github.com/reed">
-      Nick Reed
-    </a>
-  </p>
+  <h6>Contributors</h6>
+  <ul>
+  
+    <li>
+      <a href="https://github.com/gshaw">
+        Gerry Shaw
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://github.com/rmarescu">
+        Razvan Marescu
+      </a>
+    </li>
+  
 
-					</div>
+					</ul>
+</div>
           <hr>
 <p class="well well-small">
 	<i class="icon-flag"></i> All solutions should be considered <strong class="text-success">unofficial</strong>. 
