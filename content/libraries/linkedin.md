@@ -1,4 +1,11 @@
-# Linkedin Buttons
+---
+title: LinkedIn
+contributors:
+  - user:   zpasal
+    name:   Zaharije Pasalic
+---
+
+# LinkedIn Share Button
 
 > **[linkedin.com/plugins/share-plugin-generator](https://developer.linkedin.com/plugins/share-plugin-generator)**
 
@@ -27,11 +34,12 @@ Remove the following script from `<body>`:
 Load the following script inside the `<head>`.
 
 ```coffeescript
+$ ->
+  loadLinkedIn()
+  $(document).on 'page:load', loadLinkedIn
+
 loadLinkedIn = ->
   delete IN
   $.getScript("//platform.linkedin.com/in.js")
   lang: 'en_US'
- 
-$(document).ready(loadLinkedIn)
-$(document).on('page:load', loadLinkedIn)
 ```
