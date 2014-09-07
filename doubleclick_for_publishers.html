@@ -1,0 +1,333 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Turbolinks Compatibility with DoubleClick for Publishers</title>
+		<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<style>
+		body { 
+      padding-top: 40px;
+      background: url('images/bg.gif') repeat center center; 
+    }
+		</style>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="//platform.twitter.com/widgets.js"></script>
+    <script src="javascripts/application.js"></script>
+    <script src="javascripts/turbolinks.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap_custom.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="css/github.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div id="fb-root"></div>
+		<header class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container-fluid">
+			<a class="brand" href="./">Turbolinks <span class="bracketed">{ <span>compatibility</span> }</span></a>
+		</div>
+	</div>
+</header>
+    <section id="content" class="container-fluid">
+      <div class="row-fluid">
+        <div id="sidebar" class="span2">
+  <ul class="nav nav-list">
+		<li><a href="./">Home</a></li>
+		<li class="nav-header">Solutions</li>
+    
+      
+    
+      
+    
+      
+    
+      
+      <li class="active">
+				<a href="doubleclick_for_publishers.html">DoubleClick for Publishers</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="facebook.html">Facebook</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="fancybox.html">FancyBox</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="google_adsense.html">Google AdSense</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="google_analytics.html">Google Analytics</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="google_plus.html">Google+</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="linkedin.html">LinkedIn</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="livechatinc.html">LiveChat</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="map_generator.html">Map-Generator</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="mathjax.html">MathJax</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="olark.html">Olark</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="picturefill.html">Picturefill</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="pinterest.html">Pinterest</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="piwik.html">Piwik</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="sharethis.html">ShareThis</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="stripe.html">Stripe</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="twitter.html">Twitter</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="zopim.html">Zopim</a>
+			</li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+		<li class="nav-header">Project</li>
+		<li><a href="http://github.com/reed/turbolinks-compatibility">Contribute!</a></li>
+		<li><a href="http://github.com/reed/turbolinks-compatibility/issues">Issues</a></li>
+    <li>
+      <iframe src="http://ghbtns.com/github-btn.html?user=reed&amp;repo=turbolinks-compatibility&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
+    </li>
+    <li>
+      <iframe src="http://ghbtns.com/github-btn.html?user=reed&amp;repo=turbolinks-compatibility&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
+    </li>
+		<li class="divider">
+		<li><a class="muted" href="https://github.com/reed">© Nick Reed</a></li>
+  </ul>
+</div>
+        <div id="main" class="span10">
+					<div class="markdown-body">
+            <div class="hero-unit">
+<h1>DoubleClick for Publishers</h1>
+<div class="social-plugins">
+<div class="fb-like" data-send="true" data-layout="button_count" data-show-faces="false"></div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="turbolinks" data-dnt="true">Tweet</a>
+</div>
+</div>  
+<blockquote>  
+<p><strong><a href="http://www.google.com/doubleclick/publishers/welcome/">google.com/dfp</a></strong></p>  
+</blockquote>  
+<h3>Official Implementation</h3>
+
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html">  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'text/javascript'</span><span class="nt">&gt;</span>
+  <span class="kd">var</span> <span class="nx">googletag</span> <span class="o">=</span> <span class="nx">googletag</span> <span class="o">||</span> <span class="p">{};</span>
+  <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span> <span class="o">=</span> <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span> <span class="o">||</span> <span class="p">[];</span>
+  <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">gads</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
+  <span class="nx">gads</span><span class="p">.</span><span class="nx">async</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="nx">gads</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s1">'text/javascript'</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">useSSL</span> <span class="o">=</span> <span class="s1">'https:'</span> <span class="o">==</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">protocol</span><span class="p">;</span>
+  <span class="nx">gads</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="p">(</span><span class="nx">useSSL</span> <span class="o">?</span> <span class="s1">'https:'</span> <span class="o">:</span> <span class="s1">'http:'</span><span class="p">)</span> <span class="o">+</span>
+  <span class="s1">'//www.googletagservices.com/tag/js/gpt.js'</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">node</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'script'</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="nx">node</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">gads</span><span class="p">,</span> <span class="nx">node</span><span class="p">);</span>
+  <span class="p">})();</span>
+  <span class="nt">&lt;/script&gt;</span>
+
+  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'text/javascript'</span><span class="nt">&gt;</span>
+  <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">googletag</span><span class="p">.</span><span class="nx">defineSlot</span><span class="p">(</span><span class="s1">'/123456789/ad'</span><span class="p">,</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="s1">'div-gpt-ad-123456789-0'</span><span class="p">).</span><span class="nx">addService</span><span class="p">(</span><span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">());</span>
+  <span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">().</span><span class="nx">enableSingleRequest</span><span class="p">();</span>
+  <span class="nx">googletag</span><span class="p">.</span><span class="nx">enableServices</span><span class="p">();</span>
+  <span class="p">});</span>
+  <span class="nt">&lt;/script&gt;</span></code></pre>
+
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html">  <span class="c">&lt;!-- Ad --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">'div-gpt-ad-123456789-0'</span> <span class="na">style=</span><span class="s">'width:200px; height:200px;'</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'text/javascript'</span><span class="nt">&gt;</span>
+  <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">googletag</span><span class="p">.</span><span class="nx">display</span><span class="p">(</span><span class="s1">'div-gpt-ad-123456789-0'</span><span class="p">);</span> <span class="p">});</span>
+  <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/div&gt;</span></code></pre>
+<h3>Solution</h3>  
+<ol>  
+<li>
+<p>Add the following script tag to the head, <strong>above</strong> the application.js file:</p>  
+
+
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'text/javascript'</span><span class="nt">&gt;</span>
+  <span class="kd">var</span> <span class="nx">googletag</span> <span class="o">=</span> <span class="nx">googletag</span> <span class="o">||</span> <span class="p">{};</span>
+  <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span> <span class="o">=</span> <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span> <span class="o">||</span> <span class="p">[];</span>
+  <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">gads</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
+    <span class="nx">gads</span><span class="p">.</span><span class="nx">async</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="nx">gads</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s1">'text/javascript'</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">useSSL</span> <span class="o">=</span> <span class="s1">'https:'</span> <span class="o">==</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">protocol</span><span class="p">;</span>
+    <span class="nx">gads</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="p">(</span><span class="nx">useSSL</span> <span class="o">?</span> <span class="s1">'https:'</span> <span class="o">:</span> <span class="s1">'http:'</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'//www.googletagservices.com/tag/js/gpt.js'</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">node</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'script'</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="nx">node</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">gads</span><span class="p">,</span> <span class="nx">node</span><span class="p">);</span>
+  <span class="p">})();</span>
+<span class="nt">&lt;/script&gt;</span></code></pre>
+</li>
+<li>
+<p>Define this class somewhere in your application's JS:</p>  
+
+
+<pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="k">class</span> <span class="nx">GooglePublisherTag</span>
+  <span class="nv">constructor: </span><span class="nf">-&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span> <span class="s">'page:change'</span><span class="p">,</span> <span class="nx">@clearAds</span>
+    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span> <span class="s">'page:load'</span><span class="p">,</span> <span class="o">=&gt;</span>
+      <span class="nx">@evaluate</span><span class="p">()</span>
+      <span class="nx">@refreshAds</span><span class="p">()</span>
+
+    <span class="nx">@evaluate</span><span class="p">()</span>
+
+  <span class="nv">evaluate: </span><span class="nf">-&gt;</span>
+    <span class="k">return</span> <span class="k">unless</span> <span class="nx">googletag</span><span class="o">?</span>
+    <span class="nx">@initAd</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">ad</span><span class="p">))</span> <span class="k">for</span> <span class="nx">ad</span> <span class="k">in</span> <span class="nx">$</span><span class="p">(</span><span class="s">'.gpt-ad'</span><span class="p">)</span>
+
+  <span class="nv">initAd: </span><span class="nf">($ad) -&gt;</span>
+    <span class="nv">path = </span><span class="nx">$ad</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s">'gpt-path'</span><span class="p">)</span>
+    <span class="nv">size = </span><span class="nx">$ad</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s">'gpt-size'</span><span class="p">)</span>
+    <span class="nv">id = </span><span class="nx">$ad</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s">'id'</span><span class="p">)</span>
+
+    <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nx">push</span> <span class="nf">-&gt;</span>
+      <span class="nx">googletag</span><span class="p">.</span><span class="nx">defineSlot</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">size</span><span class="p">,</span> <span class="nx">id</span><span class="p">).</span><span class="nx">addService</span><span class="p">(</span><span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">())</span>
+      <span class="nx">googletag</span><span class="p">.</span><span class="nx">enableServices</span><span class="p">()</span>
+      <span class="nx">googletag</span><span class="p">.</span><span class="nx">display</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+
+  <span class="nv">clearAds: </span><span class="nf">-&gt;</span>
+    <span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">().</span><span class="nx">clear</span><span class="p">()</span> <span class="k">if</span> <span class="nx">googletag</span><span class="o">?</span><span class="p">.</span><span class="nx">pubads</span><span class="o">?</span>
+
+  <span class="nv">refreshAds: </span><span class="nf">-&gt;</span>
+    <span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">().</span><span class="nx">refresh</span><span class="p">()</span> <span class="k">if</span> <span class="nx">googletag</span><span class="o">?</span><span class="p">.</span><span class="nx">pubads</span><span class="o">?</span></code></pre>
+</li>
+<li>
+<p>Create an instance of the GooglePublisherTag class once:</p>  
+
+
+<pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="nx">$</span> <span class="nf">-&gt;</span>
+  <span class="nx">@googlePublisherTag</span> <span class="o">||=</span> <span class="k">new</span> <span class="nx">GooglePublisherTag</span><span class="p">()</span></code></pre>
+</li>
+<li>
+<p>For each ad, create an element with the class <code>gpt-ad</code>, the correct ad ID as the elements <code>id</code> and the appropriate data attributes:</p>  
+
+
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gpt-ad"</span> <span class="na">id=</span><span class="s">"div-gpt-ad-123456789-0"</span> <span class="na">data-gpt-path=</span><span class="s">"/12345678/ad"</span> <span class="na">data-gpt-size=</span><span class="s">"[200, 200]"</span><span class="nt">&gt;&lt;/div&gt;</span></code></pre>
+</li>
+</ol>  
+
+            <p>
+  <em>Related Issues:</em> 
+  <a href="https://github.com/reed/turbolinks-compatibility/issues/36">#36</a>
+</p>
+            
+  <p>
+    <em>Credit: </em>
+    <a href="https://github.com/richardvenneman">
+      Richard Venneman
+    </a>
+  </p>
+
+					</div>
+          <hr>
+<p class="well well-small">
+	<i class="icon-flag"></i> All solutions should be considered <strong class="text-success">unofficial</strong>. 
+	There is <strong class="text-success">no guarantee</strong> that a given solution will work with your application.  
+	If you find that a solution is insufficient, please let me know by 
+	<a href="http://github.com/reed/turbolinks-compatibility/issues">submitting an issue</a> on Github.
+</p>
+        </div>
+      </div>
+    </section>
+		<footer>
+	<div class="container-fluid">
+    <p>
+			Developed by <a href="http://github.com/reed">@reed</a>
+		</p>
+		<p>
+			with <a href="http://nanoc.ws">Nanoc</a>, 
+			<a href="http://github.com/vmg/redcarpet">Redcarpet</a>, and 
+			<a href="http://twitter.github.com/bootstrap/index.html">Twitter Bootstrap</a>
+		</p>
+    <p>
+      <iframe src="http://ghbtns.com/github-btn.html?user=reed&amp;type=follow&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="150" height="30"></iframe>
+    </p>
+	</div>
+</footer>
+  </body>
+</html>
