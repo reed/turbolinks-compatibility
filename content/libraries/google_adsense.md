@@ -14,6 +14,8 @@ issues:
 
 > **[support.google.com/adsense](https://support.google.com/adsense/bin/answer.py?hl=en&answer=181947&topic=29033&parent=28893&rd=1)**
 
+#### UPDATE: Google has cancelled AJAX support for AdSense, so this solution no longer works.  Your best course of action is to use [DoubleClick for Publishers](/doubleclick_for_publishers.html).  
+
 ### Official Implementation
 
 ```html
