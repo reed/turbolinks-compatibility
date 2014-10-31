@@ -66,7 +66,8 @@ function zopim_chat(){
   })(document,'script');
 }
 
-$(document).on('ready', zopim_chat);
+$(document).on("ready page:load", function() {
+  zopim_chat();
+});
 
-$(document).on('page:load', zopim_chat);
 ```
