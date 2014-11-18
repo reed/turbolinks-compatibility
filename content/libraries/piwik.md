@@ -14,7 +14,7 @@ Move the JavaScript snippet from the head to the body and load the following scr
 ```coffeescript
 $(document).on 'page:change', ->
   if window._paq?
-    _paq.push ['trackPageview']
+    _paq.push ['trackPageView']
   else if window.piwikTracker?
     piwikTracker.trackPageview()
 ```
