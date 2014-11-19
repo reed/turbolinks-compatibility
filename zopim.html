@@ -239,9 +239,9 @@
   <span class="p">})(</span><span class="nb">document</span><span class="p">,</span><span class="s1">'script'</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'ready'</span><span class="p">,</span> <span class="nx">zopim_chat</span><span class="p">);</span>
-
-<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'page:load'</span><span class="p">,</span> <span class="nx">zopim_chat</span><span class="p">);</span></code></pre>
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">"ready page:load"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">zopim_chat</span><span class="p">();</span>
+<span class="p">});</span></code></pre>
             <p>
   <em>Related Issues:</em> 
   <a href="https://github.com/rails/turbolinks/issues/131">#131</a>
