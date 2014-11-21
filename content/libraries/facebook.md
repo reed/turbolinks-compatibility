@@ -48,8 +48,10 @@ fb_root = null
 fb_events_bound = false
 
 $ ->
-  loadFacebookSDK()
-  bindFacebookEvents() unless fb_events_bound
+  unless fb_events_bound
+    loadFacebookSDK()
+    bindFacebookEvents()
+    fb_events_bound = true
 
 bindFacebookEvents = ->
   $(document)
@@ -58,7 +60,6 @@ bindFacebookEvents = ->
     .on('page:load', ->
       FB?.XFBML.parse()
     )
-  fb_events_bound = true
 
 saveFacebookRoot = ->
   fb_root = $('#fb-root').detach()
