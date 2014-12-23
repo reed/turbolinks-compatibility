@@ -57,7 +57,7 @@ contributors:
     };
     doc.write('<body onload="document._l();">');
     doc.close();
-  }("//assets.zendesk.com/embeddable_framework/main.js", “subdomain”));
+  }('//assets.zendesk.com/embeddable_framework/main.js', "subdomain"));
 </script>
 ```
 
@@ -68,7 +68,9 @@ Remove the supplied javascript and add the following to your application's javas
 ```javascript
 <script>
   function zendesk_web_widget(){
-    window.zEmbed = null;
+    window.zEmbed = window.zE = null;
+    $('head iframe[src="javascript:false"]').remove();
+
     (function(url, host) {
       var queue = [],
           dom,
@@ -113,7 +115,7 @@ Remove the supplied javascript and add the following to your application's javas
       };
       doc.write('<body onload="document._l();">');
       doc.close();
-    }("//assets.zendesk.com/embeddable_framework/main.js", “subdomain”));
+    }('//assets.zendesk.com/embeddable_framework/main.js', "subdomain"));
   }
 
   $(document).on("ready page:load", function() {
