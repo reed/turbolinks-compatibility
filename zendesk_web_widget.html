@@ -1,0 +1,346 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Turbolinks Compatibility with Zendesk Web Widget</title>
+		<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<style>
+		body { 
+      padding-top: 40px;
+      background: url('images/bg.gif') repeat center center; 
+    }
+		</style>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="//platform.twitter.com/widgets.js"></script>
+    <script src="javascripts/application.js"></script>
+    <script src="javascripts/turbolinks.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap_custom.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="css/github.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div id="fb-root"></div>
+		<header class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container-fluid">
+			<a class="brand" href="./">Turbolinks <span class="bracketed">{ <span>compatibility</span> }</span></a>
+		</div>
+	</div>
+</header>
+    <section id="content" class="container-fluid">
+      <div class="row-fluid">
+        <div id="sidebar" class="span2">
+  <ul class="nav nav-list">
+		<li><a href="./">Home</a></li>
+		<li class="nav-header">Solutions</li>
+    
+      
+    
+      
+    
+      
+    
+      
+      <li>
+				<a href="doubleclick_for_publishers.html">DoubleClick for Publishers</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="facebook.html">Facebook</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="fancybox.html">FancyBox</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="google_adsense.html">Google AdSense</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="google_analytics.html">Google Analytics</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="google_plus.html">Google+</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="linkedin.html">LinkedIn</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="livechatinc.html">LiveChat</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="map_generator.html">Map-Generator</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="mathjax.html">MathJax</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="olark.html">Olark</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="picturefill.html">Picturefill</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="pinterest.html">Pinterest</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="piwik.html">Piwik</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="sharethis.html">ShareThis</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="stripe.html">Stripe</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="twitter.html">Twitter</a>
+			</li>
+      
+    
+      
+      <li class="active">
+				<a href="zendesk_web_widget.html">Zendesk Web Widget</a>
+			</li>
+      
+    
+      
+      <li>
+				<a href="zopim.html">Zopim</a>
+			</li>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+		<li class="nav-header">Project</li>
+		<li><a href="http://github.com/reed/turbolinks-compatibility">Contribute!</a></li>
+		<li><a href="http://github.com/reed/turbolinks-compatibility/issues">Issues</a></li>
+    <li>
+      <iframe src="http://ghbtns.com/github-btn.html?user=reed&amp;repo=turbolinks-compatibility&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
+    </li>
+    <li>
+      <iframe src="http://ghbtns.com/github-btn.html?user=reed&amp;repo=turbolinks-compatibility&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
+    </li>
+		<li class="divider">
+		<li><a class="muted" href="https://github.com/reed">© Nick Reed</a></li>
+  </ul>
+</div>
+        <div id="main" class="span10">
+					<div class="markdown-body">
+            <div class="hero-unit">
+<h1>Zendesk Web Widget</h1>
+<div class="social-plugins">
+<div class="fb-like" data-send="true" data-layout="button_count" data-show-faces="false"></div>
+<a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="turbolinks" data-dnt="true">Tweet</a>
+</div>
+</div>  
+<blockquote>  
+<p><strong><a href="https://www.zendesk.com/embeddables">zendesk.com/embeddables</a></strong></p>  
+</blockquote>  
+<h3>Official Implementation</h3>
+
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;script&gt;</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">zEmbed</span> <span class="o">||</span> <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">host</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">queue</span> <span class="o">=</span> <span class="p">[],</span>
+        <span class="nx">dom</span><span class="p">,</span>
+        <span class="nx">doc</span><span class="p">,</span>
+        <span class="nx">where</span><span class="p">,</span>
+        <span class="nx">iframe</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'iframe'</span><span class="p">),</span>
+        <span class="nx">iWin</span><span class="p">,</span>
+        <span class="nx">iDoc</span><span class="p">;</span>
+
+    <span class="nb">window</span><span class="p">.</span><span class="nx">zEmbed</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">queue</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+    <span class="p">};</span>
+
+    <span class="nb">window</span><span class="p">.</span><span class="nx">zE</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">zE</span> <span class="o">||</span> <span class="nb">window</span><span class="p">.</span><span class="nx">zEmbed</span><span class="p">;</span>
+
+    <span class="nx">iframe</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">'javascript:false'</span><span class="p">;</span>
+    <span class="nx">iframe</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span> <span class="nx">iframe</span><span class="p">.</span><span class="nx">role</span><span class="o">=</span><span class="s1">'presentation'</span><span class="p">;</span>  <span class="c1">// a11y</span>
+    <span class="p">(</span><span class="nx">iframe</span><span class="p">.</span><span class="nx">frameElement</span> <span class="o">||</span> <span class="nx">iframe</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">cssText</span> <span class="o">=</span> <span class="s1">'display: none'</span><span class="p">;</span>
+    <span class="nx">where</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
+    <span class="nx">where</span> <span class="o">=</span> <span class="nx">where</span><span class="p">[</span><span class="nx">where</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+    <span class="nx">where</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">iframe</span><span class="p">,</span> <span class="nx">where</span><span class="p">);</span>
+
+    <span class="nx">iWin</span> <span class="o">=</span> <span class="nx">iframe</span><span class="p">.</span><span class="nx">contentWindow</span><span class="p">;</span>
+    <span class="nx">iDoc</span> <span class="o">=</span> <span class="nx">iWin</span><span class="p">.</span><span class="nb">document</span><span class="p">;</span>
+
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="nx">doc</span> <span class="o">=</span> <span class="nx">iDoc</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">dom</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">domain</span><span class="p">;</span>
+      <span class="nx">iframe</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">'javascript:var d=document.open();d.domain="'</span><span class="o">+</span><span class="nx">dom</span><span class="o">+</span><span class="s1">'";void(0);'</span><span class="p">;</span>
+      <span class="nx">doc</span> <span class="o">=</span> <span class="nx">iDoc</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">doc</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">_l</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">js</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">dom</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">domain</span> <span class="o">=</span> <span class="nx">dom</span><span class="p">;</span>
+      <span class="nx">js</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="s1">'js-iframe-async'</span><span class="p">;</span>
+      <span class="nx">js</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">t</span> <span class="o">=</span> <span class="o">+</span><span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">zendeskHost</span> <span class="o">=</span> <span class="nx">host</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">zEQueue</span> <span class="o">=</span> <span class="nx">queue</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">js</span><span class="p">);</span>
+    <span class="p">};</span>
+    <span class="nx">doc</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">'&lt;body onload="document._l();"&gt;'</span><span class="p">);</span>
+    <span class="nx">doc</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+  <span class="p">}(</span><span class="s1">'//assets.zendesk.com/embeddable_framework/main.js'</span><span class="p">,</span> <span class="s2">"subdomain"</span><span class="p">));</span>
+<span class="nt">&lt;/script&gt;</span></code></pre>
+<h3>Solution</h3>  
+<p>Remove the supplied javascript and add the following to your application's javascript. Don’t forget to replace the “subdomain” placeholder with your subdomain.</p>  
+
+
+<pre><small class="language-label muted pull-right">JAVASCRIPT</small><code class="language-javascript"><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+  <span class="kd">function</span> <span class="nx">zendesk_web_widget</span><span class="p">(){</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">zEmbed</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">zE</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'head iframe[src="javascript:false"]'</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
+
+    <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">host</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">queue</span> <span class="o">=</span> <span class="p">[],</span>
+          <span class="nx">dom</span><span class="p">,</span>
+          <span class="nx">doc</span><span class="p">,</span>
+          <span class="nx">where</span><span class="p">,</span>
+          <span class="nx">iframe</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'iframe'</span><span class="p">),</span>
+          <span class="nx">iWin</span><span class="p">,</span>
+          <span class="nx">iDoc</span><span class="p">;</span>
+
+      <span class="nb">window</span><span class="p">.</span><span class="nx">zEmbed</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">queue</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+      <span class="p">};</span>
+
+      <span class="nb">window</span><span class="p">.</span><span class="nx">zE</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">zE</span> <span class="o">||</span> <span class="nb">window</span><span class="p">.</span><span class="nx">zEmbed</span><span class="p">;</span>
+
+      <span class="nx">iframe</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">'javascript:false'</span><span class="p">;</span>
+      <span class="nx">iframe</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span> <span class="nx">iframe</span><span class="p">.</span><span class="nx">role</span><span class="o">=</span><span class="s1">'presentation'</span><span class="p">;</span>  <span class="c1">// a11y</span>
+      <span class="p">(</span><span class="nx">iframe</span><span class="p">.</span><span class="nx">frameElement</span> <span class="o">||</span> <span class="nx">iframe</span><span class="p">).</span><span class="nx">style</span><span class="p">.</span><span class="nx">cssText</span> <span class="o">=</span> <span class="s1">'display: none'</span><span class="p">;</span>
+      <span class="nx">where</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
+      <span class="nx">where</span> <span class="o">=</span> <span class="nx">where</span><span class="p">[</span><span class="nx">where</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+      <span class="nx">where</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">iframe</span><span class="p">,</span> <span class="nx">where</span><span class="p">);</span>
+
+      <span class="nx">iWin</span> <span class="o">=</span> <span class="nx">iframe</span><span class="p">.</span><span class="nx">contentWindow</span><span class="p">;</span>
+      <span class="nx">iDoc</span> <span class="o">=</span> <span class="nx">iWin</span><span class="p">.</span><span class="nb">document</span><span class="p">;</span>
+
+      <span class="k">try</span> <span class="p">{</span>
+        <span class="nx">doc</span> <span class="o">=</span> <span class="nx">iDoc</span><span class="p">;</span>
+      <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">dom</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">domain</span><span class="p">;</span>
+        <span class="nx">iframe</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s1">'javascript:var d=document.open();d.domain="'</span><span class="o">+</span><span class="nx">dom</span><span class="o">+</span><span class="s1">'";void(0);'</span><span class="p">;</span>
+        <span class="nx">doc</span> <span class="o">=</span> <span class="nx">iDoc</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="nx">doc</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">_l</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">js</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'script'</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">dom</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">domain</span> <span class="o">=</span> <span class="nx">dom</span><span class="p">;</span>
+        <span class="nx">js</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="s1">'js-iframe-async'</span><span class="p">;</span>
+        <span class="nx">js</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">t</span> <span class="o">=</span> <span class="o">+</span><span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">zendeskHost</span> <span class="o">=</span> <span class="nx">host</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">zEQueue</span> <span class="o">=</span> <span class="nx">queue</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">js</span><span class="p">);</span>
+      <span class="p">};</span>
+      <span class="nx">doc</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">'&lt;body onload="document._l();"&gt;'</span><span class="p">);</span>
+      <span class="nx">doc</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+    <span class="p">}(</span><span class="s1">'//assets.zendesk.com/embeddable_framework/main.js'</span><span class="p">,</span> <span class="s2">"subdomain"</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">"ready page:load"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">zendesk_web_widget</span><span class="p">();</span>
+  <span class="p">});</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span></code></pre>
+            
+            
+  <p>
+    <em>Credit: </em>
+    <a href="https://github.com/brianac">
+      Briana Coppard
+    </a>
+  </p>
+
+					</div>
+          <hr>
+<p class="well well-small">
+	<i class="icon-flag"></i> All solutions should be considered <strong class="text-success">unofficial</strong>. 
+	There is <strong class="text-success">no guarantee</strong> that a given solution will work with your application.  
+	If you find that a solution is insufficient, please let me know by 
+	<a href="http://github.com/reed/turbolinks-compatibility/issues">submitting an issue</a> on Github.
+</p>
+        </div>
+      </div>
+    </section>
+		<footer>
+	<div class="container-fluid">
+    <p>
+			Developed by <a href="http://github.com/reed">@reed</a>
+		</p>
+		<p>
+			with <a href="http://nanoc.ws">Nanoc</a>, 
+			<a href="http://github.com/vmg/redcarpet">Redcarpet</a>, and 
+			<a href="http://twitter.github.com/bootstrap/index.html">Twitter Bootstrap</a>
+		</p>
+    <p>
+      <iframe src="http://ghbtns.com/github-btn.html?user=reed&amp;type=follow&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="150" height="30"></iframe>
+    </p>
+	</div>
+</footer>
+  </body>
+</html>
