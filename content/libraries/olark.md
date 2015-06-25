@@ -34,7 +34,8 @@ The supplied javascript will look something like this:
 Add the following code after embedding Olark on to the page, to persist the dom between page changes.
 
 
-```javascript
+```html
+<script>
 /*
     Turbolinks works by replacing the elements inside of the <body> tags with new content.
     The below code makes sure that the HTML tags created by Olark are persisted on the page when turbolinks does it's magic.
@@ -101,4 +102,5 @@ Add the following code after embedding Olark on to the page, to persist the dom 
     });
     
   })();
+</script>
 ```
