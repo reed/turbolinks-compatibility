@@ -38,7 +38,7 @@ Add the following code after embedding Olark on to the page, to persist the Olar
 <script> /* ... olark include code from http://www.olark.com/install */</script>
 
 <script>
-/*
+  /*
     Turbolinks works by replacing the elements inside of the <body> tags with new content.
     The below code makes sure that the HTML tags created by Olark are persisted on the page when turbolinks does it's magic.
   
@@ -52,6 +52,8 @@ Add the following code after embedding Olark on to the page, to persist the Olar
       
   */
 
+  // turbolinks makes pages act like single page applications
+  olark.configure('system.is_single_page_application', true);
   
   (function(){
     // Keep track of Olark Elements on the page
@@ -104,5 +106,7 @@ Add the following code after embedding Olark on to the page, to persist the Olar
     });
     
   })();
+  
+  
 </script>
 ```
