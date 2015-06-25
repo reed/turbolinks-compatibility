@@ -31,10 +31,12 @@ The supplied javascript will look something like this:
 
 ### Solution
 
-Add the following code after embedding Olark on to the page, to persist the dom between page changes.
+Add the following code after embedding Olark on to the page, to persist the Olark elements between page changes.
 
 
 ```html
+<script> /* ... olark include code from http://www.olark.com/install */</script>
+
 <script>
 /*
     Turbolinks works by replacing the elements inside of the <body> tags with new content.
