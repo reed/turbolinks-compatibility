@@ -44,12 +44,9 @@ issues:
 Remove the script from the body and load the following script inside the `<head>`.
 
 ```coffeescript
-fb_root = null
-fb_events_bound = false
-
 $ ->
   loadFacebookSDK()
-  bindFacebookEvents() unless fb_events_bound
+  bindFacebookEvents() unless window.fbEventsBound
 
 bindFacebookEvents = ->
   $(document)
@@ -58,28 +55,29 @@ bindFacebookEvents = ->
     .on('page:load', ->
       FB?.XFBML.parse()
     )
-  fb_events_bound = true
+  @fbEventsBound = true
 
 saveFacebookRoot = ->
-  fb_root = $('#fb-root').detach()
-  
+  if $('#fb-root').length
+    @fbRoot = $('#fb-root').detach()
+
 restoreFacebookRoot = ->
-  if $('#fb-root').length > 0
-    $('#fb-root').replaceWith fb_root
-  else
-    $('body').append fb_root
-  
+  if @fbRoot?
+    if $('#fb-root').length
+      $('#fb-root').replaceWith @fbRoot
+    else
+      $('body').append @fbRoot
+
 loadFacebookSDK = ->
   window.fbAsyncInit = initializeFacebookSDK
-  $.getScript("//connect.facebook.net/en_US/all.js#xfbml=1")
+  $.getScript("//connect.facebook.net/en_US/sdk.js")
 
 initializeFacebookSDK = ->
   FB.init
-    appId     : 'YOUR_APP_ID'
-    channelUrl: '//WWW.YOUR_DOMAIN.COM/channel.html'
-    status    : true
-    cookie    : true
-    xfbml     : true
+    appId  : 'YOUR_APP_ID'
+    status : true
+    cookie : true
+    xfbml  : true
 ```
 
 *This solution is implemented on this site.*
