@@ -225,32 +225,79 @@
   <span class="nx">olark</span><span class="p">.</span><span class="nx">identify</span><span class="p">(</span><span class="s1">'&lt;your identity string&gt;'</span><span class="p">);</span>
 <span class="nt">&lt;/script&gt;</span></code></pre>
 <h3>Solution</h3>
-<p>To get it working with Turbolinks:</p>
-
-<ol>  
-<li>Move the script inside the head tags.</li>  
-<li>Convert the anonymous initialization function into a named function.</li>  
-<li>Bind this new function to the <code>page:load</code> event.</li>  
-</ol>
-
-<p>An example solution, in jQuery:</p>  
+<p>Add the following code after embedding Olark on to the page to persist the Olark elements between page changes:</p>  
 
 
-<pre><small class="language-label muted pull-right">JAVASCRIPT</small><code class="language-javascript"><span class="kd">function</span> <span class="nx">initOlark</span><span class="p">(){</span>
-  <span class="nx">c</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">loader</span><span class="o">:</span> <span class="s2">"static.olark.com/jsclient/loader0.js"</span><span class="p">,</span> 
-    <span class="nx">name</span><span class="o">:</span> <span class="s2">"olark"</span><span class="p">,</span> 
-    <span class="nx">methods</span><span class="o">:</span> <span class="p">[</span><span class="s2">"configure"</span><span class="p">,</span> <span class="s2">"extend"</span><span class="p">,</span> <span class="s2">"declare"</span><span class="p">,</span> <span class="s2">"identify"</span><span class="p">]</span>
-  <span class="p">};</span>
-  <span class="c1">//initialization code</span>
-<span class="p">}</span>
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;script&gt;</span> <span class="cm">/* ... olark include code from http://www.olark.com/install */</span><span class="nt">&lt;/script&gt;</span>
 
-<span class="nb">window</span><span class="p">.</span><span class="nx">olark</span> <span class="o">||</span> <span class="nx">initOlark</span><span class="p">();</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="c1">// turbolinks makes pages act like single page applications</span>
+  <span class="nx">olark</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="s1">'system.is_single_page_application'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
 
-<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">'page:load'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-  <span class="nx">initOlark</span><span class="p">();</span>
-  <span class="nx">olark</span><span class="p">.</span><span class="nx">identify</span><span class="p">(</span><span class="s1">'&lt;your identity string&gt;'</span><span class="p">);</span>
-<span class="p">});</span></code></pre>
+  <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="c1">// Keep track of Olark Elements on the page</span>
+    <span class="kd">var</span> <span class="nx">olarkElements</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+
+    <span class="c1">// Find all the Olark Dom Elements, so that when turbolinks removes them we can add them back.</span>
+    <span class="kd">function</span> <span class="nx">findAndGrabOlarkDomElements</span><span class="p">(){</span>
+      <span class="kd">var</span> <span class="nx">olarkMainDiv</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"habla_beta_container_do_not_rely_on_div_classes_or_names"</span><span class="p">);</span>
+      <span class="kd">var</span> <span class="nx">olarkLoader</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">olarkFrameStore</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+      <span class="c1">// find framestore and storage iframe</span>
+      <span class="kd">var</span> <span class="nx">iframes</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">"iframe"</span><span class="p">);</span>
+      <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">iframes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="kd">var</span> <span class="nx">iframe</span> <span class="o">=</span> <span class="nx">iframes</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="nx">iframe</span> <span class="o">&amp;&amp;</span> <span class="nx">iframe</span><span class="p">.</span><span class="nx">id</span><span class="p">){</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">iframe</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/olark-loader/</span><span class="p">)){</span>
+            <span class="c1">// TODO make this work in IE</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">iframe</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">){</span>
+              <span class="nx">olarkLoader</span> <span class="o">=</span> <span class="nx">iframe</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">;</span>
+              <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'loader'</span><span class="p">,</span> <span class="nx">olarkLoader</span><span class="p">)</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+          <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">iframe</span><span class="p">.</span><span class="nx">id</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/olark_framesocket/</span><span class="p">)){</span>
+            <span class="c1">// TODO make this work in IE</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">iframe</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">){</span>
+              <span class="nx">olarkFrameStore</span> <span class="o">=</span> <span class="nx">iframe</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">;</span>
+              <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'frame'</span><span class="p">,</span> <span class="nx">olarkFrameStore</span><span class="p">)</span>
+            <span class="p">}</span>            
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="p">[</span><span class="nx">olarkMainDiv</span><span class="p">,</span> <span class="nx">olarkLoader</span><span class="p">,</span>  <span class="nx">olarkFrameStore</span><span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Register Turbolinks event handlers so we can grab our dom elements before it's too late.</span>
+    <span class="c1">// (from docs: https://github.com/rails/turbolinks)</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'page:before-unload'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">olarkElements</span> <span class="o">=</span> <span class="nx">findAndGrabOlarkDomElements</span><span class="p">()</span>
+    <span class="p">});</span>
+
+    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'page:change'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">olarkElements</span><span class="p">){</span>
+        <span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">"body"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">olarkElements</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+          <span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">olarkElements</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>    
+        <span class="p">}</span>         
+      <span class="p">}</span>
+    <span class="p">});</span>
+
+  <span class="p">})();</span>
+<span class="nt">&lt;/script&gt;</span></code></pre>
+<p><strong>KNOWN ISSUES:</strong></p>
+
+<ul>  
+<li>
+<p>In some versions of safari we have seen occasional errors:</p>  
+
+
+<pre><small class="language-label muted pull-right">JAVASCRIPT</small><code class="language-javascript"><span class="nx">TypeError</span><span class="o">:</span> <span class="kc">undefined</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">a</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">evaluating</span> <span class="s1">'_.postMessage(t,n)'</span><span class="p">)</span><span class="err">`</span></code></pre>
+<p>This happens during some page transitions when the iframe is removed from the dom, and olark is trying to write to the framestore.</p>
+</li>  
+</ul>  
+
             <p>
   <em>Related Issues:</em> 
   <a href="https://github.com/rails/turbolinks/issues/166">#166</a>
@@ -258,8 +305,8 @@
             
   <p>
     <em>Credit: </em>
-    <a href="https://github.com/Empact">
-      Ben Woosley
+    <a href="https://github.com/jaminben">
+      Ben Congleton
     </a>
   </p>
 
