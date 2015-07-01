@@ -31,25 +31,12 @@ The supplied javascript will look something like this:
 
 ### Solution
 
-Add the following code after embedding Olark on to the page, to persist the Olark elements between page changes.
+Add the following code after embedding Olark on to the page to persist the Olark elements between page changes:
 
-NOTE: Turbolinks works by replacing the elements inside of the <body> tags with new content.
-    The below code makes sure that the HTML tags created by Olark are persisted on the page when 
-    turbolinks does it's magic.
-  
-    USE AT YOUR OWN RISK, THIS CODE IS UNSUPPORTED
-    
-    KNOWN ISSUES:
-      In some versions of safari we have seen occasional errors:
-        TypeError: undefined is not a function (evaluating '_.postMessage(t,n)')
-      
-      This happens during some page transitions when the iframe is removed from the dom, and olark is 
-      trying to write to the framestore.
 ```html
 <script> /* ... olark include code from http://www.olark.com/install */</script>
 
 <script>
- 
   // turbolinks makes pages act like single page applications
   olark.configure('system.is_single_page_application', true);
   
@@ -104,7 +91,15 @@ NOTE: Turbolinks works by replacing the elements inside of the <body> tags with 
     });
     
   })();
-  
-  
 </script>
 ```
+    
+**KNOWN ISSUES:**
+
+* In some versions of safari we have seen occasional errors:
+  
+  ```javascript
+  TypeError: undefined is not a function (evaluating '_.postMessage(t,n)')`
+  ```
+
+  This happens during some page transitions when the iframe is removed from the dom, and olark is trying to write to the framestore.
