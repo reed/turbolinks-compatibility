@@ -8,6 +8,9 @@ contributors:
     name:       Nick Reed
     
   - user:       rickypai
+
+  - user:       manuelmeurer
+    name:       Manuel Meurer
 issues:
   - repo:     rails/turbolinks
     number:   25
