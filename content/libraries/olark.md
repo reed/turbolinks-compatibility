@@ -1,8 +1,8 @@
 ---
 title: Olark
 contributors:
-  - user:     Empact
-    name:     Ben Woosley
+  - user:     jaminben
+    name:     Ben Congleton
 issues:
   - repo:     rails/turbolinks
     number:   166
@@ -33,13 +33,7 @@ The supplied javascript will look something like this:
 
 Add the following code after embedding Olark on to the page, to persist the Olark elements between page changes.
 
-
-```html
-<script> /* ... olark include code from http://www.olark.com/install */</script>
-
-<script>
-  /*
-    Turbolinks works by replacing the elements inside of the <body> tags with new content.
+NOTE: Turbolinks works by replacing the elements inside of the <body> tags with new content.
     The below code makes sure that the HTML tags created by Olark are persisted on the page when 
     turbolinks does it's magic.
   
@@ -51,9 +45,11 @@ Add the following code after embedding Olark on to the page, to persist the Olar
       
       This happens during some page transitions when the iframe is removed from the dom, and olark is 
       trying to write to the framestore.
-      
-  */
+```html
+<script> /* ... olark include code from http://www.olark.com/install */</script>
 
+<script>
+ 
   // turbolinks makes pages act like single page applications
   olark.configure('system.is_single_page_application', true);
   
