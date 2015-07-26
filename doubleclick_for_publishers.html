@@ -265,47 +265,55 @@
 <p>Define this class somewhere in your application's JS:</p>  
 
 
-<pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="k">class</span> <span class="nx">GooglePublisherTag</span>
+<pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="k">class</span> <span class="nx">@Gpt</span>
   <span class="nv">constructor: </span><span class="nf">-&gt;</span>
-    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span> <span class="s">'page:change'</span><span class="p">,</span> <span class="nx">@clearAds</span>
-    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span> <span class="s">'page:load'</span><span class="p">,</span> <span class="o">=&gt;</span>
-      <span class="nx">@evaluate</span><span class="p">()</span>
-      <span class="nx">@refreshAds</span><span class="p">()</span>
+    <span class="vi">@slots = </span><span class="p">{}</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nv">googletag = </span><span class="nx">googletag</span> <span class="o">||</span> <span class="p">{}</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nv">googletag.cmd = </span><span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span> <span class="o">||</span> <span class="p">[]</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span> <span class="s">'page:fetch'</span><span class="p">,</span> <span class="o">=&gt;</span> <span class="nx">@clearAds</span><span class="p">()</span>
+    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span> <span class="s">'page:load'</span><span class="p">,</span> <span class="o">=&gt;</span> <span class="nx">@evaluate</span><span class="p">()</span>
 
     <span class="nx">@evaluate</span><span class="p">()</span>
 
   <span class="nv">evaluate: </span><span class="nf">-&gt;</span>
-    <span class="k">return</span> <span class="k">unless</span> <span class="nx">googletag</span><span class="o">?</span>
-    <span class="nx">@initAd</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">ad</span><span class="p">))</span> <span class="k">for</span> <span class="nx">ad</span> <span class="k">in</span> <span class="nx">$</span><span class="p">(</span><span class="s">'.gpt-ad'</span><span class="p">)</span>
+    <span class="k">for</span> <span class="nx">slot</span> <span class="k">in</span> <span class="nx">$</span><span class="p">(</span><span class="s">'.gpt-ad'</span><span class="p">)</span>
+      <span class="nv">$slot = </span><span class="nx">$</span><span class="p">(</span><span class="nx">slot</span><span class="p">)</span>
+      <span class="nv">cachedSlot = </span><span class="nx">@slots</span><span class="p">[</span><span class="nx">$slot</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s">'gpt-div-id'</span><span class="p">)]</span>
 
-  <span class="nv">initAd: </span><span class="nf">($ad) -&gt;</span>
-    <span class="nv">path = </span><span class="nx">$ad</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s">'gpt-path'</span><span class="p">)</span>
-    <span class="nv">size = </span><span class="nx">$ad</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s">'gpt-size'</span><span class="p">)</span>
-    <span class="nv">id = </span><span class="nx">$ad</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s">'id'</span><span class="p">)</span>
+      <span class="k">if</span> <span class="nx">cachedSlot</span><span class="o">?</span> <span class="k">then</span> <span class="nx">@refreshSlot</span><span class="p">(</span><span class="nx">cachedSlot</span><span class="p">)</span> <span class="k">else</span> <span class="nx">@defineSlot</span><span class="p">(</span><span class="nx">$slot</span><span class="p">)</span>
 
-    <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nx">push</span> <span class="nf">-&gt;</span>
-      <span class="nx">googletag</span><span class="p">.</span><span class="nx">defineSlot</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">size</span><span class="p">,</span> <span class="nx">id</span><span class="p">).</span><span class="nx">addService</span><span class="p">(</span><span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">())</span>
+  <span class="nv">defineSlot: </span><span class="nf">($slot) -&gt;</span>
+    <span class="nv">divId = </span><span class="nx">$slot</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s">'gpt-div-id'</span><span class="p">)</span>
+    <span class="nv">path = </span><span class="nx">$slot</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s">'gpt-path'</span><span class="p">)</span>
+    <span class="nv">dimensions = </span><span class="nx">$slot</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s">'gpt-dimensions'</span><span class="p">)</span>
+
+    <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nx">push</span> <span class="o">=&gt;</span>
+      <span class="nv">slot = </span><span class="nx">googletag</span><span class="p">.</span><span class="nx">defineSlot</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">dimensions</span><span class="p">,</span> <span class="nx">divId</span><span class="p">).</span><span class="nx">addService</span><span class="p">(</span><span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">())</span>
       <span class="nx">googletag</span><span class="p">.</span><span class="nx">enableServices</span><span class="p">()</span>
-      <span class="nx">googletag</span><span class="p">.</span><span class="nx">display</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+      <span class="nx">googletag</span><span class="p">.</span><span class="nx">display</span><span class="p">(</span><span class="nx">divId</span><span class="p">)</span>
+      <span class="nx">@slots</span><span class="p">[</span><span class="nx">divId</span><span class="p">]</span> <span class="o">=</span> <span class="nx">slot</span>
+
+  <span class="nv">refreshSlot: </span><span class="nf">(slot) -&gt;</span>
+    <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nx">push</span> <span class="nf">-&gt;</span>
+      <span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">().</span><span class="nx">refresh</span><span class="p">([</span><span class="nx">slot</span><span class="p">])</span>
 
   <span class="nv">clearAds: </span><span class="nf">-&gt;</span>
-    <span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">().</span><span class="nx">clear</span><span class="p">()</span> <span class="k">if</span> <span class="nx">googletag</span><span class="o">?</span><span class="p">.</span><span class="nx">pubads</span><span class="o">?</span>
-
-  <span class="nv">refreshAds: </span><span class="nf">-&gt;</span>
-    <span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">().</span><span class="nx">refresh</span><span class="p">()</span> <span class="k">if</span> <span class="nx">googletag</span><span class="o">?</span><span class="p">.</span><span class="nx">pubads</span><span class="o">?</span></code></pre>
+    <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nx">push</span> <span class="nf">-&gt;</span>
+      <span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">().</span><span class="nx">clear</span><span class="p">()</span></code></pre>
 </li>
 <li>
 <p>Create an instance of the GooglePublisherTag class once:</p>  
 
 
 <pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="nx">$</span> <span class="nf">-&gt;</span>
-  <span class="nx">@googlePublisherTag</span> <span class="o">||=</span> <span class="k">new</span> <span class="nx">GooglePublisherTag</span><span class="p">()</span></code></pre>
+  <span class="nx">@gpt</span> <span class="o">||=</span> <span class="k">new</span> <span class="nx">Gpt</span><span class="p">()</span></code></pre>
 </li>
 <li>
-<p>For each ad, create an element with the class <code>gpt-ad</code>, the correct ad ID as the elements <code>id</code> and the appropriate data attributes:</p>  
+<p>For each ad, create an element with the class <code>gpt-ad</code> and the ad attributes as data attributes:</p>  
 
 
-<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gpt-ad"</span> <span class="na">id=</span><span class="s">"div-gpt-ad-123456789-0"</span> <span class="na">data-gpt-path=</span><span class="s">"/12345678/ad"</span> <span class="na">data-gpt-size=</span><span class="s">"[200, 200]"</span><span class="nt">&gt;&lt;/div&gt;</span></code></pre>
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"gpt-ad"</span> <span class="na">data-gpt-div-id=</span><span class="s">"div-gpt-ad-123456789-0"</span> <span class="na">data-gpt-path=</span><span class="s">"/12345678/ad"</span> <span class="na">data-gpt-dimensions=</span><span class="s">"[200, 200]"</span><span class="nt">&gt;&lt;/div&gt;</span></code></pre>
 </li>
 </ol>  
 
