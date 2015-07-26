@@ -71,45 +71,52 @@ issues:
 2. Define this class somewhere in your application's JS:
 
     ```coffeescript
-    class GooglePublisherTag
+    class @Gpt
       constructor: ->
-        $(document).on 'page:change', @clearAds
-        $(document).on 'page:load', =>
-          @evaluate()
-          @refreshAds()
+        @slots = {}
+        window.googletag = googletag || {}
+        window.googletag.cmd = googletag.cmd || []
+
+        $(document).on 'page:fetch', => @clearAds()
+        $(document).on 'page:load', => @evaluate()
 
         @evaluate()
 
       evaluate: ->
-        return unless googletag?
-        @initAd($(ad)) for ad in $('.gpt-ad')
+        for slot in $('.gpt-ad')
+          $slot = $(slot)
+          cachedSlot = @slots[$slot.data('gpt-div-id')]
 
-      initAd: ($ad) ->
-        path = $ad.data('gpt-path')
-        size = $ad.data('gpt-size')
-        id = $ad.attr('id')
+          if cachedSlot? then @refreshSlot(cachedSlot) else @defineSlot($slot)
 
-        googletag.cmd.push ->
-          googletag.defineSlot(path, size, id).addService(googletag.pubads())
+      defineSlot: ($slot) ->
+        divId = $slot.data('gpt-div-id')
+        path = $slot.data('gpt-path')
+        dimensions = $slot.data('gpt-dimensions')
+
+        googletag.cmd.push =>
+          slot = googletag.defineSlot(path, dimensions, divId).addService(googletag.pubads())
           googletag.enableServices()
-          googletag.display(id)
+          googletag.display(divId)
+          @slots[divId] = slot
+
+      refreshSlot: (slot) ->
+        googletag.cmd.push ->
+          googletag.pubads().refresh([slot])
 
       clearAds: ->
-        googletag.pubads().clear() if googletag?.pubads?
-
-      refreshAds: ->
-        googletag.pubads().refresh() if googletag?.pubads?
+        googletag.cmd.push ->
+          googletag.pubads().clear()
     ```
-
 3. Create an instance of the GooglePublisherTag class once:
 
     ```coffeescript
     $ ->
-      @googlePublisherTag ||= new GooglePublisherTag()
+      @gpt ||= new Gpt()
     ```
 
-4. For each ad, create an element with the class `gpt-ad`, the correct ad ID as the elements `id` and the appropriate data attributes:
+4. For each ad, create an element with the class `gpt-ad` and the ad attributes as data attributes:
 
     ```html
-    <div class="gpt-ad" id="div-gpt-ad-123456789-0" data-gpt-path="/12345678/ad" data-gpt-size="[200, 200]"></div>
+    <div class="gpt-ad" data-gpt-div-id="div-gpt-ad-123456789-0" data-gpt-path="/12345678/ad" data-gpt-dimensions="[200, 200]"></div>
     ```
