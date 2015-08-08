@@ -3,7 +3,7 @@
   <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Turbolinks Compatibility with LinkedIn</title>
+    <title>Turbolinks Compatibility with D3</title>
 		<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -46,7 +46,7 @@
       
     
       
-      <li>
+      <li class="active">
 				<a href="d3.html">D3</a>
 			</li>
       
@@ -100,7 +100,7 @@
       
     
       
-      <li class="active">
+      <li>
 				<a href="linkedin.html">LinkedIn</a>
 			</li>
       
@@ -207,47 +207,42 @@
         <div id="main" class="span10">
 					<div class="markdown-body">
             <div class="hero-unit">
-<h1>LinkedIn Share Button</h1>
+<h1>D3.js</h1>
 <div class="social-plugins">
 <div class="fb-like" data-send="true" data-layout="button_count" data-show-faces="false"></div>
 <a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="turbolinks" data-dnt="true">Tweet</a>
 </div>
 </div>  
 <blockquote>  
-<p><strong><a href="https://developer.linkedin.com/plugins/share-plugin-generator">linkedin.com/plugins/share-plugin-generator</a></strong></p>  
+<p><strong><a href="http://d3js.org">d3js.org</a></strong></p>  
 </blockquote>  
 <h3>Official Implementation</h3>
 
-<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;body&gt;</span>
-  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"//platform.linkedin.com/in.js"</span> <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
-    <span class="nx">lang</span><span class="o">:</span> <span class="nx">en_US</span>
-  <span class="nt">&lt;/script&gt;</span>
-  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"IN/Share"</span> <span class="na">data-url=</span><span class="s">"http://mysite.com"</span> <span class="na">data-counter=</span><span class="s">"right"</span><span class="nt">&gt;&lt;/script&gt;</span>  
-<span class="nt">&lt;/body&gt;</span></code></pre>
+<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://d3js.org/d3.v3.min.js"</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre>
 <h3>Solution</h3>  
-<p>Remove the following script from <code>&lt;body&gt;</code>:</p>  
+<p>Remove any script tags you may have in the <code>head</code> and add the following coffeescript to your application:</p>  
 
 
-<pre><small class="language-label muted pull-right">HTML</small><code class="language-html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"//platform.linkedin.com/in.js"</span> <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
-  <span class="nx">lang</span><span class="o">:</span> <span class="nx">en_US</span>
-<span class="nt">&lt;/script&gt;</span></code></pre>
-<p>Load the following script inside the <code>&lt;head&gt;</code>.</p>  
+<pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="nv">do_d3_stuff = </span><span class="nf">(data) -&gt;</span>
+  <span class="p">...</span>
 
+<span class="nx">$</span> <span class="nf">-&gt;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span> <span class="s">'ready page:load'</span><span class="p">,</span> <span class="nf">-&gt;</span>
+      <span class="nx">$</span><span class="p">.</span><span class="nx">getScript</span> <span class="s">"//cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js"</span><span class="p">,</span> <span class="nf">-&gt;</span>
+        <span class="nx">d3</span><span class="p">.</span><span class="nx">json</span> <span class="s">'/yourdata.json'</span><span class="p">,</span> <span class="nf">(error, json) -&gt;</span>
+          <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">warn</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">if</span> <span class="nx">error</span>
+          <span class="nx">do_d3_stuff</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span></code></pre>
+<p>This is known to work in practice in production, however it may not be totally optimal. If you use a more advanced implementation of D3, and you find this solution isn't working well, <a href="https://github.com/reed/turbolinks-compatibility/issues">let me know</a>.</p>  
 
-<pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="nx">$</span> <span class="nf">-&gt;</span>
-  <span class="nx">loadLinkedIn</span><span class="p">()</span>
-  <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span> <span class="s">'page:load'</span><span class="p">,</span> <span class="nx">loadLinkedIn</span>
-
-<span class="nv">loadLinkedIn = </span><span class="nf">-&gt;</span>
-  <span class="k">delete</span> <span class="nx">IN</span>
-  <span class="nx">$</span><span class="p">.</span><span class="nx">getScript</span><span class="p">(</span><span class="s">"//platform.linkedin.com/in.js"</span><span class="p">)</span>
-  <span class="nv">lang: </span><span class="s">'en_US'</span></code></pre>
-            
+            <p>
+  <em>Related Issues:</em> 
+  <a href="https://github.com/reed/turbolinks-compatibility/issues/43">#43</a>
+</p>
             
   <p>
     <em>Credit: </em>
-    <a href="https://github.com/zpasal">
-      Zaharije Pasalic
+    <a href="https://github.com/cpg">
+      Carlos Puchol
     </a>
   </p>
 
