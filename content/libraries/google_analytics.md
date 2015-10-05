@@ -58,7 +58,9 @@ class @GoogleAnalytics
 
   @trackPageview: (url) ->
     unless GoogleAnalytics.isLocalRequest()
-      ga 'send', 'pageview'
+      ga 'send',
+        hitType: 'pageview'
+        page: location.pathname
 
   @isLocalRequest: ->
     GoogleAnalytics.documentDomainIncludes "local"
