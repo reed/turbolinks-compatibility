@@ -58,8 +58,8 @@ Remove the script from the body and load the following script inside the `<head>
 twttr_events_bound = false
 
 $ ->
-  loadTwitterSDK()
-  bindTwitterEventHandlers() unless twttr_events_bound
+  loadTwitterSDK ->
+    bindTwitterEventHandlers() unless twttr_events_bound
 
 bindTwitterEventHandlers = ->
   $(document).on 'page:load', renderTweetButtons
@@ -72,6 +72,6 @@ renderTweetButtons = ->
     button.attr('data-text', document.title) unless button.data('text')?
   twttr.widgets.load()
 
-loadTwitterSDK = ->
-  $.getScript("//platform.twitter.com/widgets.js")
+loadTwitterSDK = (callback) ->
+  $.getScript("//platform.twitter.com/widgets.js", callback)
 ```
