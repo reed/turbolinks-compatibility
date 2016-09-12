@@ -16,9 +16,9 @@ After creating and customizing a widget, you will be give an embed code similar 
 <!-- BEGIN GROOVE WIDGET CODE -->
 <script id="grv-widget">
   /*<![CDATA[*/
-  var _grvq = [];
-  _grvq.push(['setWidgetId', '[[INSERT YOUR WIDGET ID HERE]]']);
-  !function(t,e,o){var a,n,c=e.createElement("iframe");(c.frameElement||c).style.cssText="width: 0; height: 0; border: 0",c.title="",c.role="presentation",c.src="javascript:false",e.body.appendChild(c);try{a=c.contentWindow.document}catch(i){n=e.domain,c.src="javascript:document.write('<head><script>document.domain='" + n + "'</"+"script></head><body></body>')",a=c.contentWindow.document}var d="https:"==e.location.protocol?"https://":"http://",r="http://groove-widget-production.s3.amazonaws.com".replace("http://",d);c.className="grv-widget-tag",a.open()._l=function(){n&&(this.domain=n);var t=this.createElement("script");t.type="text/javascript",t.charset="utf-8",t.async=!0,t.src=r+"/loader.js",this.body.appendChild(t)},a.write('<body onload="document._l();">'),a.close()}(window,document);
+    window.groove = window.groove || {}; groove.widget = function(){ groove._widgetQueue.push(Array.prototype.slice.call(arguments)); }; groove._widgetQueue = [];
+    groove.widget('setWidgetId', '[[INSERT YOUR WIDGET ID HERE]]');
+    !function(g,r,v){var a,c,n=r.createElement("iframe");(n.frameElement||n).style.cssText="width: 0; height: 0; border: 0",n.title="",n.role="presentation",n.src="javascript:false",r.body.appendChild(n);try{a=n.contentWindow.document}catch(b){c=r.domain;var d="javascript:document.write('<head><script>document.domain=\""+c+"\";</",i="script></head><body></body>')";n.src=d+i,a=n.contentWindow.document}var s="https:"==r.location.protocol?"https://":"http://",p="http://groove-widget-production.s3.amazonaws.com".replace("http://",s);n.className="grv-widget-tag",a.open()._l=function(){c&&(this.domain=c);var t=this.createElement("script");t.type="text/javascript",t.charset="utf-8",t.async=!0,t.src=p+"/loader.js",this.body.appendChild(t)},a.write('<body onload="document._l();">'),a.close()}(window,document);
   /*]]>*/
 </script>
 <!-- END GROOVE WIDGET CODE -->
@@ -33,24 +33,24 @@ For more information, read [this knowledge base article on turbolinks compatibil
 <!-- BEGIN GROOVE WIDGET CODE -->
 <script id="grv-widget">
   /*<![CDATA[*/
-  var groove = { _queue: [], run: function() {groove._queue.push(Array.prototype.slice.call(arguments));} };
-  groove.run('setWidgetId', 'INSERT YOUR WIDGET ID HERE');
-  groove.run('setAutoload', false);
+  window.groove = window.groove || {}; groove.widget = function(){ groove._widgetQueue.push(Array.prototype.slice.call(arguments)); }; groove._widgetQueue = [];
+  groove.widget('setWidgetId', 'INSERT YOUR WIDGET ID HERE');
+  groove.widget('setAutoload', false);
   (function(){
     var loadEvent = 'turbolinks:load';
     var unloadEvent = 'turbolinks:before-visit';
     var loadHandler = function() {
       document.removeEventListener(loadEvent, loadHandler);
       document.addEventListener(unloadEvent, unloadHandler);
-      groove.run('load');
+      groove.widget('load');
     };
     var unloadHandler = function() {
       document.removeEventListener(unloadEvent, unloadHandler);
-      groove.run('unload');
+      groove.widget('unload');
     };
     document.addEventListener(loadEvent, loadHandler);
     setTimeout(function() {
-      !function(g,r,v){var a,c,n=r.createElement("iframe");(n.frameElement||n).style.cssText="width: 0; height: 0; border: 0",n.title="",n.role="presentation",n.src="javascript:false",r.body.appendChild(n);try{a=n.contentWindow.document}catch(b){c=r.domain;var d="javascript:document.write('<head><script>document.domain=\""+c+"\";</",i="script></head><body></body>')";n.src=d+i,a=n.contentWindow.document}var s="https:"==r.location.protocol?"https://":"http://",p="https://groove-widget-production.s3.amazonaws.com".replace("http://",s);n.className="grv-widget-tag",a.open()._l=function(){c&&(this.domain=c);var t=this.createElement("script");t.type="text/javascript",t.charset="utf-8",t.async=!0,t.src=p+"/loader.js",this.body.appendChild(t)},a.write("<body onload=\"document._l();\">"),a.close()}(window,document);
+      !function(g,r,v){var a,c,n=r.createElement("iframe");(n.frameElement||n).style.cssText="width: 0; height: 0; border: 0",n.title="",n.role="presentation",n.src="javascript:false",r.body.appendChild(n);try{a=n.contentWindow.document}catch(b){c=r.domain;var d="javascript:document.write('<head><script>document.domain=\""+c+"\";</",i="script></head><body></body>')";n.src=d+i,a=n.contentWindow.document}var s="https:"==r.location.protocol?"https://":"http://",p="http://groove-widget-production.s3.amazonaws.com".replace("http://",s);n.className="grv-widget-tag",a.open()._l=function(){c&&(this.domain=c);var t=this.createElement("script");t.type="text/javascript",t.charset="utf-8",t.async=!0,t.src=p+"/loader.js",this.body.appendChild(t)},a.write('<body onload="document._l();">'),a.close()}(window,document);
     }, 1);
   })();
   /*]]>*/
