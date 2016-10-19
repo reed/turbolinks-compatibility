@@ -81,6 +81,7 @@ initializeFacebookSDK = ->
     status : true
     cookie : true
     xfbml  : true
+    version: 'v2.7'
 ```
 
 *This solution is implemented on this site.*
