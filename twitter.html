@@ -101,6 +101,12 @@
     
       
       <li>
+				<a href="groove.html">Groove Support Widget</a>
+			</li>
+      
+    
+      
+      <li>
 				<a href="linkedin.html">LinkedIn</a>
 			</li>
       
@@ -253,8 +259,8 @@
 <pre><small class="language-label muted pull-right">COFFEESCRIPT</small><code class="language-coffeescript"><span class="nv">twttr_events_bound = </span><span class="kc">false</span>
 
 <span class="nx">$</span> <span class="nf">-&gt;</span>
-  <span class="nx">loadTwitterSDK</span><span class="p">()</span>
-  <span class="nx">bindTwitterEventHandlers</span><span class="p">()</span> <span class="k">unless</span> <span class="nx">twttr_events_bound</span>
+  <span class="nx">loadTwitterSDK</span> <span class="nf">-&gt;</span>
+    <span class="nx">bindTwitterEventHandlers</span><span class="p">()</span> <span class="k">unless</span> <span class="nx">twttr_events_bound</span>
 
 <span class="nv">bindTwitterEventHandlers = </span><span class="nf">-&gt;</span>
   <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span> <span class="s">'page:load'</span><span class="p">,</span> <span class="nx">renderTweetButtons</span>
@@ -267,8 +273,8 @@
     <span class="nx">button</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s">'data-text'</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">title</span><span class="p">)</span> <span class="k">unless</span> <span class="nx">button</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="s">'text'</span><span class="p">)</span><span class="o">?</span>
   <span class="nx">twttr</span><span class="p">.</span><span class="nx">widgets</span><span class="p">.</span><span class="nx">load</span><span class="p">()</span>
 
-<span class="nv">loadTwitterSDK = </span><span class="nf">-&gt;</span>
-  <span class="nx">$</span><span class="p">.</span><span class="nx">getScript</span><span class="p">(</span><span class="s">"//platform.twitter.com/widgets.js"</span><span class="p">)</span></code></pre>
+<span class="nv">loadTwitterSDK = </span><span class="nf">(callback) -&gt;</span>
+  <span class="nx">$</span><span class="p">.</span><span class="nx">getScript</span><span class="p">(</span><span class="s">"//platform.twitter.com/widgets.js"</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span></code></pre>
             <p>
   <em>Related Issues:</em> 
   <a href="https://github.com/rails/turbolinks/issues/119">#119</a>
