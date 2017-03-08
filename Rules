@@ -31,7 +31,7 @@ compile '*' do
 end
 
 route '/assets/*' do
-  if item.identifier.include? '/javascripts' 
+  if item.identifier.include? '/javascripts'
     item.identifier[7..-2] + '.js'
   else
     item.identifier[7..-2]
@@ -42,8 +42,12 @@ route '/static/*' do
   item.identifier[7..-2]
 end
 
-route '/libraries/*' do
-  item.identifier[10..-2] + '.html'
+route '/libraries_t3/*' do
+  item.identifier[0..-2] + '.html'
+end
+
+route '/libraries_t5/*' do
+  item.identifier[0..-2] + '.html'
 end
 
 route '*' do
