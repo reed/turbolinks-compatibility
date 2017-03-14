@@ -42,12 +42,8 @@ route '/static/*' do
   item.identifier[7..-2]
 end
 
-route '/libraries_t3/*' do
-  item.identifier[0..-2] + '.html'
-end
-
-route '/libraries_t5/*' do
-  item.identifier[0..-2] + '.html'
+route '/libraries/*' do
+  item.identifier[10..-2] + '.html'
 end
 
 route '*' do

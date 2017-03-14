@@ -16,6 +16,8 @@ issues:
 
 #### UPDATE: Google has cancelled AJAX support for AdSense, so this solution no longer works.  Your best course of action is to use [DoubleClick for Publishers](/doubleclick_for_publishers.html).  
 
+## Turbolinks-classic
+
 ### Official Implementation
 
 ```html
@@ -49,15 +51,15 @@ google_ad_height = 250;
             @clearAds()
           $(document).on 'page:load', =>
             @initPage()
-  
+
       initPage: =>
         ad.load() for id, ad of @ads
-    
+
       clearAds: ->
         @ads = {}
         window.google_prev_ad_slotnames_by_region[''] = '' if window.google_prev_ad_slotnames_by_region
         window.google_num_ad_slots = 0
-  
+
       newAd: (container, options) ->
         id = (options.format || 'ad') + '_' + container.id
         @ads[id] = new Ad @, id, container, options
@@ -65,13 +67,13 @@ google_ad_height = 250;
     ```coffeescript
     class Ad
       constructor: (@adsense, @id, @container, @options) ->
-  
+
       load: ->
         if @ad_object? then @refresh() else @create()
-    
+
       refresh: ->
         @ad_object.refresh()
-  
+
       create: ->
         @ad_object = new google.ads.Ad @adsense.ad_client, @container, @options
     ```

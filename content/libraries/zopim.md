@@ -3,7 +3,7 @@ title: Zopim
 contributors:
   - user:     fpleme
     name:     Fernão Paes Leme
-    
+
   - user:     reed
     name:     Nick Reed
 
@@ -17,6 +17,8 @@ issues:
 # Zopim Live Chat Widget
 
 > **[zopim.com/product](https://www.zopim.com/product)**
+
+## Turbolinks-classic
 
 ### Official Implementation
 

@@ -1,17 +1,9 @@
 <div id="sidebar" class="span2">
   <ul class="nav nav-list">
     <li><a href="/">Home</a></li>
-    <li class="nav-header">Turbolinks 3</li>
+    <li class="nav-header">Libraries</li>
     <% @items.each do |item| %>
-      <% if item[:filename].include?('libraries_t3') %>
-        <li <%= 'class="active"' if item == @item %>>
-          <a href="<%= item.path %>"><%= title(item) %></a>
-        </li>
-      <% end %>
-    <% end %>
-    <li class="nav-header">Turbolinks 5</li>
-    <% @items.each do |item| %>
-      <% if item[:filename].include?('libraries_t5') %>
+      <% if item[:filename].include?('libraries') %>
         <li <%= 'class="active"' if item == @item %>>
           <a href="<%= item.path %>"><%= title(item) %></a>
         </li>

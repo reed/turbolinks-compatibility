@@ -12,6 +12,8 @@ issues:
 
 > **[sharethis.com/publishers/get-sharing-tools](http://sharethis.com/publishers/get-sharing-tools)**
 
+## Turbolinks-classic
+
 ### Official Implementation
 
 ```html
@@ -46,13 +48,13 @@ ShareThisTurbolinks =
     $.getScript 'https://ws.sharethis.com/button/buttons.js', ->
       window.stLight.options
         publisher: 'your-publisher-id'
-  
+
   reload: ->
     stlib?.cookie.deleteAllSTCookie()
     $('[src*="sharethis.com"], [href*="sharethis.com"]').remove()
     window.stLight = undefined
     @load()
-  
+
   restore: ->
     $('.stwrapper, #stOverlay').remove()
     @reload()

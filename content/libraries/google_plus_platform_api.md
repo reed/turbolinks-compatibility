@@ -9,7 +9,9 @@ contributors:
 
 > **[developers.google.com/+/web/signin/](https://developers.google.com/+/web/signin/)**
 
-### Official Implementation 
+## Turbolinks-classic
+
+### Official Implementation
 
 Set configuration using [page-level configuration options](https://developers.google.com/+/web/signin/reference#page-config), and include the script in the page head.
 
@@ -48,7 +50,7 @@ restoreGoogleFrame = ->
     $('body').append google_frame
 
 loadGoogleSDK = ->
-  # We load the platform script directly and load the 
+  # We load the platform script directly and load the
   # client library in the callback
   $.getScript('//apis.google.com/js/platform.js', initializeGoogleSDK)
 

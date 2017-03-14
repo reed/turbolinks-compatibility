@@ -12,6 +12,8 @@ issues:
 
 > **[map-generator.net](http://map-generator.net)**
 
+## Turbolinks-classic
+
 ### Overview
 
 After customizing the map you want, you will be given a generated code snippet that looks something like this:
@@ -42,7 +44,7 @@ $(document).bind 'page:load', ->
 
 This solution handles multiple maps on the same page or on separate pages of the application.
 
-1.  Add a class to the script tag for each map you have in your application. 
+1.  Add a class to the script tag for each map you have in your application.
 
     ```html
     <script class="init_map_generator" type="text/javascript">
@@ -56,7 +58,7 @@ This solution handles multiple maps on the same page or on separate pages of the
 
     $(document).bind 'page:restore', ->
       cleanMapGenerator true
-  
+
     cleanMapGenerator = (init) ->
       window.mapObjWrapper = undefined
       window.google.maps = undefined

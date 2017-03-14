@@ -9,6 +9,8 @@ contributors:
 
 > **[zendesk.com/embeddables](https://www.zendesk.com/embeddables)**
 
+## Turbolinks-classic
+
 ### Official Implementation
 
 ```html

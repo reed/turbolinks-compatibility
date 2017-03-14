@@ -6,6 +6,8 @@ title: Tawk
 
 > **[https://www.tawk.to](https://www.tawk.to)**
 
+## Turbolinks-classic
+
 ### Official Implementation
 
 ```javascript

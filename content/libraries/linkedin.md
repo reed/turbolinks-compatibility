@@ -9,6 +9,8 @@ contributors:
 
 > **[linkedin.com/plugins/share-plugin-generator](https://developer.linkedin.com/plugins/share-plugin-generator)**
 
+## Turbolinks-classic
+
 ### Official Implementation
 
 ```html

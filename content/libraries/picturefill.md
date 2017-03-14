@@ -9,9 +9,11 @@ contributors:
 
 > **[github.com/scottjehl/picturefill](https://github.com/scottjehl/picturefill)**
 
+## Turbolinks-classic
+
 Initialize Picturefill with Turbolinks' page:load event.  
 
-In vanilla JavaScript: 
+In vanilla JavaScript:
 
 ```javascript
 window.addEventListener( "page:load", window.picturefill(), false );

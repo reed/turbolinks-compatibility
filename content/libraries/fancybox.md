@@ -2,7 +2,7 @@
 title: FancyBox
 contributors:
   - user:     R-osey
-  
+
   - user:     jd-erreape
     name:     Juan de Dios Herrero
 issues:
@@ -13,6 +13,8 @@ issues:
 # FancyBox
 
 > **[fancybox.net/howto](http://fancybox.net/howto)**
+
+## Turbolinks-classic
 
 FancyBox (>= 2.1.2) is known to work with Turbolinks without modifications.
 

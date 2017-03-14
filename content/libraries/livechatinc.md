@@ -3,7 +3,7 @@ title: LiveChat
 contributors:
   - user:     maddijoyce
     name:     Maddi Joyce
-    
+
   - user:     reed
     name:     Nick Reed
 issues:
@@ -14,6 +14,8 @@ issues:
 # LiveChat (livechatinc) Plugin
 
 > **[livechatinc.com](https://www.livechatinc.com)**
+
+## Turbolinks-classic
 
 ### Official Implementation
 

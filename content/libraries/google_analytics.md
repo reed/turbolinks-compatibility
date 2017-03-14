@@ -12,6 +12,8 @@ issues:
 
 > **[google.com/analytics](http://www.google.com/analytics/)**
 
+## Turbolinks-classic
+
 Many of the [solutions](https://github.com/shukydvir/google-analytics-turbolinks) [out](http://railsapps.github.io/rails-google-analytics.html) [there](http://stackoverflow.com/questions/18945464/rails-4-turbolinks-with-google-analytics) either only work with Turbolinks and don't gracefully degrade, or track multiple page views on the initial page load. To get around this, you need to take the following approach:
 
 1. Move the Google Analytics script from the `<body>` to the `<head>`. Modify it to not actually track the pageview -- you just want to initialize Google Analytics.

@@ -11,6 +11,8 @@ contributors:
 
 > **[piwik.org](http://piwik.org/)**
 
+## Turbolinks-classic
+
 Move the JavaScript snippet from the head to the body and load the following script inside the `<head>`.
 
 ```coffeescript

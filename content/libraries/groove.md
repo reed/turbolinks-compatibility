@@ -9,6 +9,8 @@ contributors:
 
 > **[groovehq.com/apps/widget](https://www.groovehq.com/apps/widget)**
 
+## Turbolinks-classic
+
 ### Official Implementation
 After creating and customizing a widget, you will be give an embed code similar to this:
 

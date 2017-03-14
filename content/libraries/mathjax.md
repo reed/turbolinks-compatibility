@@ -12,6 +12,8 @@ issues:
 
 > **[mathjax.org](http://mathjax.org)**
 
+## Turbolinks-classic
+
 ### Official Implementation
 
 ```html

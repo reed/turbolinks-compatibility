@@ -12,4 +12,6 @@ issues:
 
 > **[stripe.com/docs/checkout](https://stripe.com/docs/checkout)**
 
+## Turbolinks-classic
+
 As of version 2 of the Stripe API, the official implementation is Turbolinks-ready.  

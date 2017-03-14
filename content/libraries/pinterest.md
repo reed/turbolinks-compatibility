@@ -14,6 +14,8 @@ issues:
 
 > **[business.pinterest.com/widget-builder/](http://business.pinterest.com/widget-builder/)**
 
+## Turbolinks-classic
+
 ### Official Implementation
 
 ```html

@@ -16,6 +16,8 @@ issues:
 
 > **[support.google.com/analytics/answer/2790010](https://support.google.com/analytics/answer/2790010?hl=en)**
 
+## Turbolinks-classic
+
 ### Official Implementation
 
 ```html
