@@ -55,6 +55,23 @@ Remove the supplied javascript and add the following to your application's javas
     $(window).off('page:change.zopim').on('page:change.zopim', zopim_chat);
     // zopim_chat();
 </script>
+```
 
-
+Turbolinks 5:
+```javascript
+<script type="text/javascript">
+  function zopim_chat(){$('[__jx__id]').remove();
+  window.$zopim = null;
+  (function(d,s){
+    var z=$zopim=function(c){z._.push(c)},$=z.s=d.createElement(s),e=d.getElementsByTagName(s)[0];
+    z.set=function(o){z.set._.push(o)};
+    z._=[];
+    z.set._=[];
+    $.async=!0
+    ;$.setAttribute('charset','utf-8');
+    $.src='//v2.zopim.com/?MY_APP_KEY';
+    z.t=+new Date;
+    $.type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script')};
+    window.addEventListener("turbolinks:load", function(){ zopim_chat() })
+</script>
 ```
