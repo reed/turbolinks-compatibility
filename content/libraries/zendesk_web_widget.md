@@ -3,9 +3,36 @@ title: Zendesk Web Widget
 contributors:
   - user:     brianac
     name:     Briana Coppard
+  - user:     koppen
+    name:     Jakob Skjerning
 ---
 
 # Zendesk Web Widget
+
+> **[zendesk.com/embeddables](https://www.zendesk.com/embeddables)**
+
+### Official Implementation
+
+```html
+<!-- Start of Zendesk Widget script -->
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=re-dac-ted"> </script>
+<!-- End of Zendesk Widget script -->
+```
+
+### Solution
+
+Insert the supplied Javascript in the `body` of your responses instead of in the `head` as suggested by Zendesk. Don’t forget to replace the key placeholder with your own key.
+
+Then add an event listener that clears the `zEACLoaded` flag before rendering the next page somewhere in your `head` or application scripts:
+
+```javascript
+window.addEventListener('turbolinks:before-render', function () {
+  window.zEACLoaded = undefined;
+});
+```
+
+
+## Zendesk Web Widget (legacy)
 
 > **[zendesk.com/embeddables](https://www.zendesk.com/embeddables)**
 
